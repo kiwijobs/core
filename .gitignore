@@ -1,0 +1,8 @@
+node_modules
+dist
+.rts2_cache_cjs
+.rts2_cache_esm
+
+
+# OS Specific
+.DS_Store

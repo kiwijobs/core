@@ -1,0 +1,67 @@
+{
+  "name": "@kiwijobs/core",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Patryk Staniewski",
+  "main": "dist/index.js",
+  "module": "dist/pak.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom",
+    "lint": "tsdx lint",
+    "prepare": "npm run build",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-options": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@styled-system/css": "^5.0.23",
+    "@testing-library/react": "^9.3.2",
+    "@types/jest": "^24.0.23",
+    "@types/lodash": "^4.14.148",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "@types/styled-components": "^4.4.0",
+    "@types/styled-system": "^5.1.3",
+    "@types/styled-system__css": "^5.0.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "husky": "^3.0.9",
+    "jest-styled-components": "^6.3.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.12.0",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "lodash-es": "^4.17.15",
+    "react-use": "^13.8.0",
+    "styled-components": "^4.4.1",
+    "styled-system": "^5.1.2"
+  }
+}
