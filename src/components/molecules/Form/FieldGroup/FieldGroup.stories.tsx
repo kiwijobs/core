@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Box } from '../../quarks';
-import { Container } from '../../atoms/Grid';
-import { Field } from '../../atoms';
+import { Box } from '../../../quarks';
+import { Container } from '../../../atoms/Grid';
+import { Field } from '../../../atoms';
 import { FieldGroup } from './FieldGroup';
 
-storiesOf('Form', module).add('Field Group', () => (
+storiesOf('Molecules|Field Group', module).add('Field Group', () => (
   <Container marginY={3}>
     <Box bg="white" width={[1, 0.5]} paddingX={4} paddingY={4}>
       <FieldGroup label="Imię">

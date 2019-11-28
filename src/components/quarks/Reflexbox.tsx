@@ -25,11 +25,8 @@ export interface BaseBoxProps
     FlexboxProps {}
 export declare interface BoxProps<T = HTMLDivElement>
   extends BaseBoxProps,
-    Omit<
-      React.DetailedHTMLProps<React.HTMLAttributes<T>, T> & BaseBoxProps,
-      keyof React.ClassAttributes<any>
-    > {
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+    Omit<React.HTMLProps<T>, keyof BaseBoxProps | 'ref' | 'label'> {
+  as?: any;
   color?: TColor;
   bg?: TColor;
   sx?: SystemStyleObject;

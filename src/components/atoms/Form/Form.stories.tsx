@@ -4,7 +4,7 @@ import { Box } from '../../quarks';
 import { Container } from '../Grid';
 import { Field, Label, Message } from './';
 
-storiesOf('Form', module)
+storiesOf('Atoms|Form', module)
   .add('Fields', () => (
     <Container marginY={3}>
       <Box bg="white" width={[1, 0.5]} paddingX={4} paddingY={4}>
