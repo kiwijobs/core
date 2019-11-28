@@ -3,6 +3,7 @@ import { ToggleLayer, Transition, RenderLayerProps, LayerSide } from 'react-laag
 import { Props as ToggleLayerProps } from 'react-laag/dist/ToggleLayer/ToggleLayer';
 import ResizeObserver from '@juggle/resize-observer';
 import { Box } from '../../quarks';
+import { Backdrop } from '../Backdrop';
 
 interface TriggerProps {
   isOpen: boolean;
@@ -21,9 +22,17 @@ interface Props extends Omit<ToggleLayerProps, 'children' | 'renderLayer'> {
   layer: ((props: LayerProps) => React.ReactElement) | React.ReactElement;
   trigger: ((props: TriggerProps) => React.ReactElement) | React.ReactElement;
   closeOnClick?: boolean;
+  withBackdrop?: boolean;
 }
 
-export const Menu = ({ trigger, layer, closeOnClick = true, placement, ...props }: Props) => {
+export const Menu = ({
+  trigger,
+  layer,
+  closeOnClick = true,
+  placement,
+  withBackdrop,
+  ...props
+}: Props) => {
   const renderTrigger = (childrenProps: TriggerProps) => {
     if (isValidElement(trigger)) {
       return cloneElement(Children.only(trigger), {
@@ -44,6 +53,7 @@ export const Menu = ({ trigger, layer, closeOnClick = true, placement, ...props 
               ref={layerProps.ref}
               sx={{
                 ...layerProps.style,
+                zIndex: 100,
                 transition: 'opacity 150ms ease-in-out',
                 opacity: open ? 1 : 0,
                 minWidth: 'max-content',
@@ -56,6 +66,7 @@ export const Menu = ({ trigger, layer, closeOnClick = true, placement, ...props 
               {...restLayerProps}
             >
               {layer}
+              {withBackdrop && open && <Backdrop zIndex={-1} />}
             </Box>
           );
         }

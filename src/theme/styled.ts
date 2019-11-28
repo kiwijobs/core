@@ -155,4 +155,8 @@ export const normalizeCSS = css`
   [hidden] {
     display: none;
   }
+
+  body {
+    width: 100%;
+  }
 `;
