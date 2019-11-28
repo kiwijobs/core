@@ -28,7 +28,7 @@ export interface BaseBoxProps
     PositionProps {}
 export declare interface BoxProps<T = HTMLDivElement>
   extends BaseBoxProps,
-    Omit<React.HTMLProps<T>, keyof BaseBoxProps | 'ref'> {
+    Omit<React.HTMLProps<T>, keyof BaseBoxProps | 'ref' | 'label'> {
   as?: any;
   color?: TColor;
   bg?: TColor;
