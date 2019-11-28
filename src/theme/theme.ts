@@ -20,6 +20,7 @@ export const theme = {
     { fontSize: '1.2rem', lineHeight: '1.6rem' },
     { fontSize: '1.0rem', lineHeight: '1.2rem' },
   ],
+  borders: ['none', `1px solid ${rgb.paleGrey};`],
   radii: ['0', '0.3rem'],
   variants: {},
 };
