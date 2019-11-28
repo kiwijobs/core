@@ -5,7 +5,7 @@ import { Container } from '../../../atoms/Grid';
 import { Field } from '../../../atoms';
 import { FieldGroup } from './FieldGroup';
 
-storiesOf('Molecules|Field Group', module).add('Field Group', () => (
+storiesOf('Molecules|Field Group', module).add('default', () => (
   <Container marginY={3}>
     <Box bg="white" width={[1, 0.5]} paddingX={4} paddingY={4}>
       <FieldGroup label="Imię">
