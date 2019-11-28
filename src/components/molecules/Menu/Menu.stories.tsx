@@ -1,11 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Box } from '../../quarks';
-import { Container } from '../Grid';
-import { List } from '../List';
+import { Container, List } from '../../atoms';
 import { Menu } from './Menu';
 
-storiesOf('Menu', module)
+storiesOf('Molecules|Menu', module)
   .add('Simple Menu', () => (
     <Container marginY={3}>
       <Menu

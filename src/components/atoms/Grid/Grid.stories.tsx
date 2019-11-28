@@ -4,7 +4,7 @@ import { Box } from '../../quarks';
 import { Container, Row, Col, Space } from './Grid';
 import { rgba } from '../../../theme/colors';
 
-storiesOf('Grid', module)
+storiesOf('Atoms|Grid', module)
   .add('BasicGrid', () => (
     <Container
       sx={{

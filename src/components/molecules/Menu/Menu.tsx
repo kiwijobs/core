@@ -3,7 +3,7 @@ import { ToggleLayer, Transition, RenderLayerProps, LayerSide } from 'react-laag
 import { Props as ToggleLayerProps } from 'react-laag/dist/ToggleLayer/ToggleLayer';
 import ResizeObserver from '@juggle/resize-observer';
 import { Box } from '../../quarks';
-import { Backdrop } from '../Backdrop';
+import { Backdrop } from '../../atoms/Backdrop';
 
 interface TriggerProps {
   isOpen: boolean;
@@ -18,7 +18,7 @@ interface LayerProps extends RenderLayerProps {
   onTransitionEnd(): void;
 }
 
-interface Props extends Omit<ToggleLayerProps, 'children' | 'renderLayer'> {
+export interface MenuProps extends Omit<ToggleLayerProps, 'children' | 'renderLayer'> {
   layer: ((props: LayerProps) => React.ReactElement) | React.ReactElement;
   trigger: ((props: TriggerProps) => React.ReactElement) | React.ReactElement;
   closeOnClick?: boolean;
@@ -32,7 +32,7 @@ export const Menu = ({
   placement,
   withBackdrop,
   ...props
-}: Props) => {
+}: MenuProps) => {
   const renderTrigger = (childrenProps: TriggerProps) => {
     if (isValidElement(trigger)) {
       return cloneElement(Children.only(trigger), {
@@ -44,7 +44,13 @@ export const Menu = ({
     return trigger(childrenProps);
   };
 
-  const renderLayer = ({ isOpen, layerProps, close, ...restLayerProps }: RenderLayerProps) => (
+  const renderLayer = ({
+    isOpen,
+    layerProps,
+    close,
+    triggerRect,
+    ...restLayerProps
+  }: RenderLayerProps) => (
     <Transition isOpen={isOpen}>
       {(open, onTransitionEnd) => {
         if (isValidElement(layer)) {
@@ -57,10 +63,8 @@ export const Menu = ({
                 transition: 'opacity 150ms ease-in-out',
                 opacity: open ? 1 : 0,
                 minWidth: 'max-content',
-                width: ['100%', 'initial'],
-                px: [3, 0],
+                width: [triggerRect!.width],
               }}
-              left={[0, layerProps.style.left!]}
               onClick={closeOnClick ? close : undefined}
               onTransitionEnd={onTransitionEnd}
               {...restLayerProps}
@@ -74,6 +78,7 @@ export const Menu = ({
         return layer({
           isOpen: open,
           close,
+          triggerRect,
           layerProps,
           onTransitionEnd,
           ...restLayerProps,
@@ -86,7 +91,9 @@ export const Menu = ({
       ResizeObserver={ResizeObserver}
       renderLayer={renderLayer}
       placement={{
-        anchor: 'BOTTOM_CENTER',
+        anchor: 'BOTTOM_LEFT',
+        autoAdjust: true,
+        possibleAnchors: ['BOTTOM_LEFT', 'BOTTOM_RIGHT'],
         triggerOffset: -1,
         ...placement,
       }}
