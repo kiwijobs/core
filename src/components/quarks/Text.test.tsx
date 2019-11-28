@@ -20,7 +20,7 @@ describe('Text', () => {
   it('Works with styled-components', () => {
     const Button = (props: any) => (
       <Text
-        __css={{
+        sx={{
           color: 'bahamaYellow',
           padding: '15px 30px',
           opacity: 1,

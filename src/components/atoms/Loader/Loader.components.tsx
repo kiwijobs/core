@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import styled, { css, keyframes } from 'styled-components';
 import { Box, Flex } from '../../quarks';
 import { LoaderProps } from './Loader.types';
-import { styled, css, keyframes } from '../../../theme/styled';
 import { rgba } from '../../../theme/colors';
 
 const bounce = keyframes`

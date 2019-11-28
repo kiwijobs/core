@@ -14,7 +14,7 @@ import {
   ColorProps,
   FlexboxProps,
 } from 'styled-system';
-import css, { CSSObject } from '@styled-system/css';
+import css, { SystemStyleObject } from '@styled-system/css';
 import { theme } from '../../theme';
 
 export interface BaseBoxProps
@@ -23,22 +23,22 @@ export interface BaseBoxProps
     TypographyProps,
     ColorProps,
     FlexboxProps {}
-export declare interface BoxProps
+export declare interface BoxProps<T = HTMLDivElement>
   extends BaseBoxProps,
-    Omit<JSX.IntrinsicElements['div'] & BaseBoxProps, keyof React.ClassAttributes<any>> {
+    Omit<
+      React.DetailedHTMLProps<React.HTMLAttributes<T>, T> & BaseBoxProps,
+      keyof React.ClassAttributes<any>
+    > {
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   color?: TColor;
   bg?: TColor;
-  sx?: CSSObject;
+  sx?: SystemStyleObject;
   css?: string;
   theme?: typeof theme;
   fontScale?: number | number[];
 }
-interface __BoxProps extends BoxProps {
-  __css?: CSSObject;
-}
 
 const sx = (props: BoxProps) => css(props.sx)(props.theme);
-const base = (props: __BoxProps) => css(props.__css)(props.theme);
 const cssProp = (props: BoxProps) => props.css;
 const fontScale = (props: BoxProps) =>
   system({
@@ -53,8 +53,7 @@ const fontScale = (props: BoxProps) =>
     },
   });
 
-export const Box = styled.div<__BoxProps>(
-  base,
+export const Box = styled.div<BoxProps>(
   sx,
   cssProp,
   fontScale,

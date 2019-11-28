@@ -1,5 +1,6 @@
 import React, { FC, Suspense } from 'react';
-import { ThemeProvider, theme } from '../theme';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../theme';
 
 export const TestProviders: FC<{}> = ({ children }) => {
   return (
