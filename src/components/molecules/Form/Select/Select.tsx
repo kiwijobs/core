@@ -2,8 +2,7 @@ import React from 'react';
 import { flatten, xor, find, get } from 'lodash';
 import { useFormikContext, getIn } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
-import { Field, List } from '../../../atoms';
-import { Menu, MenuProps } from '../../Menu';
+import { Field, List, Menu, MenuProps } from '../../../atoms';
 import { Box, BoxProps } from '../../../quarks';
 
 type TSelectOption = { id: number | string; name: string };

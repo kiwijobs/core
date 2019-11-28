@@ -11,6 +11,7 @@ export const List = ({ sx, ...props }: BoxProps) => (
     sx={{
       textAlign: 'left',
       borderRadius: 1,
+      position: 'relative',
       border: 1,
       margin: 0,
       padding: 0,
