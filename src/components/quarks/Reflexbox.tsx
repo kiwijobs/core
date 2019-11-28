@@ -8,11 +8,13 @@ import {
   typography,
   color,
   flexbox,
+  position,
   SpaceProps,
   LayoutProps,
   TypographyProps,
   ColorProps,
   FlexboxProps,
+  PositionProps,
 } from 'styled-system';
 import css, { SystemStyleObject } from '@styled-system/css';
 import { theme } from '../../theme';
@@ -22,14 +24,12 @@ export interface BaseBoxProps
     LayoutProps,
     TypographyProps,
     ColorProps,
-    FlexboxProps {}
+    FlexboxProps,
+    PositionProps {}
 export declare interface BoxProps<T = HTMLDivElement>
   extends BaseBoxProps,
-    Omit<
-      React.DetailedHTMLProps<React.HTMLAttributes<T>, T> & BaseBoxProps,
-      keyof React.ClassAttributes<any>
-    > {
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+    Omit<React.HTMLProps<T>, keyof BaseBoxProps | 'ref'> {
+  as?: any;
   color?: TColor;
   bg?: TColor;
   sx?: SystemStyleObject;
@@ -57,7 +57,7 @@ export const Box = styled.div<BoxProps>(
   sx,
   cssProp,
   fontScale,
-  compose(space, layout, typography, color, flexbox)
+  compose(space, layout, typography, color, flexbox, position)
 );
 
 export const Flex = styled(Box)`

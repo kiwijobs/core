@@ -9,9 +9,19 @@ export const List = ({ sx, ...props }: BoxProps) => (
   <Box
     as="ul"
     sx={{
+      textAlign: 'left',
+      borderRadius: 1,
+      border: 1,
       margin: 0,
       padding: 0,
+      tabIndex: 0,
       listStyle: 'none',
+      width: '100%',
+      py: 2,
+      bg: 'white',
+      '&:focus': {
+        outline: 'none',
+      },
       ...sx,
     }}
     {...props}
