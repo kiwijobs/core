@@ -39,24 +39,12 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikInput name="lastname" label="Nazwisko" />
             </Col>
             <Col py={0} width={[1, 1 / 3]}>
-              <FormikInput name="age" type="number" label="Wiek" />
-            </Col>
-            <Col py={0} width={[1, 1 / 3]}>
-              <FormikSelect
-                name="active"
-                label="Aktywny"
-                options={[
-                  { id: 'active', name: 'Aktywny' },
-                  { id: 'inactive', name: 'Nieaktywny' },
-                ]}
-              />
-            </Col>
-            <Col py={0} width={[1, 1 / 3]}>
               <FormikSelect
                 name="recruiters"
                 label="Rekruterzy"
                 dense
                 multi
+                placeholder="Wybierz rekrutera"
                 options={[
                   { id: 1, name: 'Kendrick Daniel' },
                   { id: 2, name: 'Clarabelle Boyle' },
@@ -80,6 +68,19 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                   { id: 20, name: "Wilburn D'Amore Sr." },
                 ]}
               />
+            </Col>
+            <Col py={0} width={[1, 1 / 3]}>
+              <FormikSelect
+                name="active"
+                label="Aktywny"
+                options={[
+                  { id: 'active', name: 'Aktywny' },
+                  { id: 'inactive', name: 'Nieaktywny' },
+                ]}
+              />
+            </Col>
+            <Col py={0} width={[1, 1 / 3]}>
+              <FormikInput name="age" type="number" label="Wiek" />
             </Col>
           </Row>
         </Form>

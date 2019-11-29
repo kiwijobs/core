@@ -16,7 +16,6 @@ export const Backdrop = ({ sx, ...props }: BoxProps) => {
         right: 0,
         bottom: 0,
         bg: rgba(0.4).dark,
-        zIndex: -1,
         ...sx,
       }}
       {...props}

@@ -2,7 +2,7 @@ import React from 'react';
 import { flatten, xor, find, get } from 'lodash';
 import { useFormikContext, getIn } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
-import { Field, List, Menu, MenuProps } from '../../../atoms';
+import { Field, List, Menu, MenuProps, Paper } from '../../../atoms';
 import { Box, BoxProps } from '../../../quarks';
 
 type TSelectOption = { id: number | string; name: string };
@@ -14,7 +14,7 @@ interface SelectProps extends FieldGroupProps {
   options: TSelectOption[];
   dense?: boolean;
   multi?: boolean;
-  readOnly?: boolean;
+  placeholder?: string;
   onChange(value: TSelectValue | TSelectValue[]): void;
   value: TSelectValue | TSelectValue[];
 }
@@ -26,9 +26,7 @@ const getCurrent = (value: TSelectValue, options: TSelectOption[]) =>
 
 export const Select = ({
   multi = false,
-  readOnly = true,
   menuProps,
-  listProps,
   error,
   label,
   options = [],
@@ -42,7 +40,7 @@ export const Select = ({
     const p: TSelectValue[] = flatten([param]);
     const payload: TSelectValue[] = xor(v, p);
 
-    return onChange(multi ? payload : payload[payload.length - 1]);
+    return onChange(multi ? payload : param);
   };
 
   const renderOption = (option: TSelectOption = {} as TSelectOption) => {
@@ -69,7 +67,7 @@ export const Select = ({
         }}
         closeOnClick={!multi}
         {...menuProps}
-        trigger={({ triggerRef, open, toggle, isOpen }) => (
+        trigger={({ triggerRef, toggle, isOpen }) => (
           <FieldGroup ref={triggerRef} error={error} label={label}>
             <Field
               sx={{
@@ -79,12 +77,11 @@ export const Select = ({
                   borderBottomLeftRadius: 0,
                   borderBottomRightRadius: 0,
                 }),
-                cursor: readOnly ? 'pointer' : 'initial',
+                cursor: 'pointer',
               }}
               {...props}
-              onFocus={readOnly ? undefined : open}
-              onClick={readOnly ? toggle : undefined}
-              readOnly={readOnly}
+              onClick={toggle}
+              readOnly
               value={
                 Array.isArray(value)
                   ? value.map(x => getCurrent(x, options)).join(', ')
@@ -93,20 +90,23 @@ export const Select = ({
             />
           </FieldGroup>
         )}
-        layer={
-          <List
+        layer={({ sx, close, ...props }) => (
+          <Paper
             sx={{
+              ...sx,
               maxHeight: '18.8rem',
               overflowY: 'auto',
+              padding: 0,
               borderTop: 0,
               borderTopLeftRadius: 0,
               borderTopRightRadius: 0,
             }}
-            {...listProps}
+            onClick={multi ? undefined : close}
+            {...props}
           >
-            {options.map(renderOption)}
-          </List>
-        }
+            <List>{options.map(renderOption)}</List>
+          </Paper>
+        )}
       />
     </Box>
   );

@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Box, BoxProps } from '../../quarks';
 
 interface ListItemProps extends BoxProps {
   dense?: boolean;
 }
 
-export const List = ({ sx, ...props }: BoxProps) => (
+type TList = React.ForwardRefExoticComponent<
+  BoxProps<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
+> & {
+  Item: (props: ListItemProps) => JSX.Element;
+};
+
+export const List = forwardRef<HTMLDivElement, BoxProps>(({ sx, ...props }, ref) => (
   <Box
     as="ul"
+    ref={ref}
+    tabIndex={0}
     sx={{
       textAlign: 'left',
-      borderRadius: 1,
       position: 'relative',
-      border: 1,
-      margin: 0,
-      padding: 0,
-      tabIndex: 0,
       listStyle: 'none',
       width: '100%',
+      px: 0,
+      m: 0,
       py: 2,
-      bg: 'white',
       '&:focus': {
         outline: 'none',
       },
@@ -27,7 +31,8 @@ export const List = ({ sx, ...props }: BoxProps) => (
     }}
     {...props}
   />
-);
+)) as TList;
+
 List.Item = ({ sx, dense, ...props }: ListItemProps) => (
   <Box
     as="li"

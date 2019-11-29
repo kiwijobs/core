@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Box } from '../../quarks';
 import { Container, List, Backdrop } from '..';
 import { Menu } from './Menu';
+import { Input } from '../../molecules';
 
 storiesOf('Atoms|Menu', module)
   .add('Simple Menu', () => (
@@ -12,7 +13,7 @@ storiesOf('Atoms|Menu', module)
           autoAdjust: true,
           preferX: 'RIGHT',
         }}
-        layer={<Box>Menu content</Box>}
+        layer={props => <Box {...props}>Menu content</Box>}
         trigger={
           <Box display="inline-block" px="1" py="2">
             Basic menu
@@ -28,15 +29,15 @@ storiesOf('Atoms|Menu', module)
           autoAdjust: true,
           preferX: 'RIGHT',
         }}
-        layer={
-          <List>
+        layer={props => (
+          <List {...props}>
             <List.Item>Lista ofert</List.Item>
             <List.Item>Lista spotkań</List.Item>
             <List.Item>Dostęp</List.Item>
             <List.Item>Profil</List.Item>
             <List.Item>Rekruterzy</List.Item>
           </List>
-        }
+        )}
         trigger={
           <Box display="inline-block" px="1" py="2" bg="coolGreyTwo">
             |
@@ -67,15 +68,15 @@ storiesOf('Atoms|Menu', module)
               Menu
             </Box>
           }
-          layer={
-            <List>
+          layer={props => (
+            <List {...props}>
               <List.Item dense>Lista ofert</List.Item>
               <List.Item dense>Lista spotkań</List.Item>
               <List.Item dense>Dostęp</List.Item>
               <List.Item dense>Profil</List.Item>
               <List.Item dense>Rekruterzy</List.Item>
             </List>
-          }
+          )}
         />
       </Box>
     </Container>
@@ -102,9 +103,9 @@ storiesOf('Atoms|Menu', module)
               Menu
             </Box>
           }
-          layer={
+          layer={props => (
             <>
-              <List>
+              <List {...props}>
                 <List.Item dense>Lista ofert</List.Item>
                 <List.Item dense>Lista spotkań</List.Item>
                 <List.Item dense>Dostęp</List.Item>
@@ -113,40 +114,67 @@ storiesOf('Atoms|Menu', module)
               </List>
               <Backdrop />
             </>
-          }
+          )}
         />
       </Box>
     </Container>
   ))
-  .add('With custom layer', () => (
-    <Container my={3}>
-      <Menu
-        trigger={
-          <Box display="inline-block" p={2}>
-            [T]
-          </Box>
-        }
-        layer={({ close, isOpen, triggerRect, ...layerProps }) =>
-          !isOpen ? (
-            <></>
-          ) : (
-            <>
-              <List
-                width={[1, triggerRect!.width]}
-                minWidth="200px"
-                {...layerProps}
-                onClick={close}
-              >
-                <List.Item>Lista ofert</List.Item>
-                <List.Item>Lista spotkań</List.Item>
-                <List.Item>Dostęp</List.Item>
-                <List.Item>Profil</List.Item>
-                <List.Item>Rekruterzy</List.Item>
-              </List>
-              <Backdrop onClick={close} />
-            </>
-          )
-        }
-      />
-    </Container>
-  ));
+  .add('With Custom Input', () => {
+    const [search, setSearch] = useState('');
+
+    const options = ['Lista ofert', 'Lista spotkań', 'Dostęp', 'Profil', 'Rekruterzy']
+      .filter(x => x.indexOf(search) > -1)
+      .map(x => (search ? x.split(search).join(`<b>${search}</b>`) : x));
+
+    return (
+      <Container my={3}>
+        <Menu
+          placement={{
+            triggerOffset: -20,
+          }}
+          trigger={({ triggerRef, isOpen, open }) => (
+            <Input
+              label="Jakies opcje"
+              position="relative"
+              sx={{
+                zIndex: isOpen ? 1 : 0,
+                borderBottomLeftRadius: isOpen ? 0 : 1,
+                borderBottomRightRadius: isOpen ? 0 : 1,
+              }}
+              ref={triggerRef}
+              onClick={open}
+              value={search}
+              onChange={event => setSearch(event.currentTarget.value)}
+            />
+          )}
+          layer={({ close, isOpen, triggerRect, sx, ...layerProps }) =>
+            !isOpen ? (
+              <></>
+            ) : (
+              <>
+                <List
+                  {...layerProps}
+                  sx={{
+                    ...sx,
+                    borderTopLeftRadius: isOpen ? 0 : 1,
+                    borderTopRightRadius: isOpen ? 0 : 1,
+                  }}
+                >
+                  {options.map((x: string) => (
+                    <List.Item key={x}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: x,
+                        }}
+                      />
+                    </List.Item>
+                  ))}
+                </List>
+                <Backdrop />
+              </>
+            )
+          }
+        />
+      </Container>
+    );
+  });

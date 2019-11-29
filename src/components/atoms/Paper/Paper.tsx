@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Box, BoxProps } from '../../quarks';
 
-export const Paper = ({ sx, ...props }: BoxProps) => (
+type TPaper = React.ForwardRefExoticComponent<
+  BoxProps<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
+> & {
+  Separator(props: BoxProps): JSX.Element;
+};
+
+export const Paper = forwardRef(({ sx, ...props }: BoxProps, ref) => (
   <Box
+    ref={ref}
     sx={{
       borderRadius: 1,
       backgroundColor: 'white',
@@ -12,9 +19,9 @@ export const Paper = ({ sx, ...props }: BoxProps) => (
     }}
     {...props}
   />
-);
+)) as TPaper;
 
-Paper.Separator = ({ sx, ...props }: BoxProps) => (
+Paper.Separator = ({ sx, ...props }) => (
   <Box
     sx={{
       backgroundColor: 'paleGrey',
