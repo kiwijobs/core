@@ -8,7 +8,7 @@ import React, {
   ComponentProps,
 } from 'react';
 import { space, SpaceProps } from 'styled-system';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { Box, Flex, BoxProps } from '../../quarks';
 
 const ContainerContext = createContext(0);
@@ -20,8 +20,9 @@ interface GridProps extends BoxProps {
 
 const DEFAULT_GUTTER = 3;
 
-export const Container: FC<GridProps> = ({ gutter = DEFAULT_GUTTER, theme, ...props }) => {
-  const value = useMemo(() => theme!.space[gutter], [gutter]);
+export const Container: FC<GridProps> = ({ gutter = DEFAULT_GUTTER, ...props }) => {
+  const theme = useContext(ThemeContext);
+  const value = useMemo(() => theme.space[gutter], [gutter]);
 
   return (
     <ContainerContext.Provider value={value}>
@@ -36,13 +37,14 @@ export const Container: FC<GridProps> = ({ gutter = DEFAULT_GUTTER, theme, ...pr
   );
 };
 
-export const Row: FC<GridProps> = ({ gutter, theme, ...props }) => {
+export const Row: FC<GridProps> = ({ gutter, ...props }) => {
+  const theme = useContext(ThemeContext);
   const containerValue = useContext(ContainerContext);
 
   const value = useMemo(() => {
-    if (gutter) return theme!.space[gutter] / 2;
+    if (gutter) return theme.space[gutter] / 2;
     if (containerValue) return containerValue / 2;
-    return theme!.space[DEFAULT_GUTTER] / 2;
+    return theme.space[DEFAULT_GUTTER] / 2;
   }, [gutter]);
 
   return (
@@ -56,7 +58,7 @@ export const Col: FC<BoxProps> = props => {
   const rowValue = useContext(RowContext);
   const value = useMemo(() => rowValue, []);
 
-  return <Box padding={`${value}px`} {...props} />;
+  return <Box width={1} padding={`${value}px`} {...props} />;
 };
 
 const classnames = (...args: Array<string | void>) => args.join(' ');

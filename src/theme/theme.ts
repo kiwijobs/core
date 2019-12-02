@@ -8,7 +8,7 @@ export const colors = {
 
 export const theme = {
   breakpoints,
-  space: [0, 4, 8, 16, 24, 32],
+  space: [0, 4, 8, 16, 24, 32, 40],
   colors,
   fonts: [`"Open Sans"`],
   fontScales: [
@@ -20,6 +20,7 @@ export const theme = {
     { fontSize: '1.2rem', lineHeight: '1.6rem' },
     { fontSize: '1.0rem', lineHeight: '1.2rem' },
   ],
+  borders: ['none', `1px solid ${rgb.paleGrey};`],
   radii: ['0', '0.3rem'],
   variants: {},
 };

@@ -45,6 +45,7 @@
     "@types/styled-components": "^4.4.0",
     "@types/styled-system": "^5.1.3",
     "@types/styled-system__css": "^5.0.4",
+    "@types/yup": "^0.26.26",
     "awesome-typescript-loader": "^5.2.1",
     "husky": "^3.0.9",
     "jest-styled-components": "^6.3.4",
@@ -58,10 +59,14 @@
     "react": ">=16"
   },
   "dependencies": {
+    "@juggle/resize-observer": "^2.4.0",
+    "formik": "^2.0.6",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
+    "react-laag": "^1.5.1",
     "react-use": "^13.8.0",
     "styled-components": "^4.4.1",
-    "styled-system": "^5.1.2"
+    "styled-system": "^5.1.2",
+    "yup": "^0.27.0"
   }
 }

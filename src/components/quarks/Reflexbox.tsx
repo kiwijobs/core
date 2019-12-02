@@ -8,13 +8,15 @@ import {
   typography,
   color,
   flexbox,
+  position,
   SpaceProps,
   LayoutProps,
   TypographyProps,
   ColorProps,
   FlexboxProps,
+  PositionProps,
 } from 'styled-system';
-import css, { CSSObject } from '@styled-system/css';
+import css, { SystemStyleObject } from '@styled-system/css';
 import { theme } from '../../theme';
 
 export interface BaseBoxProps
@@ -22,23 +24,21 @@ export interface BaseBoxProps
     LayoutProps,
     TypographyProps,
     ColorProps,
-    FlexboxProps {}
-export declare interface BoxProps
+    FlexboxProps,
+    PositionProps {}
+export declare interface BoxProps<T = HTMLDivElement>
   extends BaseBoxProps,
-    Omit<JSX.IntrinsicElements['div'] & BaseBoxProps, keyof React.ClassAttributes<any>> {
+    Omit<React.HTMLProps<T>, keyof BaseBoxProps | 'ref' | 'label'> {
+  as?: any;
   color?: TColor;
   bg?: TColor;
-  sx?: CSSObject;
+  sx?: SystemStyleObject;
   css?: string;
   theme?: typeof theme;
   fontScale?: number | number[];
 }
-interface __BoxProps extends BoxProps {
-  __css?: CSSObject;
-}
 
 const sx = (props: BoxProps) => css(props.sx)(props.theme);
-const base = (props: __BoxProps) => css(props.__css)(props.theme);
 const cssProp = (props: BoxProps) => props.css;
 const fontScale = (props: BoxProps) =>
   system({
@@ -53,12 +53,11 @@ const fontScale = (props: BoxProps) =>
     },
   });
 
-export const Box = styled.div<__BoxProps>(
-  base,
+export const Box = styled.div<BoxProps>(
   sx,
   cssProp,
   fontScale,
-  compose(space, layout, typography, color, flexbox)
+  compose(space, layout, typography, color, flexbox, position)
 );
 
 export const Flex = styled(Box)`

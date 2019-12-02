@@ -1,1 +1,1 @@
-export * from './Menu.components'; // @TODO: CHANGE TO ./Menu
+export * from './Menu';

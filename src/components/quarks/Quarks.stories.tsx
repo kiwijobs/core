@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from './Reflexbox';
 import { Space } from '../atoms/Grid';
 
-storiesOf('Quarks', module).add('Typography', () => (
+storiesOf('Quarks|Box', module).add('Typography', () => (
   <Box padding={4}>
     <Space margin={4}>
       <Box fontScale={1}>Font Scale One</Box>

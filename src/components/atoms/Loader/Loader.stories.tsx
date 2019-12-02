@@ -17,7 +17,7 @@ const StoryBox: FC<BoxProps> = props => (
   />
 );
 
-storiesOf('Loader', module)
+storiesOf('Atoms|Loader', module)
   .add('Default', () => (
     <StoryBox>
       <Loader variant="DEFAULT" />
