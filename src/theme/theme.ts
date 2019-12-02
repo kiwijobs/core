@@ -6,6 +6,11 @@ export const colors = {
   rgba,
 };
 
+const shadows: Array<string> & {
+  [key: string]: any;
+} = ['none', '0 5px 10px 0 rgba(140, 158, 255, 0.1)', '0 2px 4px 0 #bbbdca'];
+shadows.bold = '0.5px 0 0 currentColor';
+
 export const theme = {
   breakpoints,
   space: [0, 4, 8, 16, 24, 32, 40],
@@ -22,5 +27,6 @@ export const theme = {
   ],
   borders: ['none', `1px solid ${rgb.paleGrey};`],
   radii: ['0', '0.3rem'],
+  shadows,
   variants: {},
 };

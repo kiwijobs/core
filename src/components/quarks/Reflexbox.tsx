@@ -53,7 +53,7 @@ const fontScale = (props: BoxProps) =>
     },
   });
 
-export const Box = styled.div<BoxProps>(
+export const Box = styled('div' as 'div')<BoxProps>(
   sx,
   cssProp,
   fontScale,
