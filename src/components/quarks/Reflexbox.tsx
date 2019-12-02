@@ -36,6 +36,7 @@ export declare interface BoxProps<T = HTMLDivElement>
   css?: string;
   theme?: typeof theme;
   fontScale?: number | number[];
+  ref?: any;
 }
 
 const sx = (props: BoxProps) => css(props.sx)(props.theme);
@@ -53,7 +54,7 @@ const fontScale = (props: BoxProps) =>
     },
   });
 
-export const Box = styled('div' as 'div')<BoxProps>(
+export const Box = styled('div')<BoxProps>(
   sx,
   cssProp,
   fontScale,

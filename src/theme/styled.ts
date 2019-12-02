@@ -15,6 +15,7 @@ export const normalizeCSS = css`
   }
   body {
     margin: 0;
+    width: 100%;
   }
   main {
     display: block;
@@ -154,9 +155,5 @@ export const normalizeCSS = css`
   }
   [hidden] {
     display: none;
-  }
-
-  body {
-    width: 100%;
   }
 `;
