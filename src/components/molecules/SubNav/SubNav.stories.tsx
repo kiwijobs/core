@@ -5,7 +5,7 @@ import { SubNav } from './SubNav';
 storiesOf('Molecules|SubNav', module).add('Basic Sub Navigation', () => {
   const [active, setActive] = useState('Aktywne (12)');
 
-  const items = ['Aktywne (12)', 'Archiwum', 'Szkice', 'Usunięte', 'Radek'];
+  const items = ['Aktywne (12)', 'Archiwum', 'Szkice'];
 
   return (
     <SubNav>

@@ -10,7 +10,7 @@ export const SubNav = ({ sx, children, ...props }: BoxProps) => {
     <SubNavContext.Provider value={setActive}>
       <Box
         as="nav"
-        sx={{ px: 4, bg: 'white', width: '100%', position: 'relative', ...sx }}
+        sx={{ px: [3, 4], bg: 'white', width: '100%', position: 'relative', ...sx }}
         {...props}
       >
         {children}

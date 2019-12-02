@@ -11,7 +11,6 @@ export const SubNavButton = ({ isActive, sx, ...props }: SubNavButton) => {
 
   useEffect(() => {
     if (isActive) {
-      console.log('##', ref);
       setActive(ref);
     }
   }, [ref, isActive]);
