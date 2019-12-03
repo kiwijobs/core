@@ -1,5 +1,6 @@
 import React, { useState, RefObject } from 'react';
 import { Box, BoxProps } from '../../quarks';
+import { Container } from '../../atoms';
 import { SubNavButton, SubNavContext } from './SubNav.components';
 
 export const SubNav = ({ sx, children, ...props }: BoxProps) => {
@@ -8,12 +9,8 @@ export const SubNav = ({ sx, children, ...props }: BoxProps) => {
 
   return (
     <SubNavContext.Provider value={setActive}>
-      <Box
-        as="nav"
-        sx={{ px: [3, 4], bg: 'white', width: '100%', position: 'relative', ...sx }}
-        {...props}
-      >
-        {children}
+      <Box as="nav" sx={{ bg: 'white', width: '100%', position: 'relative', ...sx }} {...props}>
+        <Container py={0}>{children}</Container>
         <Box
           sx={{
             bg: 'greenBlue',

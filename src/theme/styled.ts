@@ -77,7 +77,7 @@ export const normalizeCSS = css`
   textarea {
     font-family: inherit;
     font-size: 100%;
-    line-height: 1.15;
+    line-height: inherit;
     margin: 0;
   }
   button,

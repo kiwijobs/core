@@ -68,7 +68,7 @@ storiesOf('Atoms|Paper', module)
     <Container marginY={3}>
       <Row>
         <Col width={[1, 0.5]}>
-          <Paper>
+          <Paper padding={[3, 5]}>
             <Row gutter={4}>
               <Col color="steel">
                 Ilość ogłoszeń:{' '}
@@ -97,7 +97,7 @@ storiesOf('Atoms|Paper', module)
                 </Box>
               </Col>
             </Row>
-            <Paper.Separator />
+            <Paper.Separator px={[3, 5]} ml={[-3, -5]} />
             <Row>
               <Col width={1} fontWeight="bold">
                 Status pakietu

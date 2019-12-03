@@ -13,7 +13,7 @@ export const Paper = forwardRef(({ sx, ...props }: BoxProps, ref) => (
     sx={{
       borderRadius: 1,
       backgroundColor: 'white',
-      padding: [3, 5],
+      padding: 3,
       boxShadow: 1,
       ...sx,
     }}
@@ -27,9 +27,9 @@ Paper.Separator = ({ sx, ...props }) => (
       backgroundColor: 'paleGrey',
       height: '1px',
       width: '100%',
-      paddingX: [3, 5],
-      marginLeft: [-3, -5],
-      marginY: [4, 5],
+      paddingX: 3,
+      marginLeft: -3,
+      marginY: 4,
       boxSizing: 'content-box',
       ...sx,
     }}
