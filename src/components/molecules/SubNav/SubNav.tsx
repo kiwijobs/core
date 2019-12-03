@@ -11,17 +11,19 @@ export const SubNav = ({ sx, children, ...props }: BoxProps) => {
     <SubNavContext.Provider value={setActive}>
       <Box as="nav" sx={{ bg: 'white', width: '100%', position: 'relative', ...sx }} {...props}>
         <Container py={0}>{children}</Container>
-        <Box
-          sx={{
-            bg: 'greenBlue',
-            height: '3px',
-            position: 'absolute',
-            bottom: '0',
-            left,
-            width,
-            transition: 'all 150ms ease-in-out',
-          }}
-        />
+        {active.current && (
+          <Box
+            sx={{
+              bg: 'greenBlue',
+              height: '3px',
+              position: 'absolute',
+              bottom: '0',
+              left,
+              width,
+              transition: 'all 150ms ease-in-out',
+            }}
+          />
+        )}
       </Box>
     </SubNavContext.Provider>
   );
