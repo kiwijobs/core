@@ -92,7 +92,7 @@ export const normalizeCSS = css`
   [type='reset'],
   [type='submit'],
   button {
-    -webkit-appearance: button;
+    -webkit-appearance: none;
   }
   [type='button']::-moz-focus-inner,
   [type='reset']::-moz-focus-inner,
@@ -141,7 +141,7 @@ export const normalizeCSS = css`
     -webkit-appearance: none;
   }
   ::-webkit-file-upload-button {
-    -webkit-appearance: button;
+    -webkit-appearance: none;
     font: inherit;
   }
   details {

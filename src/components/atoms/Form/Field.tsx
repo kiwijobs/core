@@ -20,7 +20,8 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
         paddingX: 3,
         paddingY: 2,
         outline: 'none',
-        webkitAppearance: 'none',
+        '-webkit-appearance': 'none',
+
         '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
           webkitAppearance: 'none',
           margin: 0,
