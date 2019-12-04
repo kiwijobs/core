@@ -1,7 +1,7 @@
 import React, { cloneElement, Children, isValidElement } from 'react';
 import { ToggleLayer, Transition, RenderLayerProps, LayerSide } from 'react-laag';
 import { Props as ToggleLayerProps } from 'react-laag/dist/ToggleLayer/ToggleLayer';
-import ResizeObserver from '@juggle/resize-observer';
+import ResizeObserver from 'resize-observer-polyfill';
 import { SystemStyleObject } from '@styled-system/css';
 
 interface TriggerProps {

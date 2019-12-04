@@ -17,15 +17,13 @@ describe('Grid components', () => {
     const container = render(<Row />, { wrapper }).container.firstChild;
     expect(container).toHaveStyleRule('display', 'flex');
     expect(container).toHaveStyleRule('flex-wrap', 'wrap');
-    expect(container).toHaveStyleRule('margin', '-16px');
+    expect(container).toHaveStyleRule('margin', '-8px');
   });
 
   it('Column has correct styles', () => {
     const container = render(<Col />, { wrapper }).container.firstChild;
     expect(container).toHaveStyleRule('padding', '0px');
   });
-
-  it('Accepts gutter props');
 });
 
 let timeout;
