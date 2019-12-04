@@ -8,6 +8,25 @@ Reading list:
 - [Styled System](https://styled-system.com/) (Used to build `quarks`)
 - [React Use](https://github.com/streamich/react-use) (Lodash for React Hooks)
 
+## **How to use in your repo**
+
+**If someone in your project previously added kiwi/core to dependecies you need to do just steps 2, 3 and 4 to be able to install dependecies via npm.**
+
+1. Add .npmrc into your repository and paste in this file `registry=https://npm.pkg.github.com/kiwijobs`
+2. You need to create [Github Access Token](https://github.com/settings/tokens) with correct permissions: `repo`, `write:packages` and `read:packages` (first 3 checkboxes) - copy the generated token
+3. In the repository where you want to use Kiwi Kit you need to do login to npm. To do so type: `npm login --registry=https://npm.pkg.github.com/kiwijobs`.
+4. Then it will ask for:
+* Username: *github username*
+* Password: *generated github access token*
+* Email: *your public email address (github email address)*
+5. Add kiwi/core to your package.json like `  "@kiwijobs/core": "0.0.5",`
+
+After these five steps you can do install packages with npm.
+
+Helpful Links:
+* [Creating a presonal access token for the command line](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+* [Configuring npm for use with github packages](https://help.github.com/en/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
+
 ## **Components**
 
 ### **Grid layout**

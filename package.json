@@ -1,6 +1,6 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "author": "Patryk Staniewski",
   "main": "dist/index.js",
@@ -59,12 +59,12 @@
     "react": ">=16"
   },
   "dependencies": {
-    "@juggle/resize-observer": "^2.4.0",
     "formik": "^2.0.6",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "react-laag": "^1.5.1",
     "react-use": "^13.8.0",
+    "resize-observer-polyfill": "^1.5.1",
     "styled-components": "^4.4.1",
     "styled-system": "^5.1.2",
     "yup": "^0.27.0"
