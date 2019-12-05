@@ -14,6 +14,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(({ label, error, ...
 
 export const FormikInput = ({ name = '', ...props }: InputProps) => {
   const [field, meta] = useField(name);
+  const { error, touched, ...restMeta } = meta;
 
-  return <Input {...meta} {...field} {...props} />;
+  return <Input error={touched && error} {...restMeta} {...field} {...props} />;
 };

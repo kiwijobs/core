@@ -9,7 +9,7 @@ const validationSchema = yup.object().shape({
   name: yup.string().required(),
   lastname: yup.string().required(),
   age: yup.number(),
-  active: yup.number(),
+  active: yup.string(),
   recruiters: yup
     .array(yup.number())
     .min(1)
@@ -23,10 +23,9 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
         initialValues={{
           name: '',
           lastname: '',
-          age: null,
+          age: '',
+          recruiters: [],
         }}
-        validateOnChange={false}
-        validateOnBlur={false}
         validationSchema={validationSchema}
         onSubmit={() => {}}
       >
@@ -83,6 +82,9 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikInput name="age" type="number" label="Wiek" />
             </Col>
           </Row>
+          <button style={{ marginTop: '20px' }} type="submit">
+            submit
+          </button>
         </Form>
       </Formik>
     </Paper>

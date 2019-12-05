@@ -131,11 +131,12 @@ export const Select = ({
 };
 
 export const FormikSelect = ({ name = '', ...props }: Omit<SelectProps, 'onChange' | 'value'>) => {
-  const { values, errors, setFieldValue } = useFormikContext<any>();
+  const { values, errors, touched, setFieldValue } = useFormikContext<any>();
 
   const value = getIn(values, name);
-  const error = getIn(errors, name);
+  const error = getIn(touched, name) && getIn(errors, name);
+  
   const handleChange = (arg: TSelectValue) => setFieldValue(name, arg);
-
+  
   return <Select onChange={handleChange} value={value} error={error} {...props} />;
 };

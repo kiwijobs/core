@@ -3,13 +3,17 @@ import { Box } from '../../../quarks';
 import { Label, Message } from '../../../atoms';
 
 export interface FieldGroupProps {
-  label?: string | JSX.Element;
+  label?: React.ReactNode;
   children?: React.ReactNode;
-  error?: string | JSX.Element;
+  error?: React.ReactNode;
 }
 
-const getElement = (Wrapper: React.ReactType, component?: string | JSX.Element, props?: Object) => {
-  if (isValidElement(component)) {
+const getElement = (
+  Wrapper: React.ReactType,
+  component?: React.ReactNode,
+  props?: Object
+) => {
+  if (isValidElement(component) || component === null) {
     return component;
   }
   return <Wrapper {...props}>{component}&#8203;</Wrapper>;
