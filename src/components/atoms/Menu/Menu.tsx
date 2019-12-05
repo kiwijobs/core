@@ -61,7 +61,6 @@ export const Menu = ({ trigger, layer, closeOnClick = true, placement, ...props 
             bg: 'white',
             transition: 'opacity 150ms ease-in-out;',
             opacity: open ? 1 : 0,
-            minWidth: 'max-content',
             width: triggerRect!.width,
           },
         });
