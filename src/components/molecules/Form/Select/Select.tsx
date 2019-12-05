@@ -67,8 +67,6 @@ export const Select = ({
         placement={{
           anchor: 'BOTTOM_LEFT',
           snapToAnchor: true,
-          autoAdjust: true,
-          possibleAnchors: ['BOTTOM_LEFT', 'BOTTOM_RIGHT'],
           triggerOffset: 0,
         }}
         closeOnClick={!multi}

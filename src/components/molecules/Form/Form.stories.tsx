@@ -73,7 +73,6 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikSelect
                 name="active"
                 label="Aktywny"
-                withBackdrop
                 options={[
                   { id: 'active', name: 'Aktywny' },
                   { id: 'inactive', name: 'Nieaktywny' },
