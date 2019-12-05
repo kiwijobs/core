@@ -2,7 +2,7 @@ import React from 'react';
 import { flatten, xor, find, get } from 'lodash';
 import { useFormikContext, getIn } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
-import { Field, List, Menu, MenuProps, Paper } from '../../../atoms';
+import { Field, List, Menu, MenuProps, Paper, Backdrop } from '../../../atoms';
 import { Box, BoxProps } from '../../../quarks';
 
 type TSelectOption = { id: number | string; name: string };
@@ -14,6 +14,8 @@ interface SelectProps extends FieldGroupProps {
   options: TSelectOption[];
   dense?: boolean;
   multi?: boolean;
+  withBackdrop?: boolean;
+  disabled?: boolean;
   placeholder?: string;
   onChange(value: TSelectValue | TSelectValue[]): void;
   value: TSelectValue | TSelectValue[];
@@ -32,7 +34,9 @@ export const Select = ({
   options = [],
   dense,
   onChange,
+  withBackdrop,
   value,
+  disabled,
   ...props
 }: SelectProps) => {
   const handleClick = (param: TSelectValue) => () => {
@@ -63,23 +67,36 @@ export const Select = ({
         placement={{
           anchor: 'BOTTOM_LEFT',
           snapToAnchor: true,
-          triggerOffset: -20,
+          autoAdjust: true,
+          possibleAnchors: ['BOTTOM_LEFT', 'BOTTOM_RIGHT'],
+          triggerOffset: 0,
         }}
         closeOnClick={!multi}
         {...menuProps}
         trigger={({ triggerRef, toggle, isOpen }) => (
-          <FieldGroup ref={triggerRef} error={error} label={label}>
+          <FieldGroup error={error} label={label}>
             <Field
+              ref={triggerRef}
               sx={{
+                position: 'relative',
                 textOverflow: 'ellipsis',
                 userSelect: 'none',
                 ...(isOpen && {
                   borderBottomLeftRadius: 0,
                   borderBottomRightRadius: 0,
+                  zIndex: 1,
                 }),
                 cursor: 'pointer',
+                ...(disabled && {
+                  color: 'dark',
+                }),
+                '&:focus': {},
+                '&:hover': {
+                  borderColor: isOpen ? undefined : [null, 'steel'],
+                },
               }}
               {...props}
+              disabled={disabled}
               onClick={toggle}
               readOnly
               value={
@@ -90,22 +107,25 @@ export const Select = ({
             />
           </FieldGroup>
         )}
-        layer={({ sx, close, ...props }) => (
-          <Paper
-            sx={{
-              ...sx,
-              maxHeight: '18.8rem',
-              overflowY: 'auto',
-              padding: 0,
-              borderTop: 0,
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 0,
-            }}
-            onClick={multi ? undefined : close}
-            {...props}
-          >
-            <List>{options.map(renderOption)}</List>
-          </Paper>
+        layer={({ sx, close, isOpen, ...props }) => (
+          <>
+            <Paper
+              sx={{
+                ...sx,
+                maxHeight: '18.8rem',
+                overflowY: 'auto',
+                padding: 0,
+                borderTop: 0,
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+              }}
+              onClick={multi ? undefined : close}
+              {...props}
+            >
+              <List>{options.map(renderOption)}</List>
+            </Paper>
+            {isOpen && withBackdrop && <Backdrop />}
+          </>
         )}
       />
     </Box>
