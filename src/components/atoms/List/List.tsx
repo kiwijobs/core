@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Box, BoxProps } from '../../quarks';
+import { Box, Flex, BoxProps } from '../../quarks';
 
 interface ListItemProps extends BoxProps {
   dense?: boolean;
@@ -34,7 +34,7 @@ export const List = forwardRef<HTMLDivElement, BoxProps>(({ sx, ...props }, ref)
 )) as TList;
 
 List.Item = ({ sx, dense, ...props }: ListItemProps) => (
-  <Box
+  <Flex
     as="li"
     sx={{
       transition: '150ms ease-in-out',
