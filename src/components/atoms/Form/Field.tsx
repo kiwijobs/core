@@ -4,6 +4,8 @@ import { Box, BoxProps } from '../../quarks';
 interface FieldProps extends BoxProps<HTMLInputElement> {
   error?: boolean;
   disabled?: boolean;
+  value?: number | string | undefined;
+  maxLength?: number;
 }
 
 export const Field = forwardRef<HTMLInputElement, FieldProps>(
@@ -13,11 +15,13 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
       ref={ref}
       sx={{
         color: 'dark',
+        display: 'block',
         border: 1,
         borderRadius: 1,
         width: '100%',
         paddingX: 3,
         paddingY: 2,
+        resize: 'none',
         outline: 'none',
         '-webkit-appearance': 'none',
 
@@ -56,7 +60,6 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
             borderColor: 'paleGrey',
           },
         }),
-
         ...sx,
       }}
       fontScale={3}
