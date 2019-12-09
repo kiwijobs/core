@@ -1,4 +1,5 @@
 import React, { useState, RefObject } from 'react';
+import { useWindowSize } from 'react-use';
 import { Box, BoxProps } from '../../quarks';
 import { Container } from '../../atoms';
 import { SubNavButton, SubNavContext } from './SubNav.components';
@@ -6,6 +7,8 @@ import { SubNavButton, SubNavContext } from './SubNav.components';
 export const SubNav = ({ sx, children, ...props }: BoxProps) => {
   const [active, setActive] = useState<RefObject<HTMLButtonElement>>({ current: null });
   const { width = 0, left = 0 } = active.current ? active.current.getBoundingClientRect() : {};
+
+  useWindowSize();
 
   return (
     <SubNavContext.Provider value={setActive}>
