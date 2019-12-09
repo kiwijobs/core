@@ -25,6 +25,8 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           lastname: '',
           age: '',
           recruiters: [],
+          active: '',
+          notifications: '',
         }}
         validationSchema={validationSchema}
         onSubmit={() => {}}
@@ -37,7 +39,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
             <Col py={0} width={[1, 0.5]}>
               <FormikInput name="lastname" label="Nazwisko" />
             </Col>
-            <Col py={0} width={[1, 1 / 3]}>
+            <Col py={0} width={[1, 1 / 4]}>
               <FormikSelect
                 name="recruiters"
                 label="Rekruterzy"
@@ -68,7 +70,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 ]}
               />
             </Col>
-            <Col py={0} width={[1, 1 / 3]}>
+            <Col py={0} width={[1, 1 / 4]}>
               <FormikSelect
                 name="active"
                 label="Aktywny"
@@ -78,9 +80,33 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 ]}
               />
             </Col>
-            <Col py={0} width={[1, 1 / 3]}>
-              <FormikInput name="age" type="number" label="Wiek" />
+            <Col py={0} width={[1, 1 / 2]}>
+              <FormikSelect
+                name="notifications"
+                label="Powiadomienia"
+                options={[
+                  {
+                    id: 'on',
+                    name: 'Kelner/ka',
+                    data: 'Warszawa, Śródmieście, Mazowiecka 37/143',
+                  },
+                  {
+                    id: 'off',
+                    name: 'Barista',
+                    data: 'Warszawa, Śródmieście, Mazowiecka 37/143',
+                  },
+                ]}
+                renderOption={({ name, data }) => (
+                  <Row gutter={1}>
+                    <Col>{name} w Hollywood</Col>
+                    <Col color="steel">{data}</Col>
+                  </Row>
+                )}
+              />
             </Col>
+            {/* <Col py={0} width={[1, 1 / 4]}>
+              <FormikInput name="age" type="number" label="Wiek" />
+            </Col> */}
           </Row>
           <button style={{ marginTop: '20px' }} type="submit">
             submit

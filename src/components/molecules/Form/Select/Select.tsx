@@ -5,7 +5,7 @@ import { FieldGroup, FieldGroupProps } from '../FieldGroup';
 import { Field, List, Menu, MenuProps, Paper, Backdrop } from '../../../atoms';
 import { Box, BoxProps } from '../../../quarks';
 
-type TSelectOption = { id: number | string; name: string };
+type TSelectOption = { id: number | string; name: string; [key: string]: any };
 type TSelectValue = number | string;
 interface SelectProps extends FieldGroupProps {
   name?: string;
@@ -19,6 +19,7 @@ interface SelectProps extends FieldGroupProps {
   placeholder?: string;
   onChange(value: TSelectValue | TSelectValue[]): void;
   value: TSelectValue | TSelectValue[];
+  renderOption?: (option: TSelectOption) => JSX.Element;
 }
 
 const isChecked = (value: TSelectValue | TSelectValue[], current: TSelectOption) =>
@@ -37,6 +38,7 @@ export const Select = ({
   withBackdrop,
   value,
   disabled,
+  renderOption: renderOptionProp,
   ...props
 }: SelectProps) => {
   const handleClick = (param: TSelectValue) => () => {
@@ -50,8 +52,12 @@ export const Select = ({
   const renderOption = (option: TSelectOption = {} as TSelectOption) => {
     return (
       <List.Item key={option.id} onClick={handleClick(option.id)} dense={dense}>
-        {multi && <Box as={'span' as 'span'}>{isChecked(value, option) ? '[V]' : '[]'}</Box>}
-        {option.name}
+        {multi && (
+          <Box as={'span' as 'span'} mr={2}>
+            {isChecked(value, option) ? '[V]' : '[]'}
+          </Box>
+        )}
+        {renderOptionProp ? renderOptionProp(option) : option.name}
       </List.Item>
     );
   };
@@ -135,8 +141,8 @@ export const FormikSelect = ({ name = '', ...props }: Omit<SelectProps, 'onChang
 
   const value = getIn(values, name);
   const error = getIn(touched, name) && getIn(errors, name);
-  
+
   const handleChange = (arg: TSelectValue) => setFieldValue(name, arg);
-  
+
   return <Select onChange={handleChange} value={value} error={error} {...props} />;
 };
