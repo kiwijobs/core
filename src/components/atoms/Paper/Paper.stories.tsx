@@ -8,7 +8,7 @@ storiesOf('Atoms|Paper', module)
   .add('Basic Paper', () => (
     <Container marginY={3}>
       <Paper>
-        <Box fontWeight="bold" fontScale={3} mb={3}>
+        <Box fontWeight="bold" fontScale={4} mb={3}>
           This is a simple Paper.
         </Box>
         <Box>

@@ -8,11 +8,7 @@ export interface FieldGroupProps {
   error?: React.ReactNode;
 }
 
-const getElement = (
-  Wrapper: React.ReactType,
-  component?: React.ReactNode,
-  props?: Object
-) => {
+const getElement = (Wrapper: React.ReactType, component?: React.ReactNode, props?: Object) => {
   if (isValidElement(component) || component === null) {
     return component;
   }
@@ -22,9 +18,9 @@ const getElement = (
 export const FieldGroup = forwardRef<HTMLDivElement, FieldGroupProps>(
   ({ label, error, children, ...props }, ref) => (
     <Box ref={ref} {...props}>
-      {getElement(Label, label)}
+      {getElement(Label, label, { marginBottom: 1 })}
       {React.cloneElement(children as JSX.Element, { error: !!error })}
-      {getElement(Message, error, { color: 'pinkRed' })}
+      {getElement(Message, error, { color: 'pinkRed', marginTop: 1 })}
     </Box>
   )
 );

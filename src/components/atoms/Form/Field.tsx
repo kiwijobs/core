@@ -13,7 +13,6 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
       ref={ref}
       sx={{
         color: 'dark',
-        marginY: 1,
         border: 1,
         borderRadius: 1,
         width: '100%',
@@ -60,7 +59,7 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
 
         ...sx,
       }}
-      fontScale={4}
+      fontScale={3}
       {...props}
     />
   )

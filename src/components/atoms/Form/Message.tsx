@@ -8,7 +8,7 @@ export const Message = ({ sx, ...props }: BoxProps) => (
       marginBottom: 1,
       ...sx,
     }}
-    fontScale={5}
+    fontScale={2}
     {...props}
   />
 );

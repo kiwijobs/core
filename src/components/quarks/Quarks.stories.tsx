@@ -12,6 +12,7 @@ storiesOf('Quarks|Box', module).add('Typography', () => (
       <Box fontScale={4}>Font Scale Four</Box>
       <Box fontScale={5}>Font Scale Five</Box>
       <Box fontScale={6}>Font Scale Six</Box>
+      <Box fontScale={7}>Font Scale Seven</Box>
     </Space>
   </Box>
 ));

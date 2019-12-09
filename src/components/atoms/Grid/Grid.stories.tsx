@@ -13,7 +13,7 @@ storiesOf('Atoms|Grid', module)
     >
       <Row>
         <Col width={[1, 0.5]}>
-          <Box width="100%" height="200px" bg="dark" color="white" fontScale={[1, 6]} />
+          <Box width="100%" height="200px" bg="dark" color="white" fontScale={[6, 1]} />
         </Col>
         <Col width={[1, 1 / 2]}>
           <Box width="100%" height="200px" bg="steel" />

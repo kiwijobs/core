@@ -35,8 +35,8 @@ storiesOf('Atoms|Loader', module)
   ))
   .add('Static position', () => (
     <StoryBox flexDirection="column">
-      <Flex fontScale={4}>Some placeholder text</Flex>
+      <Flex fontScale={3}>Some placeholder text</Flex>
       <Loader absolute={false} variant="DARK" />
-      <Flex fontScale={4}>Body content</Flex>
+      <Flex fontScale={3}>Body content</Flex>
     </StoryBox>
   ));

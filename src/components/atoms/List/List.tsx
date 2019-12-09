@@ -44,7 +44,7 @@ List.Item = ({ sx, dense, ...props }: ListItemProps) => (
 
       ...(dense && {
         py: 1,
-        fontScale: 5,
+        fontScale: 2,
       }),
 
       '&:hover': {

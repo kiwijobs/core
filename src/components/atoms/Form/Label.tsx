@@ -6,7 +6,7 @@ export const Label = ({ sx, ...props }: BoxProps) => (
     as="label"
     sx={{
       color: 'steel',
-      marginBottom: 1,
+      display: 'block',
       ...sx,
     }}
     {...props}

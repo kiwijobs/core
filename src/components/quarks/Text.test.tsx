@@ -6,12 +6,12 @@ import { wrapper } from '../../__testUtils__';
 
 describe('Text', () => {
   it('Has "fontScale" prop', () => {
-    const container = render(<Text fontScale={5} />, { wrapper }).container.firstChild;
+    const container = render(<Text fontScale={2} />, { wrapper }).container.firstChild;
     expect(container).toHaveStyleRule('font', `1.2rem / 1.6rem "Open Sans"`);
   });
 
   it('Overwrites fontScale', () => {
-    const container = render(<Text fontScale={2} fontSize="33px" />, { wrapper }).container
+    const container = render(<Text fontScale={5} fontSize="33px" />, { wrapper }).container
       .firstChild;
     expect(container).toHaveStyleRule('font-size', '33px');
     expect(container).toHaveStyleRule('font', `1.8rem / 2.4rem "Open Sans"`);
@@ -25,7 +25,7 @@ describe('Text', () => {
           padding: '15px 30px',
           opacity: 1,
         }}
-        fontScale={2}
+        fontScale={5}
         {...props}
       />
     );
@@ -41,7 +41,7 @@ describe('Text', () => {
           margin: 5px;
           z-index: 5;
         `}
-        fontScale={1}
+        fontScale={6}
         {...props}
       />
     );
