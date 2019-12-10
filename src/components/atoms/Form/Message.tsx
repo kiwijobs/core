@@ -5,7 +5,6 @@ export const Message = ({ sx, ...props }: BoxProps) => (
   <Box
     sx={{
       color: 'steel',
-      marginBottom: 1,
       ...sx,
     }}
     fontScale={2}

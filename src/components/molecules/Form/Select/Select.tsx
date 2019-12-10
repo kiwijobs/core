@@ -7,7 +7,7 @@ import { Box, BoxProps } from '../../../quarks';
 
 type TSelectOption = { id: number | string; name: string; [key: string]: any };
 type TSelectValue = number | string;
-interface SelectProps extends FieldGroupProps {
+interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   name?: string;
   menuProps?: Omit<MenuProps, 'layer' | 'trigger'>;
   listProps?: BoxProps;

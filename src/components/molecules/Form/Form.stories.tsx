@@ -14,6 +14,7 @@ const validationSchema = yup.object().shape({
     .array(yup.number())
     .min(1)
     .required(),
+  about: yup.string().required(),
 });
 
 storiesOf('Molecules|Form', module).add('Simple Form', () => (
@@ -27,6 +28,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           recruiters: [],
           active: '',
           notifications: '',
+          about: '',
         }}
         validationSchema={validationSchema}
         onSubmit={() => {}}
@@ -104,9 +106,18 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 )}
               />
             </Col>
-            {/* <Col py={0} width={[1, 1 / 4]}>
+            <Col py={0} width={[1, 1 / 4]}>
               <FormikInput name="age" type="number" label="Wiek" />
-            </Col> */}
+            </Col>
+            <Col py={0} width={[1, 1 / 3]}>
+              <FormikInput
+                name="about"
+                label="O mnie"
+                as="textarea"
+                rows={5}
+                maxLength={250}
+              />
+            </Col>
           </Row>
           <button style={{ marginTop: '20px' }} type="submit">
             submit
