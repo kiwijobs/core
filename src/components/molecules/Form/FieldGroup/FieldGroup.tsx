@@ -38,9 +38,12 @@ const getCounterValue = (value: TValue, maxLength: TMaxLength) => {
 
 export const FieldGroup = forwardRef<HTMLDivElement, FieldGroupProps>(
   ({ label, error, children, value, maxLength, ...props }, ref) => {
-    let childProps: FieldGroupChildProps = { error: !!error };
-    if (value && maxLength) {
-      childProps = { ...childProps, value, maxLength };
+    const childProps: FieldGroupChildProps = { error: !!error };
+    if (value) {
+      childProps.value = value;
+    }
+    if (maxLength) {
+      childProps.maxLength = maxLength;
     }
 
     return (
