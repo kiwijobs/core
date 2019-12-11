@@ -1,6 +1,6 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "license": "MIT",
   "author": "Patryk Staniewski",
   "main": "dist/index.js",
@@ -42,20 +42,22 @@
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.15",
     "@types/react-dom": "^16.9.4",
+    "@types/react-input-mask": "^2.0.5",
     "@types/styled-components": "^4.4.0",
     "@types/styled-system": "^5.1.4",
     "@types/styled-system__css": "^5.0.4",
     "@types/yup": "^0.26.26",
     "awesome-typescript-loader": "^5.2.1",
+    "formik": "^2.0.6",
     "husky": "^3.1.0",
     "jest-styled-components": "^6.3.4",
     "react": "^16.11.0",
     "react-dom": "^16.12.0",
     "styled-components": "^4.4.1",
-    "formik": "^2.0.6",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.3",
+    "yup": "^0.27.0"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -65,10 +67,10 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
+    "react-input-mask": "^2.0.4",
     "react-laag": "^1.5.1",
     "react-use": "^13.11.0",
     "resize-observer-polyfill": "^1.5.1",
-    "styled-system": "^5.1.4",
-    "yup": "^0.27.0"
+    "styled-system": "^5.1.4"
   }
 }

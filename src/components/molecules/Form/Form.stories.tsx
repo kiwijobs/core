@@ -15,6 +15,7 @@ const validationSchema = yup.object().shape({
     .min(1)
     .required(),
   about: yup.string().required(),
+  phone: yup.string(),
 });
 
 storiesOf('Molecules|Form', module).add('Simple Form', () => (
@@ -29,6 +30,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           active: '',
           notifications: '',
           about: '',
+          phone: '',
         }}
         validationSchema={validationSchema}
         onSubmit={() => {}}
@@ -116,6 +118,14 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 as="textarea"
                 rows={5}
                 maxLength={250}
+              />
+            </Col>
+            <Col py={0} width={[1, 1 / 3]}>
+              <FormikInput
+                name="phone"
+                label="With mask"
+                mask="999 999 999"
+                placeholder="___ ___ ___"
               />
             </Col>
           </Row>
