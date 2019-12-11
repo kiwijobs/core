@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { Box, BoxProps } from '../../quarks';
 
-interface FieldProps extends BoxProps<HTMLInputElement> {
+export interface FieldProps extends BoxProps<HTMLInputElement> {
   error?: boolean;
   disabled?: boolean;
   value?: number | string | undefined;

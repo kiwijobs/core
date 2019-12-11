@@ -1,15 +1,33 @@
 import React, { forwardRef } from 'react';
 import { useField } from 'formik';
+import InputMask, {Props as InputMaskProps} from 'react-input-mask';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
-import { Field } from '../../../atoms';
+import { Field, FieldProps } from '../../../atoms';
 import { BoxProps } from '../../../quarks';
 
-interface InputProps extends FieldGroupProps, BoxProps<HTMLInputElement> {}
+interface InputProps extends FieldGroupProps, BoxProps<HTMLInputElement> {
+  mask?: string;
+}
 
 export const Input = forwardRef<HTMLDivElement, InputProps>(
-  ({ label, error, value, maxLength, ...props }, ref) => (
+  ({ label, error, value, maxLength, mask, ...props }, ref) => (
     <FieldGroup label={label} value={value} maxLength={maxLength} error={error} ref={ref}>
-      <Field as="input" {...props} />
+      {mask ? (
+        <InputMask mask={mask} value={value} {...props as InputMaskProps}>
+          {(inputProps: FieldProps) => (
+            <Field
+              as="input"
+              value={value}
+              maxLength={maxLength}
+              error={!!error}
+              {...props}
+              {...inputProps}
+            />
+          )}
+        </InputMask>
+      ) : (
+        <Field as="input" value={value} maxLength={maxLength} error={!!error} {...props} />
+      )}
     </FieldGroup>
   )
 );
