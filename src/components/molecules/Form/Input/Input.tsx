@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
-import { useField } from 'formik';
-import InputMask, {Props as InputMaskProps} from 'react-input-mask';
+import get from 'lodash/get';
+import omit from 'lodash/omit';
+import { useField, useFormikContext } from 'formik';
+import InputMask, { Props as InputMaskProps } from 'react-input-mask';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
 import { Field, FieldProps } from '../../../atoms';
 import { BoxProps } from '../../../quarks';
@@ -13,7 +15,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(
   ({ label, error, value, maxLength, mask, ...props }, ref) => (
     <FieldGroup label={label} value={value} maxLength={maxLength} error={error} ref={ref}>
       {mask ? (
-        <InputMask mask={mask} value={value} {...props as InputMaskProps}>
+        <InputMask mask={mask} value={value} {...(props as InputMaskProps)}>
           {(inputProps: FieldProps) => (
             <Field
               as="input"
@@ -33,8 +35,26 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(
 );
 
 export const FormikInput = ({ name = '', ...props }: InputProps) => {
+  const { status, setStatus } = useFormikContext();
   const [field, meta] = useField(name);
+  const { onChange, ...restField } = field;
   const { error, touched, ...restMeta } = meta;
 
-  return <Input error={touched && error} {...restMeta} {...field} {...props} />;
+  const apiError = get(status, name, undefined);
+
+  return (
+    <Input
+      error={touched && (error || apiError)}
+      onChange={v => {
+        if (apiError) {
+          const restStatus = omit(status, name);
+          setStatus(restStatus);
+        }
+        onChange(v);
+      }}
+      {...restMeta}
+      {...restField}
+      {...props}
+    />
+  );
 };
