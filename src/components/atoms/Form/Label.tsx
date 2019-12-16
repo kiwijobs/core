@@ -9,6 +9,7 @@ export const Label = ({ sx, ...props }: BoxProps) => (
       display: 'block',
       ...sx,
     }}
+    fontScale={3}
     {...props}
   />
 );
