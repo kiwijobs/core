@@ -12,7 +12,7 @@ Reading list:
 
 **If someone in your project previously added kiwi/core to dependecies you need to do just steps 2, 3 and 4 to be able to install dependecies via npm.**
 
-1. Add .npmrc into your repository and paste in this file `registry=https://npm.pkg.github.com/kiwijobs`
+1. Add .npmrc into your repository and paste in this file `registry=https://npm.pkg.github.com`
 2. You need to create [Github Access Token](https://github.com/settings/tokens) with correct permissions: `repo`, `write:packages` and `read:packages` (first 3 checkboxes) - copy the generated token
 3. In the repository where you want to use Kiwi Kit you need to do login to npm. To do so type: `npm login --registry=https://npm.pkg.github.com/kiwijobs`.
 4. Then it will ask for:

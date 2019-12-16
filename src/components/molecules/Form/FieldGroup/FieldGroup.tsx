@@ -38,7 +38,7 @@ export const FieldGroup = forwardRef<HTMLDivElement, FieldGroupProps>(
       <Flex justifyContent="space-between">
         {getElement(Message, error, { color: 'pinkRed', marginY: 1 })}
         {maxLength && (
-          <Message mt={1} ml={2}>
+          <Message mt={1} ml={2} fontWeight={600} color="coolGreyTwo">
             {getCounterValue(value, maxLength)}
           </Message>
         )}
