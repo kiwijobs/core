@@ -6,6 +6,7 @@ import React, {
   Children,
   cloneElement,
   ComponentProps,
+  forwardRef,
 } from 'react';
 import { space, SpaceProps } from 'styled-system';
 import styled, { ThemeContext } from 'styled-components';
@@ -20,13 +21,14 @@ interface GridProps extends BoxProps {
 
 const DEFAULT_GUTTER = 3;
 
-export const Container: FC<GridProps> = ({ gutter = DEFAULT_GUTTER, ...props }) => {
+export const Container: FC<GridProps> = forwardRef(({ gutter = DEFAULT_GUTTER, ...props }, ref) => {
   const theme = useContext(ThemeContext);
   const value = useMemo(() => theme.space[gutter], [gutter]);
 
   return (
     <ContainerContext.Provider value={value}>
       <Box
+        ref={ref}
         width="100%"
         maxWidth={`calc(1200px + ${value}px)`}
         padding={`${value}px`}
@@ -35,9 +37,9 @@ export const Container: FC<GridProps> = ({ gutter = DEFAULT_GUTTER, ...props }) 
       />
     </ContainerContext.Provider>
   );
-};
+});
 
-export const Row: FC<GridProps> = ({ gutter, ...props }) => {
+export const Row: FC<GridProps> = forwardRef(({ gutter, ...props }, ref) => {
   const theme = useContext(ThemeContext);
   const containerValue = useContext(ContainerContext);
 
@@ -49,17 +51,17 @@ export const Row: FC<GridProps> = ({ gutter, ...props }) => {
 
   return (
     <RowContext.Provider value={value}>
-      <Flex flexWrap="wrap" margin={`-${value}px`} {...props} />
+      <Flex ref={ref} flexWrap="wrap" margin={`-${value}px`} {...props} />
     </RowContext.Provider>
   );
-};
+});
 
-export const Col: FC<BoxProps> = props => {
+export const Col: FC<BoxProps> = forwardRef((props, ref) => {
   const rowValue = useContext(RowContext);
   const value = useMemo(() => rowValue, []);
 
-  return <Box width={1} padding={`${value}px`} {...props} />;
-};
+  return <Box ref={ref} width={1} padding={`${value}px`} {...props} />;
+});
 
 const classnames = (...args: Array<string | void>) => args.join(' ');
 const getClassName = (el: JSX.Element) => (el.props && el.props.className) || '';
