@@ -69,7 +69,7 @@ const getClassName = (el: JSX.Element) => (el.props && el.props.className) || ''
 const SpaceCloner: FC<ComponentProps<'div'> & SpaceProps> = ({ className, children }) => {
   const styledChildren = Children.toArray(children).map(child =>
     cloneElement(child as JSX.Element, {
-      className: classnames(getClassName(child as JSX.Element), className),
+      className: classnames(className, getClassName(child as JSX.Element)),
     })
   );
   return <>{styledChildren}</>;
