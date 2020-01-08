@@ -49,7 +49,7 @@ List.Item = ({ sx, dense, ...props }: ListItemProps) => (
       }),
 
       '&:hover': {
-        bg: 'paleGreyThree',
+        bg: '5',
       },
       ...sx,
     }}

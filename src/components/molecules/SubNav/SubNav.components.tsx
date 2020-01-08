@@ -19,7 +19,7 @@ export const SubNavButton = ({ isActive, sx, ...props }: SubNavButton) => {
     <Button
       ref={ref}
       sx={{
-        color: isActive ? 'dark' : 'steel',
+        color: isActive ? '1' : '2',
         px: 0,
         py: 3,
         border: 'none',
@@ -27,7 +27,7 @@ export const SubNavButton = ({ isActive, sx, ...props }: SubNavButton) => {
           ml: '6rem',
         },
         '&:hover': {
-          color: 'dark',
+          color: '1',
         },
         ...sx,
       }}

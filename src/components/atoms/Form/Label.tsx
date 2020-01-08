@@ -5,7 +5,7 @@ export const Label = ({ sx, ...props }: BoxProps) => (
   <Box
     as="label"
     sx={{
-      color: 'steel',
+      color: '2',
       display: 'block',
       ...sx,
     }}
