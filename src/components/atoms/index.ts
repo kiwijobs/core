@@ -6,3 +6,4 @@ export * from './Loader';
 export * from './Menu';
 export * from './Paper';
 export * from './Carousel';
+export * from './Icon';
