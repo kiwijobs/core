@@ -1,13 +1,11 @@
 import React from 'react';
 export const Check = {
-  viewBox: '0 0 8 7',
+  viewBox: '0 0 18 13',
   jsx: (
     <path
-      fill="none"
-      fillRule="evenodd"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      d="M1.2 3.6l2.022 2.032L7.275 1.2"
+      fill="currentColor"
+      fillRule="nonzero"
+      d="M1.707 6.293A1 1 0 1 0 .293 7.707l5 5a1 1 0 0 0 1.414 0l11-11A1 1 0 1 0 16.293.293L6 10.586 1.707 6.293z"
     />
   ),
 };
