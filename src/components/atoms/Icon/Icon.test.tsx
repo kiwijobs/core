@@ -23,6 +23,35 @@ describe('Icon', () => {
     });
   });
 
+  it('Should render icon direction correctly', () => {
+    const array = Object.keys(icons) as Array<keyof typeof icons>;
+    array.forEach(name => {
+      const { firstElementChild } = render(<Icon name={name} />).container;
+      expect(firstElementChild!.tagName).toBe('svg');
+      expect(firstElementChild).not.toHaveStyleRule('transform');
+    });
+    array.forEach(name => {
+      const { firstElementChild } = render(<Icon name={name} direction="UP" />).container;
+      expect(firstElementChild!.tagName).toBe('svg');
+      expect(firstElementChild).not.toHaveStyleRule('transform');
+    });
+    array.forEach(name => {
+      const { firstElementChild } = render(<Icon name={name} direction="RIGHT" />).container;
+      expect(firstElementChild!.tagName).toBe('svg');
+      expect(firstElementChild).toHaveStyleRule('transform', 'rotate(90deg)');
+    });
+    array.forEach(name => {
+      const { firstElementChild } = render(<Icon name={name} direction="DOWN" />).container;
+      expect(firstElementChild!.tagName).toBe('svg');
+      expect(firstElementChild).toHaveStyleRule('transform', 'rotate(180deg)');
+    });
+    array.forEach(name => {
+      const { firstElementChild } = render(<Icon name={name} direction="LEFT" />).container;
+      expect(firstElementChild!.tagName).toBe('svg');
+      expect(firstElementChild).toHaveStyleRule('transform', 'rotate(-90deg)');
+    });
+  });
+
   it('Warns if no icon', () => {
     console.warn = jest.fn();
 

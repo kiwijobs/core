@@ -27,6 +27,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           lastname: '',
           age: '',
           recruiters: [],
+          recruitersDense: [],
           active: '',
           notifications: '',
           about: '',
@@ -47,6 +48,36 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikSelect
                 name="recruiters"
                 label="Rekruterzy"
+                multi
+                placeholder="Wybierz rekrutera"
+                options={[
+                  { id: 1, name: 'Kendrick Daniel' },
+                  { id: 2, name: 'Clarabelle Boyle' },
+                  { id: 3, name: 'Stephan Carroll' },
+                  { id: 4, name: 'Hallie Gusikowski' },
+                  { id: 5, name: 'Steve Schmeler' },
+                  { id: 6, name: 'Russell Pfeffer' },
+                  { id: 7, name: 'Nat Tromp DVM' },
+                  { id: 8, name: 'Miss Audie Williamson' },
+                  { id: 9, name: 'Sydni Leannon II' },
+                  { id: 10, name: "Wilburn D'Amore Sr." },
+                  { id: 11, name: 'Kendrick Daniel' },
+                  { id: 12, name: 'Clarabelle Boyle' },
+                  { id: 13, name: 'Stephan Carroll' },
+                  { id: 14, name: 'Hallie Gusikowski' },
+                  { id: 15, name: 'Steve Schmeler' },
+                  { id: 16, name: 'Russell Pfeffer' },
+                  { id: 17, name: 'Nat Tromp DVM' },
+                  { id: 18, name: 'Miss Audie Williamson' },
+                  { id: 19, name: 'Sydni Leannon II' },
+                  { id: 20, name: "Wilburn D'Amore Sr." },
+                ]}
+              />
+            </Col>
+            <Col py={0} width={[1, 1 / 4]}>
+              <FormikSelect
+                name="recruitersDense"
+                label="Rekruterzy - DENSE"
                 dense
                 multi
                 placeholder="Wybierz rekrutera"

@@ -41,6 +41,7 @@ List.Item = ({ sx, dense, ...props }: ListItemProps) => (
       cursor: 'pointer',
       py: 2,
       px: 3,
+      userSelect: 'none',
 
       ...(dense && {
         py: 1,
