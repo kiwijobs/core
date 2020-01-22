@@ -115,6 +115,9 @@ export const Select = ({
                 ...(isOpen && {
                   zIndex: 1,
                 }),
+                ...(disabled && {
+                  pointerEvents: 'none'
+                }),
               }}
               onClick={toggle}
             >
@@ -157,6 +160,7 @@ export const Select = ({
                   top: 0,
                   bottom: 0,
                   margin: 'auto',
+                  pointerEvents: 'none'
                 }}
               />
             </Box>
