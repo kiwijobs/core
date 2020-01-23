@@ -20,7 +20,7 @@ const SIcon = ({ text, ...props }: { text?: any } & IconProps) => (
       border: 1,
       borderRadius: 1,
       bg: 'white',
-      color: 'dark',
+      color: '1',
       m: 1,
       p: 2,
       size: '8rem',
@@ -45,7 +45,7 @@ storiesOf('Atoms|Icons', module)
           <SIcon
             name={name}
             text={
-              <Box mt={2} color="steel" fontScale={1}>
+              <Box mt={2} color="2" fontScale={1}>
                 {name}
               </Box>
             }
@@ -61,7 +61,7 @@ storiesOf('Atoms|Icons', module)
         sx={{
           border: 1,
           borderRadius: 1,
-          borderColor: 'dark',
+          borderColor: '1',
         }}
         name="Add"
       />
@@ -69,14 +69,14 @@ storiesOf('Atoms|Icons', module)
         sx={{
           border: 1,
           borderRadius: '50%',
-          borderColor: 'dark',
+          borderColor: '1',
         }}
         name="Add"
       />
       <SIcon
         sx={{
           borderRadius: '50%',
-          bg: 'greenBlue',
+          bg: 'primary',
           color: 'white',
         }}
         name="Add"
@@ -90,7 +90,7 @@ storiesOf('Atoms|Icons', module)
         sx={{
           border: 1,
           borderRadius: 1,
-          borderColor: 'dark',
+          borderColor: '1',
           p: 1,
         }}
         name="Check"
@@ -98,7 +98,7 @@ storiesOf('Atoms|Icons', module)
       <SIcon
         sx={{
           borderRadius: 1,
-          bg: 'greenBlue',
+          bg: 'primary',
           color: 'white',
           p: 1,
         }}
@@ -107,7 +107,7 @@ storiesOf('Atoms|Icons', module)
       <SIcon
         sx={{
           borderRadius: '50%',
-          bg: 'greenBlue',
+          bg: 'primary',
           color: 'white',
           p: 1,
         }}
@@ -122,7 +122,7 @@ storiesOf('Atoms|Icons', module)
         sx={{
           border: 1,
           borderRadius: 1,
-          borderColor: 'dark',
+          borderColor: '1',
           p: 1,
         }}
         name="Close"
@@ -131,8 +131,8 @@ storiesOf('Atoms|Icons', module)
         sx={{
           border: 1,
           borderRadius: '50%',
-          borderColor: 'greenBlue',
-          color: 'greenBlue',
+          borderColor: 'primary',
+          color: 'primary',
           p: 1,
         }}
         name="Close"
@@ -141,7 +141,7 @@ storiesOf('Atoms|Icons', module)
       <SIcon
         sx={{
           borderRadius: '50%',
-          bg: 'greenBlue',
+          bg: 'primary',
           color: 'white',
           p: 1,
         }}
@@ -156,7 +156,7 @@ storiesOf('Atoms|Icons', module)
         sx={{
           border: 1,
           borderRadius: '50%',
-          borderColor: 'dark',
+          borderColor: '1',
         }}
         name="Info"
       />
@@ -164,7 +164,7 @@ storiesOf('Atoms|Icons', module)
         sx={{
           border: 1,
           borderRadius: '50%',
-          bg: 'dark',
+          bg: '1',
           color: 'white',
         }}
         name="Info"

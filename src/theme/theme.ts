@@ -1,10 +1,9 @@
-import { rgb, rgba } from './colors';
+import { colors } from './colors';
 import { breakpoints } from './breakpoints';
 
-export const colors = {
-  ...rgb,
-  rgba,
-};
+export interface IThemeValue extends Array<string> {
+  [key: string]: any;
+}
 
 const shadows: Array<string> & {
   [key: string]: any;
@@ -26,7 +25,7 @@ export const theme = {
     { fontSize: '2rem', lineHeight: '2.4rem' },
     { fontSize: '2.4rem', lineHeight: '4rem' },
   ],
-  borders: ['none', `1px solid ${rgb.paleGrey};`],
+  borders: ['none', `1px solid ${colors[4]};`],
   radii: ['0', '0.3rem'],
   shadows,
   variants: {},

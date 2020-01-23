@@ -14,7 +14,7 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
       as="input"
       ref={ref}
       sx={{
-        color: 'dark',
+        color: '1',
         display: 'block',
         border: 1,
         borderRadius: 1,
@@ -24,6 +24,7 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
         resize: 'none',
         outline: 'none',
         '-webkit-appearance': 'none',
+        transition: 'border-color 150ms ease-in-out',
 
         '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
           webkitAppearance: 'none',
@@ -35,29 +36,29 @@ export const Field = forwardRef<HTMLInputElement, FieldProps>(
         },
 
         '&:hover': {
-          borderColor: 'steel',
+          borderColor: 2,
         },
 
         '&:focus': {
-          borderColor: 'lightishBlue',
+          borderColor: 'secondary',
         },
 
         ...(error && {
-          borderColor: 'pinkRed',
+          borderColor: 'pink',
           '&:hover': {
-            borderColor: 'pinkRed',
+            borderColor: 'pink',
           },
           '&:focus': {
-            borderColor: 'pinkRed',
+            borderColor: 'pink',
           },
         }),
 
         ...(disabled && {
-          backgroundColor: 'paleGreyTwo',
+          backgroundColor: 5,
           color: 'steel',
           pointerEvents: 'none',
           '&:hover': {
-            borderColor: 'paleGrey',
+            borderColor: 4,
           },
         }),
         ...sx,

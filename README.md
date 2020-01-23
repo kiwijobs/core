@@ -16,16 +16,30 @@ Reading list:
 2. You need to create [Github Access Token](https://github.com/settings/tokens) with correct permissions: `repo`, `write:packages` and `read:packages` (first 3 checkboxes) - copy the generated token
 3. In the repository where you want to use Kiwi Kit you need to do login to npm. To do so type: `npm login --registry=https://npm.pkg.github.com/kiwijobs`.
 4. Then it will ask for:
-* Username: *github username*
-* Password: *generated github access token*
-* Email: *your public email address (github email address)*
-5. Add kiwi/core to your package.json like `  "@kiwijobs/core": "0.0.5",`
+
+- Username: _github username_
+- Password: _generated github access token_
+- Email: _your public email address (github email address)_
+
+5. Add kiwi/core to your package.json like `"@kiwijobs/core": "0.0.5",`
 
 After these five steps you can do install packages with npm.
 
 Helpful Links:
-* [Creating a presonal access token for the command line](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
-* [Configuring npm for use with github packages](https://help.github.com/en/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
+
+- [Creating a presonal access token for the command line](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+- [Configuring npm for use with github packages](https://help.github.com/en/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
+
+## **Theme**
+
+### **Colors**
+
+There is a handful of utititiles for using colors from our `theme`.
+
+There is a set of basic colors that are used for texts and backgrounds. They are defined in an array of `strings`.
+For example, standard text should have a color `1`.
+
+We also have a few basic colors (`primary`, `secondary`, `dark` etc.) that can be lightened (ex. `"primary.150"` will be 50% brighter than baseline) or darkened (ex. `"primary.50"` will be 50% darker than baseline). There is a whole spectrum between `0 - 200` where `0` is pure black and `200` is pure white.
 
 ## **Components**
 

@@ -17,7 +17,7 @@ export const SubNav = ({ sx, children, ...props }: BoxProps) => {
         {active.current && (
           <Box
             sx={{
-              bg: 'greenBlue',
+              bg: 'primary',
               height: '3px',
               position: 'absolute',
               bottom: '0',
