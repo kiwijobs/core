@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { flatten, xor, find, get } from 'lodash';
 import { useFormikContext, getIn } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
@@ -16,6 +16,7 @@ interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   dense?: boolean;
   multi?: boolean;
   withBackdrop?: boolean;
+  readOnly?: boolean;
   disabled?: boolean;
   placeholder?: string;
   onChange(value: TSelectValue | TSelectValue[]): void;
@@ -25,8 +26,53 @@ interface SelectProps extends Omit<FieldGroupProps, 'value'> {
 
 const isChecked = (value: TSelectValue | TSelectValue[], current: TSelectOption) =>
   flatten([value]).some(x => x === current.id);
+
 const getCurrent = (value: TSelectValue, options: TSelectOption[]) =>
   get(find(options, ['id', value]), 'name', '');
+
+const getValue = (value: TSelectValue | TSelectValue[], options: TSelectOption[]) =>
+  Array.isArray(value)
+    ? value.map(x => getCurrent(x, options)).join(', ')
+    : getCurrent(value, options);
+
+const splitToBold = (str: string, phrase: string) => {
+  if (!str) return null;
+  if (!phrase) return str;
+  // eslint-disable-next-line no-unused-vars
+  const [, gr1, gr2, gr3] = str.match(new RegExp(`(.*)(${phrase})(.*)`, 'i')) || [];
+
+  return (
+    <>
+      {gr1}
+      <b>{gr2}</b>
+      {gr3}
+    </>
+  );
+};
+
+const useSelectSearch = (readOnly: boolean) => {
+  if (readOnly) {
+    return {};
+  }
+
+  const [internalValue, setInternalValue] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
+
+  const onFocus = () => {
+    setSearchFocused(true);
+    setInternalValue('');
+  };
+
+  const onChange = (e: any) => setInternalValue(e.target.value);
+
+  return {
+    internalValue,
+    onFocus,
+    onChange,
+    searchFocused,
+    setSearchFocused,
+  };
+};
 
 export const Select = ({
   multi = false,
@@ -38,15 +84,28 @@ export const Select = ({
   onChange,
   withBackdrop,
   value,
+  readOnly = true,
   disabled,
   renderOption: renderOptionProp,
   ...props
 }: SelectProps) => {
+  const { internalValue, searchFocused, setSearchFocused, ...searchProps } = useSelectSearch(
+    readOnly
+  );
+
+  const handleSearchBlur = () => {
+    if (setSearchFocused) {
+      setSearchFocused(false);
+    }
+  };
+
   const handleClick = (param: TSelectValue) => () => {
     const v: TSelectValue[] = value ? flatten([value]) : [];
     const p: TSelectValue[] = flatten([param]);
     const payload: TSelectValue[] = xor(v, p);
 
+    handleSearchBlur()
+    
     return onChange(multi ? payload : param);
   };
 
@@ -59,7 +118,6 @@ export const Select = ({
         onClick={handleClick(option.id)}
         dense={dense}
         sx={{
-          alignItems: 'center',
           ...(multi && {
             ':hover': {
               'div:first-child': {
@@ -71,7 +129,6 @@ export const Select = ({
       >
         {multi && (
           <Flex
-            mr={2}
             sx={{
               justifyContent: 'center',
               alignItems: 'center',
@@ -80,15 +137,34 @@ export const Select = ({
               borderColor: checked ? 'lightishBlue' : 'steel',
               backgroundColor: checked ? 'lightishBlue' : 'white',
               size: dense ? '1.5rem' : '2rem',
+              flexShrink: 0,
+              mr: 2,
+              mt: dense ? '5px' : '2px',
             }}
           >
             <Icon name="Check" color="white" size={dense ? '0.9rem' : '1.3rem'} />
           </Flex>
         )}
-        {renderOptionProp ? renderOptionProp(option) : option.name}
+        {renderOptionProp ? (
+          renderOptionProp(option)
+        ) : (
+          <Box>{splitToBold(option.name, internalValue || '')}</Box>
+        )}
       </List.Item>
     );
   };
+
+  const getOptions = () => {
+    if (readOnly) {
+      return options.map(renderOption);
+    }
+
+    return options
+      .filter(el => new RegExp(internalValue || '', 'i').test(el.name))
+      .map(renderOption);
+  };
+
+  const parsedOptions = getOptions();
 
   return (
     <Box
@@ -98,6 +174,7 @@ export const Select = ({
       }}
     >
       <Menu
+        onOutsideClick={handleSearchBlur}
         placement={{
           anchor: 'BOTTOM_LEFT',
           snapToAnchor: true,
@@ -105,7 +182,7 @@ export const Select = ({
         }}
         closeOnClick={!multi}
         {...menuProps}
-        trigger={({ triggerRef, toggle, isOpen }) => (
+        trigger={({ triggerRef, toggle, isOpen, open }) => (
           <FieldGroup error={error} label={label}>
             <Box
               ref={triggerRef}
@@ -116,10 +193,10 @@ export const Select = ({
                   zIndex: 1,
                 }),
                 ...(disabled && {
-                  pointerEvents: 'none'
+                  pointerEvents: 'none',
                 }),
               }}
-              onClick={toggle}
+              onClick={readOnly ? toggle : open}
             >
               <Field
                 sx={{
@@ -134,19 +211,18 @@ export const Select = ({
                   ...(disabled && {
                     color: 'dark',
                   }),
-                  '&:focus': {},
+                  ...(readOnly && {
+                    '&:focus': {},
+                  }),
                   '&:hover': {
                     borderColor: isOpen ? undefined : [null, 'steel'],
                   },
                 }}
                 {...props}
                 disabled={disabled}
-                readOnly
-                value={
-                  Array.isArray(value)
-                    ? value.map(x => getCurrent(x, options)).join(', ')
-                    : getCurrent(value, options)
-                }
+                readOnly={readOnly}
+                value={searchFocused ? internalValue : getValue(value, options)}
+                {...searchProps}
               />
               <Icon
                 name="Chevron"
@@ -160,7 +236,7 @@ export const Select = ({
                   top: 0,
                   bottom: 0,
                   margin: 'auto',
-                  pointerEvents: 'none'
+                  pointerEvents: 'none',
                 }}
               />
             </Box>
@@ -181,7 +257,7 @@ export const Select = ({
               onClick={multi ? undefined : close}
               {...props}
             >
-              <List>{options.map(renderOption)}</List>
+              {parsedOptions.length > 0 ? <List>{parsedOptions}</List> : null}
             </Paper>
             {isOpen && withBackdrop && <Backdrop />}
           </>
