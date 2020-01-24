@@ -21,18 +21,19 @@ function hexify(color: string, lightness: number) {
 }
 
 export const transform = (value: any, scale: any) => {
-  const scaledValue = get(scale, value, '');
+  if (!value) return;
 
+  const scaledValue = get(scale, value, '');
   if (scaledValue.length > 1) {
     return scaledValue;
   }
 
-  const [colorOrValue, lightness] = value.split('.') || [];
-  const color = scale[colorOrValue];
-
   if (value.indexOf('rgb') > -1 || value.indexOf('#') > -1) {
     return value;
   }
+
+  const [colorOrValue, lightness] = value.split('.') || [];
+  const color = scale[colorOrValue];
 
   if (!lightness) {
     return color || colorOrValue;
