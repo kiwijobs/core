@@ -47,6 +47,11 @@ describe('Reflexbox', () => {
           bg: ['tangerine.175', 5],
           color: ['tangerine.100', 'primary.100'],
           borderColor: '#fab',
+
+          '&:hover': {
+            bg: 'primary.100',
+            color: [1, 2],
+          },
         }}
       />,
       { wrapper }
