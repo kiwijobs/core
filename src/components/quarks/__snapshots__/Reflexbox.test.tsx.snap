@@ -23,10 +23,21 @@ exports[`Reflexbox Supports "sx" prop 1`] = `
   border-color: #fab;
 }
 
+.c0:hover {
+  background-color: rgb(8,191,130);
+  color: rgb(39,50,55);
+}
+
 @media screen and (min-width:576px) {
   .c0 {
     background-color: rgb(248,249,253);
     color: rgb(8,191,130);
+  }
+}
+
+@media screen and (min-width:576px) {
+  .c0:hover {
+    color: rgb(133,136,149);
   }
 }
 

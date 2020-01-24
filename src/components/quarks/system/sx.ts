@@ -20,21 +20,30 @@ const transformWithArrayCheck = (
   return transform(value);
 };
 
+/** Mutates "obj" param */
+const parseSX = (obj: TSxObject, props: BoxProps) => {
+  forIn(obj, (value, key) => {
+    if (typeof value === 'object' && !Array.isArray(value)) {
+      return parseSX(value, props);
+    }
+
+    if (key === 'fontScale') {
+      obj.font = transformWithArrayCheck(obj.fontScale, v =>
+        transformFontScale(props)(v, props.theme?.fontScales)
+      );
+      delete obj.fontScale;
+    }
+
+    if (colorKeys.includes(key)) {
+      obj[key] = transformWithArrayCheck(value, v => transformColor(v, props.theme?.colors));
+    }
+  });
+};
+
 export const sx = (props: BoxProps) => {
   const sx = { ...props.sx } as TSxObject;
 
-  if (sx.fontScale) {
-    sx.font = transformWithArrayCheck(sx.fontScale, v =>
-      transformFontScale(props)(v, props.theme?.fontScales)
-    );
-    delete sx.fontScale;
-  }
-
-  forIn(sx, (value, key) => {
-    if (colorKeys.includes(key)) {
-      sx[key] = transformWithArrayCheck(value, v => transformColor(v, props.theme?.colors));
-    }
-  });
+  parseSX(sx, props);
 
   return css(sx as SystemStyleObject)(props.theme);
 };
