@@ -149,6 +149,34 @@ storiesOf('Atoms|Icons', module)
       />
     </>
   ))
+  .add('Chevron', () => (
+    <>
+      <SIcon name="Chevron" direction="UP" />
+      <SIcon name="Chevron" direction="DOWN" />
+      <SIcon name="Chevron" direction="LEFT" />
+      <SIcon name="Chevron" direction="RIGHT" />
+      <SIcon
+        sx={{ borderRadius: '50%', bg: 'primary.50', color: 'white', p: 1 }}
+        name="Chevron"
+        direction="UP"
+      />
+      <SIcon
+        sx={{ borderRadius: '50%', bg: 'primary.75', color: 'white', p: 1 }}
+        name="Chevron"
+        direction="DOWN"
+      />
+      <SIcon
+        sx={{ borderRadius: '50%', bg: 'primary.125', color: 'white', p: 1 }}
+        name="Chevron"
+        direction="LEFT"
+      />
+      <SIcon
+        sx={{ borderRadius: '50%', bg: 'primary.150', color: 'white', p: 1 }}
+        name="Chevron"
+        direction="RIGHT"
+      />
+    </>
+  ))
   .add('Info', () => (
     <>
       <SIcon name="Info" />
@@ -168,6 +196,27 @@ storiesOf('Atoms|Icons', module)
           color: 'white',
         }}
         name="Info"
+      />
+    </>
+  ))
+  .add('Bell', () => (
+    <>
+      <SIcon name="Bell" />
+      <SIcon
+        sx={{
+          border: 1,
+          borderRadius: 1,
+        }}
+        name="Bell"
+      />
+      <SIcon
+        sx={{
+          borderRadius: 1,
+          p: 1,
+          bg: 'primary',
+          color: 'white',
+        }}
+        name="Bell"
       />
     </>
   ));
