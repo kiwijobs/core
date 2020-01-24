@@ -7,3 +7,4 @@ export * from './Menu';
 export * from './Paper';
 export * from './Carousel';
 export * from './Icon';
+export * from './Badge';
