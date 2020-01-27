@@ -116,7 +116,6 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikSelect
                 name="active"
                 label="Aktywny"
-                readOnly={false}
                 options={[
                   { id: 'active', name: 'Aktywny' },
                   { id: 'inactive', name: 'Nieaktywny' },
@@ -127,6 +126,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikSelect
                 name="activeWithFilter"
                 label="Aktywny (z filtrowaniem)"
+                readOnly={false}
                 options={[
                   { id: 'active', name: 'Aktywny' },
                   { id: 'inactive', name: 'Nieaktywny' },

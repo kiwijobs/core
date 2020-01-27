@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { flatten, xor, find, get } from 'lodash';
 import { useFormikContext, getIn } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
@@ -63,7 +63,7 @@ const useSelectSearch = (readOnly: boolean) => {
     setInternalValue('');
   };
 
-  const onChange = (e: any) => setInternalValue(e.target.value);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setInternalValue(e.target.value);
 
   return {
     internalValue,
@@ -104,8 +104,8 @@ export const Select = ({
     const p: TSelectValue[] = flatten([param]);
     const payload: TSelectValue[] = xor(v, p);
 
-    handleSearchBlur()
-    
+    handleSearchBlur();
+
     return onChange(multi ? payload : param);
   };
 
@@ -139,7 +139,7 @@ export const Select = ({
               size: dense ? '1.5rem' : '2rem',
               flexShrink: 0,
               mr: 2,
-              mt: dense ? '5px' : '2px',
+              mt: dense ? 0 : '2px',
             }}
           >
             <Icon name="Check" color="white" size={dense ? '0.9rem' : '1.3rem'} />
@@ -148,7 +148,7 @@ export const Select = ({
         {renderOptionProp ? (
           renderOptionProp(option)
         ) : (
-          <Box>{splitToBold(option.name, internalValue || '')}</Box>
+          <Box sx={{ lineHeight: dense ? '1.5rem' : 'inherit' }}>{splitToBold(option.name, internalValue || '')}</Box>
         )}
       </List.Item>
     );
@@ -165,6 +165,8 @@ export const Select = ({
   };
 
   const parsedOptions = getOptions();
+
+  const isListNotEmpty = parsedOptions.length > 0;
 
   return (
     <Box
@@ -204,10 +206,11 @@ export const Select = ({
                   userSelect: 'none',
                   paddingRight: '36px',
                   cursor: 'pointer',
-                  ...(isOpen && {
-                    borderBottomLeftRadius: 0,
-                    borderBottomRightRadius: 0,
-                  }),
+                  ...(isOpen &&
+                    isListNotEmpty && {
+                      borderBottomLeftRadius: 0,
+                      borderBottomRightRadius: 0,
+                    }),
                   ...(disabled && {
                     color: '1',
                   }),
@@ -242,26 +245,30 @@ export const Select = ({
             </Box>
           </FieldGroup>
         )}
-        layer={({ sx, close, isOpen, ...props }) => (
-          <>
-            <Paper
-              sx={{
-                ...sx,
-                maxHeight: '18.8rem',
-                overflowY: 'auto',
-                padding: 0,
-                borderTop: 0,
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-              }}
-              onClick={multi ? undefined : close}
-              {...props}
-            >
-              {parsedOptions.length > 0 ? <List>{parsedOptions}</List> : null}
-            </Paper>
-            {isOpen && withBackdrop && <Backdrop />}
-          </>
-        )}
+        layer={({ sx, close, isOpen, ...props }) =>
+          isListNotEmpty ? (
+            <>
+              <Paper
+                sx={{
+                  ...sx,
+                  maxHeight: '18.8rem',
+                  overflowY: 'auto',
+                  padding: 0,
+                  borderTop: 0,
+                  borderTopLeftRadius: 0,
+                  borderTopRightRadius: 0,
+                }}
+                onClick={multi ? undefined : close}
+                {...props}
+              >
+                <List>{parsedOptions}</List>
+              </Paper>
+              {isOpen && withBackdrop && <Backdrop />}
+            </>
+          ) : (
+            <Fragment />
+          )
+        }
       />
     </Box>
   );
