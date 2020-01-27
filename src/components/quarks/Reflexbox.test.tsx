@@ -1,29 +1,39 @@
 import React from 'react';
+import styled from 'styled-components';
 import { render } from '@testing-library/react';
-import { rgb, rgba } from '../../theme/colors';
 import { Box, Flex } from './Reflexbox';
 import { wrapper } from '../../__testUtils__';
 
 describe('Reflexbox', () => {
   it('Has correct colors', () => {
-    expect(render(<Box color="bahamaYellow" />, { wrapper }).container.firstChild).toHaveStyleRule(
+    expect(render(<Box color="primary" />, { wrapper }).container.firstChild).toHaveStyleRule(
       'color',
-      'rgba(255,231,157,1)'
+      'rgb(8,191,130)'
+    );
+    expect(render(<Box color="dark" />, { wrapper }).container.firstChild).toHaveStyleRule(
+      'color',
+      'rgb(40,50,56)'
+    );
+    expect(render(<Box color="1" />, { wrapper }).container.firstChild).toHaveStyleRule(
+      'color',
+      'rgb(39,50,55)'
+    );
+    expect(render(<Box color="#fab" />, { wrapper }).container.firstChild).toHaveStyleRule(
+      'color',
+      '#fab'
     );
     expect(
-      render(<Box backgroundColor="bahamaYellow" />, { wrapper }).container.firstChild
-    ).toHaveStyleRule('background-color', 'rgba(255,231,157,1)');
-    expect(render(<Box bg="bahamaYellow" />, { wrapper }).container.firstChild).toHaveStyleRule(
-      'background-color',
-      'rgba(255,231,157,1)'
-    );
+      render(<Box color="rgba(0,0,0,0.25)" />, { wrapper }).container.firstChild
+    ).toHaveStyleRule('color', 'rgba(0,0,0,0.25)');
 
-    expect(
-      render(<Box color={rgb.bahamaYellow} />, { wrapper }).container.firstChild
-    ).toHaveStyleRule('color', 'rgba(255,231,157,1)');
-    expect(
-      render(<Box color={rgba(0.5).bahamaYellow} />, { wrapper }).container.firstChild
-    ).toHaveStyleRule('color', 'rgba(255,231,157,0.5)');
+    expect(render(<Box color="primary.150" />, { wrapper }).container.firstChild).toHaveStyleRule(
+      'color',
+      'rgb(131,223,192)'
+    );
+    expect(render(<Box color="tangerine.50" />, { wrapper }).container.firstChild).toHaveStyleRule(
+      'color',
+      'rgb(127,75,11)'
+    );
   });
 
   it('Flex have a "display: flex"', () => {
@@ -31,15 +41,89 @@ describe('Reflexbox', () => {
   });
 
   it('Supports "sx" prop', () => {
-    expect(
-      render(
-        <Box
-          sx={{
-            bg: 'bahamaYellow',
-          }}
-        />,
-        { wrapper }
-      ).container.firstChild
-    ).toHaveStyleRule('background-color', 'rgba(255,231,157,1)');
+    const { firstChild } = render(
+      <Box
+        sx={{
+          bg: ['tangerine.175', 5],
+          color: ['tangerine.100', 'primary.100'],
+          borderColor: '#fab',
+
+          '&:hover': {
+            bg: 'primary.100',
+            color: [1, 2],
+          },
+        }}
+      />,
+      { wrapper }
+    ).container;
+    expect(firstChild).toMatchSnapshot();
+  });
+
+  it('Has "fontScale" prop', () => {
+    const container = render(<Box fontScale={2} />, { wrapper }).container.firstChild;
+    expect(container).toHaveStyleRule('font', `1.2rem / 1.6rem "Open Sans"`);
+  });
+
+  it('Overwrites fontScale', () => {
+    const container = render(<Box fontScale={5} fontSize="33px" />, { wrapper }).container
+      .firstChild;
+    expect(container).toHaveStyleRule('font-size', '33px');
+    expect(container).toHaveStyleRule('font', `1.8rem / 2.4rem "Open Sans"`);
+  });
+
+  it('Supports "fontScale" in "sx" prop', () => {
+    const { firstChild } = render(
+      <Box
+        sx={{
+          fontScale: [3, 2],
+        }}
+      />,
+      { wrapper }
+    ).container;
+    const { firstChild: firstChild2 } = render(
+      <Box
+        sx={{
+          fontScale: 3,
+        }}
+      />,
+      { wrapper }
+    ).container;
+
+    expect(firstChild).toMatchSnapshot();
+    expect(firstChild2).toHaveStyleRule('font', `1.4rem / 2.4rem "Open Sans"`);
+  });
+
+  it('Works with styled-components', () => {
+    const Button = (props: any) => (
+      <Box
+        sx={{
+          color: 'primary',
+          padding: '15px 30px',
+          opacity: 1,
+        }}
+        fontScale={5}
+        {...props}
+      />
+    );
+
+    const StyledButtonLink = styled(Button)`
+      padding-right: 45px;
+      z-index: 2;
+    `;
+    const ReflexButtonLink = (props: any) => (
+      <Button
+        css={`
+          padding-right: 60px;
+          margin: 5px;
+          z-index: 5;
+        `}
+        fontScale={6}
+        {...props}
+      />
+    );
+
+    expect(render(<StyledButtonLink />, { wrapper }).container).toMatchSnapshot();
+    expect(render(<StyledButtonLink margin="20px 0" />, { wrapper }).container).toMatchSnapshot();
+    expect(render(<ReflexButtonLink margin="20px 0" />, { wrapper }).container).toMatchSnapshot();
   });
 });

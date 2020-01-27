@@ -121,7 +121,7 @@ export const Select = ({
           ...(multi && {
             ':hover': {
               'div:first-child': {
-                borderColor: checked ? undefined : 'dark',
+                borderColor: checked ? undefined : '1',
               },
             },
           }),
@@ -134,8 +134,8 @@ export const Select = ({
               alignItems: 'center',
               borderRadius: 1,
               border: '1px solid',
-              borderColor: checked ? 'lightishBlue' : 'steel',
-              backgroundColor: checked ? 'lightishBlue' : 'white',
+              borderColor: checked ? 'secondary' : '2',
+              backgroundColor: checked ? 'secondary' : 'white',
               size: dense ? '1.5rem' : '2rem',
               flexShrink: 0,
               mr: 2,
@@ -209,13 +209,13 @@ export const Select = ({
                     borderBottomRightRadius: 0,
                   }),
                   ...(disabled && {
-                    color: 'dark',
+                    color: '1',
                   }),
                   ...(readOnly && {
                     '&:focus': {},
                   }),
                   '&:hover': {
-                    borderColor: isOpen ? undefined : [null, 'steel'],
+                    borderColor: isOpen ? undefined : [null, '2'],
                   },
                 }}
                 {...props}
@@ -226,7 +226,7 @@ export const Select = ({
               />
               <Icon
                 name="Chevron"
-                color="steel"
+                color="2"
                 width="1.2rem"
                 height="1.2rem"
                 direction={isOpen ? 'UP' : 'DOWN'}

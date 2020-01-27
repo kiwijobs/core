@@ -27,9 +27,9 @@ const variantColor = (alpha = 1) => ({ variant }: LoaderProps) => {
     case 'LIGHT':
       return rgba(alpha).white;
     case 'DARK':
-      return rgba(alpha).coolGrey;
+      return rgba(alpha).dark;
     default:
-      return rgba(alpha).periwinkleBlue;
+      return rgba(alpha).secondary;
   }
 };
 
