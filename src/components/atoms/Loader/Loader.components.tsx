@@ -52,6 +52,7 @@ export const LoaderDot: FC<LoaderProps> = styled(Box)`
 `;
 
 export const LoaderWrapper: FC<LoaderProps> = styled(Flex)`
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   ${withAbsolute};

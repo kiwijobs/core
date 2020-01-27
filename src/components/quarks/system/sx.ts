@@ -28,10 +28,15 @@ const parseSX = (obj: TSxObject, props: BoxProps) => {
     }
 
     if (key === 'fontScale') {
-      obj.font = transformWithArrayCheck(obj.fontScale, v =>
+      const { fontScale, fontWeight } = obj;
+
+      delete obj.fontWeight;
+      delete obj.fontScale;
+
+      obj.font = transformWithArrayCheck(fontScale, v =>
         transformFontScale(props)(v, props.theme?.fontScales)
       );
-      delete obj.fontScale;
+      obj.fontWeight = fontWeight;
     }
 
     if (colorKeys.includes(key)) {

@@ -1,13 +1,17 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import 'styled-components';
 import { theme } from './theme';
+
+export { keyframes };
 
 declare module 'styled-components' {
   type ITheme = typeof theme;
   export interface DefaultTheme extends ITheme {}
 }
 
-export const normalizeCSS = css`
+// Normalize CSS
+//#region
+const normalizeCSS = css`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   html {
     line-height: 1.15;
@@ -155,5 +159,28 @@ export const normalizeCSS = css`
   }
   [hidden] {
     display: none;
+  }
+`;
+//#endregion
+
+export const globalCSS = css`
+  ${normalizeCSS};
+
+  button {
+    cursor: pointer;
+    color: inherit;
+    background-color: transparent;
+    transition: all 150ms ease-in-out;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    position: relative;
+    padding: 0;
+
+    &::disabled {
+      pointer-events: none;
+    }
   }
 `;
