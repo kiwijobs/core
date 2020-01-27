@@ -1,42 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Flex, BoxProps } from '../../quarks';
+import { Paper } from '../Paper';
 import { Loader } from './Loader';
 
-const StoryBox: FC<BoxProps> = props => (
-  <Flex
-    width="90%"
-    height="10vh"
-    alignItems="center"
-    justifyContent="center"
-    margin="5vh auto"
-    sx={{
-      border: '1px solid #ddd',
-    }}
-    {...props}
-  />
-);
-
-storiesOf('Atoms|Loader', module)
-  .add('Default', () => (
-    <StoryBox>
-      <Loader variant="DEFAULT" />
-    </StoryBox>
-  ))
-  .add('Dark', () => (
-    <StoryBox>
-      <Loader variant="DARK" />
-    </StoryBox>
-  ))
-  .add('Light', () => (
-    <StoryBox backgroundColor="dark">
-      <Loader variant="LIGHT" />
-    </StoryBox>
-  ))
-  .add('Static position', () => (
-    <StoryBox flexDirection="column">
-      <Flex fontScale={3}>Some placeholder text</Flex>
-      <Loader absolute={false} variant="DARK" />
-      <Flex fontScale={3}>Body content</Flex>
-    </StoryBox>
-  ));
+storiesOf('Atoms|Loader', module).add('Many colors', () => (
+  <Paper p={0}>
+    <Loader p={4} />
+    <Loader p={4} color="primary" />
+    <Loader p={4} color="secondary" />
+    <Loader p={4} color="tangerine" />
+    <Loader p={4} color="pink" />
+    <Loader p={4} color="white" bg="1" />
+    <Loader p={4} color="primary.150" bg="1" />
+    <Loader p={4} color="secondary.150" bg="1" />
+    <Loader p={4} color="tangerine.150" bg="1" />
+    <Loader p={4} color="pink.150" bg="1" />
+  </Paper>
+));

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext, createContext } from 'react';
-import { BoxProps, Button } from '../../quarks';
+import { BoxProps, Box } from '../../quarks';
 
 export const SubNavContext = createContext((ref: any) => ref);
 export interface SubNavButton extends BoxProps {
@@ -16,7 +16,8 @@ export const SubNavButton = ({ isActive, sx, ...props }: SubNavButton) => {
   }, [ref, isActive]);
 
   return (
-    <Button
+    <Box
+      as={'button' as 'button'}
       ref={ref}
       sx={{
         color: isActive ? '1' : '2',
