@@ -10,9 +10,21 @@ storiesOf('Atoms|Button', module)
       <Button variant="Primary" disabled>
         Disabled
       </Button>
+      <Button variant="Primary" loading>
+        Zapisz
+      </Button>
+      <Button variant="Primary" disabled loading>
+        Disabled
+      </Button>
       <br />
       <Button variant="Secondary">Anuluj</Button>
       <Button variant="Secondary" disabled>
+        Disabled
+      </Button>
+      <Button variant="Secondary" loading>
+        Anuluj
+      </Button>
+      <Button variant="Secondary" loading disabled>
         Disabled
       </Button>
       <br />
@@ -20,7 +32,6 @@ storiesOf('Atoms|Button', module)
         sx={{
           fontScale: 1,
           bg: 'secondary',
-          minWidth: 'none',
           '&:hover': { bg: 'secondary.90' },
         }}
         variant="Primary"
@@ -31,7 +42,6 @@ storiesOf('Atoms|Button', module)
         sx={{
           fontScale: 1,
           bg: 'tangerine',
-          minWidth: 'none',
           '&:hover': { bg: 'tangerine.90' },
         }}
         variant="Primary"
@@ -42,7 +52,6 @@ storiesOf('Atoms|Button', module)
         sx={{
           fontScale: 1,
           bg: 'pink',
-          minWidth: 'none',
           '&:hover': { bg: 'pink.90' },
         }}
         variant="Primary"
@@ -53,10 +62,54 @@ storiesOf('Atoms|Button', module)
         sx={{
           fontScale: 1,
           bg: 'dark',
-          minWidth: 'none',
           '&:hover': { bg: 'dark.120' },
         }}
         variant="Primary"
+      >
+        Primary
+      </Button>
+      <br />
+      <Button
+        sx={{
+          fontScale: 1,
+          bg: 'secondary',
+          '&:hover': { bg: 'secondary.90' },
+        }}
+        variant="Primary"
+        loading
+      >
+        Primary
+      </Button>
+      <Button
+        sx={{
+          fontScale: 1,
+          bg: 'tangerine',
+          '&:hover': { bg: 'tangerine.90' },
+        }}
+        variant="Primary"
+        loading
+      >
+        Primary
+      </Button>
+      <Button
+        sx={{
+          fontScale: 1,
+          bg: 'pink',
+          '&:hover': { bg: 'pink.90' },
+        }}
+        variant="Primary"
+        loading
+      >
+        Primary
+      </Button>
+      <Button
+        sx={{
+          fontScale: 1,
+          bg: 'dark',
+          '&:hover': { bg: 'dark.120' },
+        }}
+        variant="Primary"
+        loading
       >
         Primary
       </Button>

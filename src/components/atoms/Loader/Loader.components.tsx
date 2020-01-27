@@ -1,8 +1,7 @@
-import { FC } from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { Box, Flex } from '../../quarks';
+import React, { RefForwardingComponent, forwardRef, FC } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Box } from '../../quarks';
 import { LoaderProps } from './Loader.types';
-import { rgba } from '../../../theme/colors';
 
 const bounce = keyframes`
   0%, 80%, 100% {
@@ -12,48 +11,43 @@ const bounce = keyframes`
   }
 `;
 
-const withAbsolute = ({ absolute }: LoaderProps) =>
-  absolute &&
-  css`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-  `;
-
-const variantColor = (alpha = 1) => ({ variant }: LoaderProps) => {
-  switch (variant) {
-    case 'LIGHT':
-      return rgba(alpha).white;
-    case 'DARK':
-      return rgba(alpha).dark;
-    default:
-      return rgba(alpha).secondary;
-  }
-};
-
-export const LoaderDot: FC<LoaderProps> = styled(Box)`
-  border-radius: 100%;
-  display: inline-block;
+export const LoaderDot: FC<LoaderProps> = styled(({ size, ...props }) => (
+  <Box
+    sx={{
+      borderRadius: '50%',
+      border: `calc(${size} / 2) solid`,
+      size,
+      display: 'inline-block',
+      mx: `calc(${size} / 4)`,
+    }}
+    {...props}
+  />
+))`
   animation: ${bounce} 1.4s infinite ease-in-out both;
-  margin: ${props => `0 calc(${props.size} / 4)`};
 
   &:nth-of-type(1) {
     animation-delay: -0.32s;
   }
   &:nth-of-type(2) {
     animation-delay: -0.16s;
-    background-color: ${variantColor(0.5)};
-  }
-  &:not(:nth-of-type(2)) {
-    background-color: ${variantColor(1)};
+    opacity: 0.5;
   }
 `;
 
-export const LoaderWrapper: FC<LoaderProps> = styled(Flex)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  ${withAbsolute};
-`;
+export const LoaderWrapper: RefForwardingComponent<HTMLDivElement, LoaderProps> = forwardRef(
+  ({ sx, size, ...props }, ref) => (
+    <Box
+      ref={ref}
+      sx={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 2,
+        top: `calc(50% - ${size} / 2)`,
+        left: `calc(50% - ${size} / 2)`,
+        ...sx,
+      }}
+      {...props}
+    />
+  )
+);

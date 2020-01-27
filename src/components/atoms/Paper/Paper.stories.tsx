@@ -51,7 +51,7 @@ storiesOf('Atoms|Paper', module)
           officia et porro aut. Et voluptatem rem enim perspiciatis sit deleniti debitis quia
           molestiae.
         </Paper>
-        <Paper sx={{ boxShadow: 0, border: '1px solid', borderColor: 'cloudyBlue' }}>
+        <Paper sx={{ boxShadow: 0, border: 1 }}>
           Id ut nesciunt et optio totam earum. Ipsum nisi eius inventore nemo excepturi iste qui.
           Exercitationem et non voluptatem officiis dolore. Provident et saepe aliquam quidem at
           nihil cupiditate. Et velit similique. Repellendus sit in consectetur architecto et sit.
