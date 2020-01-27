@@ -10,7 +10,12 @@ const validationSchema = yup.object().shape({
   lastname: yup.string().required(),
   age: yup.number(),
   active: yup.string(),
+  activeFilter: yup.string().required(),
   recruiters: yup
+    .array(yup.number())
+    .min(1)
+    .required(),
+    recruitersDense: yup
     .array(yup.number())
     .min(1)
     .required(),
@@ -29,6 +34,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           recruiters: [],
           recruitersDense: [],
           active: '',
+          activeWithFilter: '',
           notifications: '',
           about: '',
           phone: '',
@@ -51,7 +57,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 multi
                 placeholder="Wybierz rekrutera"
                 options={[
-                  { id: 1, name: 'Kendrick Daniel' },
+                  { id: 1, name: 'Kendrick Daniel Daniel Daniel Daniel' },
                   { id: 2, name: 'Clarabelle Boyle' },
                   { id: 3, name: 'Stephan Carroll' },
                   { id: 4, name: 'Hallie Gusikowski' },
@@ -77,12 +83,13 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
             <Col py={0} width={[1, 1 / 4]}>
               <FormikSelect
                 name="recruitersDense"
-                label="Rekruterzy - DENSE"
+                label="Rekruterzy - DENSE (z filtrowaniem)"
                 dense
                 multi
+                readOnly={false}
                 placeholder="Wybierz rekrutera"
                 options={[
-                  { id: 1, name: 'Kendrick Daniel' },
+                  { id: 1, name: 'Kendrick Daniel Daniel Daniel Daniel' },
                   { id: 2, name: 'Clarabelle Boyle' },
                   { id: 3, name: 'Stephan Carroll' },
                   { id: 4, name: 'Hallie Gusikowski' },
@@ -109,6 +116,17 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikSelect
                 name="active"
                 label="Aktywny"
+                options={[
+                  { id: 'active', name: 'Aktywny' },
+                  { id: 'inactive', name: 'Nieaktywny' },
+                ]}
+              />
+            </Col>
+            <Col py={0} width={[1, 1 / 4]}>
+              <FormikSelect
+                name="activeWithFilter"
+                label="Aktywny (z filtrowaniem)"
+                readOnly={false}
                 options={[
                   { id: 'active', name: 'Aktywny' },
                   { id: 'inactive', name: 'Nieaktywny' },
