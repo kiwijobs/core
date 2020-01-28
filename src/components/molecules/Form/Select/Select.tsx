@@ -148,7 +148,9 @@ export const Select = ({
         {renderOptionProp ? (
           renderOptionProp(option)
         ) : (
-          <Box sx={{ lineHeight: dense ? '1.5rem' : 'inherit' }}>{splitToBold(option.name, internalValue || '')}</Box>
+          <Box sx={{ lineHeight: dense ? '1.5rem' : 'inherit' }}>
+            {splitToBold(option.name, internalValue || '')}
+          </Box>
         )}
       </List.Item>
     );
@@ -203,7 +205,6 @@ export const Select = ({
               <Field
                 sx={{
                   textOverflow: 'ellipsis',
-                  userSelect: 'none',
                   paddingRight: '36px',
                   cursor: 'pointer',
                   ...(isOpen &&
@@ -219,6 +220,10 @@ export const Select = ({
                   }),
                   '&:hover': {
                     borderColor: isOpen ? undefined : [null, '2'],
+                  },
+                  '&::selection': {
+                    color: 'none',
+                    background: 'none',
                   },
                 }}
                 {...props}
