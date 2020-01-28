@@ -22,10 +22,9 @@ interface LayerProps extends Omit<RenderLayerProps, 'layerProps'> {
 export interface MenuProps extends Omit<ToggleLayerProps, 'children' | 'renderLayer'> {
   layer: (props: LayerProps) => React.ReactElement;
   trigger: ((props: TriggerProps) => React.ReactElement) | React.ReactElement;
-  closeOnClick?: boolean;
 }
 
-export const Menu = ({ trigger, layer, closeOnClick = true, placement, ...props }: MenuProps) => {
+export const Menu = ({ trigger, layer, placement, ...props }: MenuProps) => {
   const renderTrigger = (childrenProps: TriggerProps) => {
     if (isValidElement(trigger)) {
       return cloneElement(Children.only(trigger), {

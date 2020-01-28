@@ -70,11 +70,11 @@ storiesOf('Atoms|Menu', module)
           }
           layer={props => (
             <List {...props}>
-              <List.Item dense>Lista ofert</List.Item>
-              <List.Item dense>Lista spotkań</List.Item>
-              <List.Item dense>Dostęp</List.Item>
-              <List.Item dense>Profil</List.Item>
-              <List.Item dense>Rekruterzy</List.Item>
+              <List.Item>Lista ofert</List.Item>
+              <List.Item>Lista spotkań</List.Item>
+              <List.Item>Dostęp</List.Item>
+              <List.Item>Profil</List.Item>
+              <List.Item>Rekruterzy</List.Item>
             </List>
           )}
         />
@@ -106,11 +106,11 @@ storiesOf('Atoms|Menu', module)
           layer={props => (
             <>
               <List {...props}>
-                <List.Item dense>Lista ofert</List.Item>
-                <List.Item dense>Lista spotkań</List.Item>
-                <List.Item dense>Dostęp</List.Item>
-                <List.Item dense>Profil</List.Item>
-                <List.Item dense>Rekruterzy</List.Item>
+                <List.Item>Lista ofert</List.Item>
+                <List.Item>Lista spotkań</List.Item>
+                <List.Item>Dostęp</List.Item>
+                <List.Item>Profil</List.Item>
+                <List.Item>Rekruterzy</List.Item>
               </List>
               <Backdrop />
             </>
