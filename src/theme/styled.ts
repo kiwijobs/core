@@ -11,7 +11,7 @@ declare module 'styled-components' {
 
 // Normalize CSS
 //#region
-const normalizeCSS = css`
+export const normalizeCSS = css`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   html {
     line-height: 1.15;
@@ -165,6 +165,16 @@ const normalizeCSS = css`
 
 export const globalCSS = css`
   ${normalizeCSS};
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    font-family: 'Open Sans', sans-serif;
+  }
 
   button {
     cursor: pointer;
