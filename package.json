@@ -1,8 +1,8 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "license": "MIT",
-  "author": "Patryk Staniewski",
+  "author": "Patryk Staniewski, Michał Burzyński",
   "main": "dist/index.js",
   "module": "dist/pak.esm.js",
   "typings": "dist/index.d.ts",

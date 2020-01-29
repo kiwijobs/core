@@ -15,7 +15,7 @@ const validationSchema = yup.object().shape({
     .array(yup.number())
     .min(1)
     .required(),
-    recruitersDense: yup
+    recruitersFiltered: yup
     .array(yup.number())
     .min(1)
     .required(),
@@ -32,7 +32,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           lastname: '',
           age: '',
           recruiters: [],
-          recruitersDense: [],
+          recruitersFiltered: [],
           active: '',
           activeWithFilter: '',
           notifications: '',
@@ -82,9 +82,8 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
             </Col>
             <Col py={0} width={[1, 1 / 4]}>
               <FormikSelect
-                name="recruitersDense"
-                label="Rekruterzy - DENSE (z filtrowaniem)"
-                dense
+                name="recruitersFiltered"
+                label="Rekruterzy (z filtrowaniem)"
                 multi
                 readOnly={false}
                 placeholder="Wybierz rekrutera"

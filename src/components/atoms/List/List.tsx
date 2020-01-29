@@ -1,14 +1,10 @@
 import React, { forwardRef } from 'react';
 import { Box, Flex, BoxProps } from '../../quarks';
 
-interface ListItemProps extends BoxProps {
-  dense?: boolean;
-}
-
 type TList = React.ForwardRefExoticComponent<
   BoxProps<HTMLDivElement> & React.RefAttributes<HTMLDivElement>
 > & {
-  Item: (props: ListItemProps) => JSX.Element;
+  Item: (props: BoxProps) => JSX.Element;
 };
 
 export const List = forwardRef<HTMLDivElement, BoxProps>(({ sx, ...props }, ref) => (
@@ -33,7 +29,7 @@ export const List = forwardRef<HTMLDivElement, BoxProps>(({ sx, ...props }, ref)
   />
 )) as TList;
 
-List.Item = ({ sx, dense, ...props }: ListItemProps) => (
+List.Item = ({ sx, ...props }: BoxProps) => (
   <Flex
     as="li"
     sx={{
@@ -42,11 +38,7 @@ List.Item = ({ sx, dense, ...props }: ListItemProps) => (
       py: 2,
       px: 3,
       userSelect: 'none',
-
-      ...(dense && {
-        py: 1,
-        fontScale: 2,
-      }),
+      fontScale: 2,
 
       '&:hover': {
         bg: '5',

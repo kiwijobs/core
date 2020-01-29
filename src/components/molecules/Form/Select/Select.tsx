@@ -13,7 +13,6 @@ interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   menuProps?: Omit<MenuProps, 'layer' | 'trigger'>;
   listProps?: BoxProps;
   options: TSelectOption[];
-  dense?: boolean;
   multi?: boolean;
   withBackdrop?: boolean;
   readOnly?: boolean;
@@ -80,7 +79,6 @@ export const Select = ({
   error,
   label,
   options = [],
-  dense,
   onChange,
   withBackdrop,
   value,
@@ -116,7 +114,6 @@ export const Select = ({
       <List.Item
         key={option.id}
         onClick={handleClick(option.id)}
-        dense={dense}
         sx={{
           ...(multi && {
             ':hover': {
@@ -136,21 +133,18 @@ export const Select = ({
               border: '1px solid',
               borderColor: checked ? 'secondary' : '2',
               backgroundColor: checked ? 'secondary' : 'white',
-              size: dense ? '1.5rem' : '2rem',
+              size: '1.6rem',
               flexShrink: 0,
               mr: 2,
-              mt: dense ? 0 : '2px',
             }}
           >
-            <Icon name="Check" color="white" size={dense ? '0.9rem' : '1.3rem'} />
+            <Icon name="Check" color="white" size="1rem" />
           </Flex>
         )}
         {renderOptionProp ? (
           renderOptionProp(option)
         ) : (
-          <Box sx={{ lineHeight: dense ? '1.5rem' : 'inherit' }}>
-            {splitToBold(option.name, internalValue || '')}
-          </Box>
+          <Box>{splitToBold(option.name, internalValue || '')}</Box>
         )}
       </List.Item>
     );
@@ -183,10 +177,11 @@ export const Select = ({
           anchor: 'BOTTOM_LEFT',
           snapToAnchor: true,
           triggerOffset: 0,
+          autoAdjust: false,
         }}
-        closeOnClick={!multi}
+        closeOnDisappear={readOnly ? 'full' : undefined}
         {...menuProps}
-        trigger={({ triggerRef, toggle, isOpen, open }) => (
+        trigger={({ isOpen, open, toggle, triggerRef }) => (
           <FieldGroup error={error} label={label}>
             <Box
               ref={triggerRef}
