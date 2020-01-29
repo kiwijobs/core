@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Supports "loading" prop 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 2;
+  top: calc(50% - 0.714em / 2);
+  left: calc(50% - 0.714em / 2);
+}
+
+.c1 {
+  border-radius: 50%;
+  border: calc(0.714em / 2) solid;
+  width: 0.714em;
+  height: 0.714em;
+  display: inline-block;
+  margin-left: calc(0.714em / 4);
+  margin-right: calc(0.714em / 4);
+}
+
+.c2 {
+  -webkit-animation: ghjfcd 1.4s infinite ease-in-out both;
+  animation: ghjfcd 1.4s infinite ease-in-out both;
+}
+
+.c2:nth-of-type(1) {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.c2:nth-of-type(2) {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  opacity: 0.5;
+}
+
+<div>
+  <button
+    class=""
+    type="button"
+  >
+    <div
+      class="c0"
+    >
+      <div
+        class="c1 c2"
+      />
+      <div
+        class="c1 c2"
+      />
+      <div
+        class="c1 c2"
+      />
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Button Supports variants 1`] = `
+.c0 {
+  text-transform: uppercase;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-width: 14rem;
+  background-color: rgb(8,191,130);
+  color: rgb(255,255,255);
+  border-radius: 2rem;
+  font: 1.4rem / 2.4rem "Open Sans";
+  font-weight: bold;
+}
+
+.c0:hover {
+  background-color: rgb(7,171,117);
+}
+
+.c0:disabled {
+  background-color: rgb(228,230,237);
+  color: rgb(133,136,149);
+}
+
+<div>
+  <button
+    class="c0"
+    type="button"
+  />
+</div>
+`;
+
+exports[`Button Supports variants 2`] = `
+.c0 {
+  text-transform: uppercase;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-width: 14rem;
+  background-color: rgb(255,255,255);
+  color: rgb(133,136,149);
+  border-radius: 2rem;
+  font: 1.4rem / 2.4rem "Open Sans";
+  font-weight: bold;
+}
+
+.c0:hover {
+  color: rgb(39,50,55);
+}
+
+.c0:disabled {
+  color: rgb(204,206,220);
+}
+
+<div>
+  <button
+    class="c0"
+    type="button"
+  />
+</div>
+`;
+
+exports[`Button Supports variants 3`] = `
+.c0 {
+  display: inline-block;
+  color: rgb(133,136,149);
+  text-transform: uppercase;
+  font: 1.2rem / 1.6rem "Open Sans";
+}
+
+.c0:hover {
+  color: rgb(39,50,55);
+}
+
+.c0:disabled {
+  color: rgb(204,206,220);
+}
+
+<div>
+  <button
+    class="c0"
+    type="button"
+  />
+</div>
+`;
+
+exports[`Button Supports variants 4`] = `
+.c0 {
+  display: inline;
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c0:disabled {
+  color: rgb(204,206,220);
+  pointer-events: none;
+}
+
+<div>
+  <button
+    class="c0"
+    type="button"
+  />
+</div>
+`;
