@@ -188,9 +188,8 @@ export const globalCSS = css`
     border: none;
     position: relative;
     padding: 0;
-
-    &::disabled {
-      pointer-events: none;
-    }
+  }
+  button:disabled {
+    pointer-events: none;
   }
 `;
