@@ -219,4 +219,10 @@ storiesOf('Atoms|Icons', module)
         name="Bell"
       />
     </>
+  ))
+  .add('Remove', () => (
+    <>
+      <SIcon name="Remove" />
+      <SIcon sx={{ border: 1, borderRadius: 1, p: 1 }} name="Remove" />
+    </>
   ));
