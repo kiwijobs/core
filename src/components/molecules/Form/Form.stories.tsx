@@ -136,6 +136,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikSelect
                 name="notifications"
                 label="Powiadomienia"
+                data-test="notifications-select"
                 options={[
                   {
                     id: 'on',
