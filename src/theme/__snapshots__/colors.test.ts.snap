@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`colors Has defined "rbg" colors 1`] = `
+Object {
+  "dark": "rgb(40, 50, 56)",
+  "pink": "rgb(245, 0, 87)",
+  "primary": "rgb(8, 191, 130)",
+  "secondary": "rgb(83, 109, 254)",
+  "tangerine": "rgb(255, 151, 23)",
+  "white": "rgb(255,255,255)",
+}
+`;
+
+exports[`colors Has defined colors for "styled-system" 1`] = `
+Array [
+  "inherit",
+  "rgb(39,50,55)",
+  "rgb(133,136,149)",
+  "rgb(204,206,220)",
+  "rgb(228,230,237)",
+  "rgb(248,249,253)",
+]
+`;

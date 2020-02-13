@@ -1,6 +1,6 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "license": "MIT",
   "author": "Patryk Staniewski, Michał Burzyński",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
     "build": "tsdx build",
     "test": "tsdx test --env=jsdom",
     "lint": "tsdx lint",
-    "prepare": "npm run build",
+    "prepare": "npm run build && npm run test",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },

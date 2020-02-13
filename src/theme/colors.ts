@@ -28,7 +28,7 @@ export const rgba = (alpha = 1) =>
   Object.entries(rgb).reduce(
     (acc, [key, value]) => ({
       ...acc,
-      [key]: value.replace(')', `,${alpha})`),
+      [key]: value.replace(')', `, ${alpha})`).replace(/rgb/, 'rgba'),
     }),
     {} as typeof rgb
   );
