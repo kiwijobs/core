@@ -20,7 +20,7 @@ interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   placeholder?: string;
   onChange(value: TSelectValue | TSelectValue[]): void;
   value: TSelectValue | TSelectValue[];
-  'data-test'?: string;
+  'data-testid'?: string;
   renderOption?: (option: TSelectOption) => JSX.Element;
 }
 
@@ -85,7 +85,7 @@ export const Select = ({
   value,
   readOnly = true,
   disabled,
-  'data-test': dataTest,
+  'data-testid': dataTestId,
   renderOption: renderOptionProp,
   ...props
 }: SelectProps) => {
@@ -223,7 +223,7 @@ export const Select = ({
                     background: 'none',
                   },
                 }}
-                data-test={dataTest ? `${dataTest}-trigger` : undefined}
+                data-testid={dataTestId ? `${dataTestId}-trigger` : undefined}
                 {...props}
                 disabled={disabled}
                 readOnly={readOnly}
@@ -262,7 +262,7 @@ export const Select = ({
                   borderTopRightRadius: 0,
                 }}
                 onClick={multi ? undefined : close}
-                data-test={dataTest ? `${dataTest}-layer` : undefined}
+                data-testid={dataTestId ? `${dataTestId}-layer` : undefined}
                 {...props}
               >
                 <List>{parsedOptions}</List>
