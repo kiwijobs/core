@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { flatten, xor, find, get, defer } from 'lodash';
+import { flatten, xor, find, get } from 'lodash';
 import { useFormikContext, getIn } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
 import { Field, List, Menu, MenuProps, Paper, Backdrop } from '../../../atoms';
@@ -227,6 +227,7 @@ export const Select = ({
                 {...props}
                 disabled={disabled}
                 readOnly={readOnly}
+                error={!!error}
                 value={searchFocused ? internalValue : getValue(value, options)}
                 {...searchProps}
               />
@@ -261,7 +262,7 @@ export const Select = ({
                   borderTopLeftRadius: 0,
                   borderTopRightRadius: 0,
                 }}
-                onClick={multi ? undefined : () => defer(close)}
+                onClick={multi ? undefined : close}
                 data-testid={dataTestId ? `${dataTestId}-layer` : undefined}
                 {...props}
               >

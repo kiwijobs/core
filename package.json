@@ -1,6 +1,6 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "license": "MIT",
   "author": "Patryk Staniewski, Michał Burzyński",
   "main": "dist/index.js",
