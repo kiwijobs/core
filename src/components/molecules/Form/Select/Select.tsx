@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { flatten, xor, find, get } from 'lodash';
 import { useFormikContext, getIn } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
@@ -204,11 +204,10 @@ export const Select = ({
                   textOverflow: 'ellipsis',
                   paddingRight: '36px',
                   cursor: 'pointer',
-                  ...(isOpen &&
-                    isListNotEmpty && {
-                      borderBottomLeftRadius: 0,
-                      borderBottomRightRadius: 0,
-                    }),
+                  ...(isOpen && {
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
+                  }),
                   ...(disabled && {
                     color: '1',
                   }),
@@ -249,31 +248,41 @@ export const Select = ({
             </Box>
           </FieldGroup>
         )}
-        layer={({ sx, close, isOpen, ...props }) =>
-          isListNotEmpty ? (
-            <>
-              <Paper
-                sx={{
-                  ...sx,
-                  maxHeight: '18.8rem',
-                  overflowY: 'auto',
-                  padding: 0,
-                  borderTop: 0,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 0,
-                }}
-                onClick={multi ? undefined : close}
-                data-testid={dataTestId ? `${dataTestId}-layer` : undefined}
-                {...props}
-              >
+        layer={({ sx, close, isOpen, ...props }) => (
+          <>
+            <Paper
+              sx={{
+                ...sx,
+                minHeight: '9rem',
+                maxHeight: '18.8rem',
+                overflowY: 'auto',
+                display: 'flex',
+                padding: 0,
+                borderTop: 0,
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+              }}
+              onClick={multi ? undefined : close}
+              data-testid={dataTestId ? `${dataTestId}-layer` : undefined}
+              {...props}
+            >
+              {isListNotEmpty ? (
                 <List>{parsedOptions}</List>
-              </Paper>
-              {isOpen && withBackdrop && <Backdrop />}
-            </>
-          ) : (
-            <Fragment />
-          )
-        }
+              ) : (
+                <Flex
+                  sx={{
+                    flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  Brak wyników
+                </Flex>
+              )}
+            </Paper>
+            {isOpen && withBackdrop && <Backdrop />}
+          </>
+        )}
       />
     </Box>
   );
