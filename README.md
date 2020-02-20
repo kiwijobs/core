@@ -34,6 +34,10 @@ Helpful Links:
 
 ### **Colors**
 
+![Image description](./README_assets/colors.png)
+
+_From left to right: 1, 2, 3, 4, 5, primary, tangerine, pink, secondary_
+
 There is a handful of utititiles for using colors from our `theme`.
 
 There is a set of basic colors that are used for texts and backgrounds. They are defined in an array of `strings`.

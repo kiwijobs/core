@@ -2,7 +2,7 @@ import React, { cloneElement, Children, isValidElement } from 'react';
 import { ToggleLayer, Transition, RenderLayerProps, LayerSide } from 'react-laag';
 import { Props as ToggleLayerProps } from 'react-laag/dist/ToggleLayer/ToggleLayer';
 import ResizeObserver from 'resize-observer-polyfill';
-import { SystemStyleObject } from '@styled-system/css';
+import { SXProp } from '../../quarks';
 
 interface TriggerProps {
   isOpen: boolean;
@@ -15,7 +15,7 @@ interface TriggerProps {
 
 interface LayerProps extends Omit<RenderLayerProps, 'layerProps'> {
   onTransitionEnd(): void;
-  sx: SystemStyleObject;
+  sx: SXProp;
   ref: React.Ref<any>;
 }
 
