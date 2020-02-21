@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logotype Matches snapshot 1`] = `
+.c0 {
+  border-radius: 0.3rem;
+  border: 1px solid rgb(228,230,237);
+  padding: 4px;
+  width: 48px;
+  height: 48px;
+  background-color: rgb(255,255,255);
+  object-fit: contain;
+}
+
+<div>
+  <img
+    class="c0"
+    src="/img.jpg"
+  />
+</div>
+`;
+
+exports[`Logotype Matches snapshot 2`] = `
+.c0 {
+  border-radius: 0.3rem;
+  border: 1px solid rgb(228,230,237);
+  padding: 4px;
+  width: 48px;
+  height: 48px;
+  background-color: rgb(255,255,255);
+  object-fit: contain;
+  width: 32px;
+  height: 32px;
+}
+
+<div>
+  <img
+    class="c0"
+    src="/img.jpg"
+  />
+</div>
+`;
+
+exports[`Logotype Matches snapshot 3`] = `
+.c0 {
+  border-radius: 0.3rem;
+  border: 1px solid rgb(228,230,237);
+  padding: 4px;
+  width: 48px;
+  height: 48px;
+  background-color: rgb(255,255,255);
+  object-fit: contain;
+  width: 60px;
+  height: 60px;
+}
+
+<div>
+  <img
+    class="c0"
+    size="60"
+    src="/img.jpg"
+  />
+</div>
+`;
