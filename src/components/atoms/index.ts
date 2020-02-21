@@ -1,5 +1,6 @@
-export * from './Badge';
+export * from './Avatar';
 export * from './Backdrop';
+export * from './Badge';
 export * from './Button';
 export * from './Carousel';
 export * from './Form';
@@ -7,5 +8,6 @@ export * from './Grid';
 export * from './Icon';
 export * from './List';
 export * from './Loader';
+export * from './Logotype';
 export * from './Menu';
 export * from './Paper';

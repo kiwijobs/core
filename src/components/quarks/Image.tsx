@@ -4,7 +4,7 @@ import { system } from 'styled-system';
 import { Box, BoxProps } from './Reflexbox';
 import { FC } from 'react';
 
-interface ImageProps extends BoxProps {
+export interface ImageProps extends BoxProps<HTMLImageElement> {
   objectFit?: ObjectFitProperty;
   objectPosition?: ObjectPositionProperty<string>;
 }
