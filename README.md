@@ -14,7 +14,7 @@ Reading list:
 
 1. Add .npmrc into your repository and paste in this file `registry=https://npm.pkg.github.com`
 2. You need to create [Github Access Token](https://github.com/settings/tokens) with correct permissions: `repo`, `write:packages` and `read:packages` (first 3 checkboxes) - copy the generated token
-3. In the repository where you want to use Kiwi Kit you need to do login to npm. To do so type: `npm login --registry=https://npm.pkg.github.com/kiwijobs`.
+3. In the repository where you want to use Kiwi Kit you need to do login to npm. To do so type: `npm login --registry=https://npm.pkg.github.com`.
 4. Then it will ask for:
 
 - Username: _github username_
