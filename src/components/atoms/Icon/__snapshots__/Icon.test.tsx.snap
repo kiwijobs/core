@@ -1,5 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Icon Accepts "sx" prop 1`] = `
+.c0 {
+  width: 1rem;
+  height: 1rem;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+<div>
+  <svg
+    class="c0"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      fill="currentColor"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icon Accepts "sx" prop 2`] = `
+.c0 {
+  width: 2.4rem;
+  height: 2.4rem;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+
+.c0:hover {
+  color: rgb(39,50,55);
+}
+
+@media screen and (min-width:576px) {
+  .c0:hover {
+    color: rgb(133,136,149);
+  }
+}
+
+<div>
+  <svg
+    class="c0"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      fill="currentColor"
+    />
+  </svg>
+</div>
+`;
+
 exports[`Icon Renders icon by name 1`] = `
 <div>
   <svg>

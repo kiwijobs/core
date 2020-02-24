@@ -8,8 +8,8 @@ export interface ButtonProps extends BoxProps<HTMLButtonElement> {
   loading?: boolean;
 }
 
-export const Button = forwardRef(
-  ({ sx, variant, children, loading = false, ...props }: ButtonProps, ref) => (
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ sx, variant, children, loading = false, ...props }, ref) => (
     <Box
       sx={{
         ...(variant && variants[variant]),

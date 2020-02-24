@@ -126,4 +126,12 @@ describe('Reflexbox', () => {
     expect(render(<StyledButtonLink margin="20px 0" />, { wrapper }).container).toMatchSnapshot();
     expect(render(<ReflexButtonLink margin="20px 0" />, { wrapper }).container).toMatchSnapshot();
   });
+
+  it('Accepts "as" prop', () => {
+    expect(
+      render(<Box as="input" value="12" onChange={jest.fn()} placeholder="Input placeholder" />, {
+        wrapper,
+      }).container
+    ).toMatchSnapshot();
+  });
 });

@@ -1,3 +1,4 @@
+import { ElementType } from 'react';
 import styled from 'styled-components';
 import {
   compose,
@@ -12,7 +13,7 @@ import {
   FlexboxProps,
   PositionProps,
 } from 'styled-system';
-import { SystemStyleObject } from '@styled-system/css';
+import { SystemStyleObject, ResponsiveStyleValue } from '@styled-system/css';
 import { theme } from '../../theme';
 import { color, ISystemColor } from './system/colors';
 import { sx } from './system/sx';
@@ -24,16 +25,27 @@ export interface BaseBoxProps
     TypographyProps,
     FlexboxProps,
     PositionProps,
-    ISystemColor {}
+    ISystemColor {
+  as?: ElementType;
+}
 
-export type SXProp = SystemStyleObject | ISystemColor | { fontScale: number | number[] };
+export type SXProp =
+  | SystemStyleObject
+  | Record<
+      string,
+      | { fontScale: number | number[] }
+      | ISystemColor
+      | SystemStyleObject
+      | ResponsiveStyleValue<number | string>
+      | Record<string, SystemStyleObject | ResponsiveStyleValue<number | string>>
+    >;
+
 export declare interface BoxProps<T = HTMLDivElement>
   extends BaseBoxProps,
     Omit<
       React.HTMLProps<T>,
       keyof BaseBoxProps | 'ref' | 'label' | 'value' | 'maxLength' | 'color'
     > {
-  as?: any;
   sx?: SXProp;
   css?: string;
   theme?: typeof theme;
