@@ -61,4 +61,15 @@ describe('Icon', () => {
     ).toBeNull();
     expect(console.warn).toBeCalledTimes(1);
   });
+
+  it('Accepts "sx" prop', () => {
+    expect(
+      render(<Icon sx={{ size: '1rem' }} name="Add" />, { wrapper }).container
+    ).toMatchSnapshot();
+    expect(
+      render(<Icon sx={{ ml: 2, '&:hover': { color: [1, 2] } }} name="Add" />, {
+        wrapper,
+      }).container
+    ).toMatchSnapshot();
+  });
 });

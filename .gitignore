@@ -3,6 +3,7 @@ dist
 .rts2_cache_cjs
 .rts2_cache_esm
 coverage
+.vscode
 
 
 # OS Specific

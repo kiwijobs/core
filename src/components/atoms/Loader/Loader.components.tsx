@@ -1,4 +1,4 @@
-import React, { RefForwardingComponent, forwardRef, FC } from 'react';
+import React, { forwardRef, FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Box } from '../../quarks';
 import { LoaderProps } from './Loader.types';
@@ -34,7 +34,7 @@ export const LoaderDot: FC<LoaderProps> = styled(({ size, ...props }) => (
   }
 `;
 
-export const LoaderWrapper: RefForwardingComponent<HTMLDivElement, LoaderProps> = forwardRef(
+export const LoaderWrapper = forwardRef<HTMLDivElement, LoaderProps>(
   ({ sx, size, ...props }, ref) => (
     <Box
       ref={ref}
