@@ -296,5 +296,5 @@ export const FormikSelect = ({ name = '', ...props }: Omit<SelectProps, 'onChang
 
   const handleChange = (arg: TSelectValue) => setFieldValue(name, arg);
 
-  return <Select onChange={handleChange} value={value} error={error} {...props} />;
+  return <Select onChange={handleChange} value={value} error={error} name={name} {...props} />;
 };
