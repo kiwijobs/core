@@ -11,3 +11,4 @@ export * from './Loader';
 export * from './Logotype';
 export * from './Menu';
 export * from './Paper';
+export * from './Tip';
