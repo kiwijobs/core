@@ -1,5 +1,6 @@
 import React, { FC, ReactNode, memo } from 'react';
-import { Flex, BoxProps, Button } from '../../';
+import { Flex, BoxProps } from '../../quarks';
+import { Button } from '../../atoms';
 
 export const ButtonTupple: FC<IButtonTuppleProps> = memo(
   ({ buttons, active = 0, onChange, sx, ...props }) => (
