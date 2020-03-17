@@ -18,6 +18,7 @@ import { theme } from '../../theme';
 import { color, ISystemColor } from './system/colors';
 import { sx } from './system/sx';
 import { fontScale } from './system/fontScale';
+import { ellipsis } from './system/ellipsis';
 
 export interface BaseBoxProps
   extends SpaceProps,
@@ -34,6 +35,7 @@ export type SXProp =
   | Record<
       string,
       | { fontScale: number | number[] }
+      | { ellipsis: number | number[] }
       | ISystemColor
       | SystemStyleObject
       | ResponsiveStyleValue<number | string>
@@ -58,6 +60,7 @@ export const Box = styled('div')<BoxProps>(
   sx,
   cssProp,
   fontScale,
+  ellipsis,
   compose(space, layout, typography, color, flexbox, position)
 );
 
