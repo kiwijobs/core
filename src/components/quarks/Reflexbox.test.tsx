@@ -134,4 +134,59 @@ describe('Reflexbox', () => {
       }).container
     ).toMatchSnapshot();
   });
+
+  it('Supports "ellipsis" in "sx" prop', () => {
+    const { firstChild } = render(
+      <Box
+        sx={{
+          ellipsis: [3, 2],
+        }}
+      />,
+      { wrapper }
+    ).container;
+    const { firstChild: firstChild2 } = render(
+      <Box
+        sx={{
+          ellipsis: 1,
+        }}
+      />,
+      { wrapper }
+    ).container;
+
+    expect(firstChild).toMatchSnapshot();
+    expect(firstChild2).toHaveStyleRule('-webkit-line-clamp', '1');
+    expect(firstChild2).toHaveStyleRule('display', '-webkit-box');
+    expect(firstChild2).toHaveStyleRule('overflow', 'hidden');
+    expect(firstChild2).toHaveStyleRule('-webkit-box-orient', 'vertical');
+  });
+  it('Supports null values in "ellipsis" array', () => {
+    const { firstChild } = render(
+      <Box
+        sx={{
+          ellipsis: [null, 3, 2],
+        }}
+      />,
+      { wrapper }
+    ).container;
+    const { firstChild: firstChild2 } = render(
+      <Box
+        sx={{
+          ellipsis: [2, null, 4],
+        }}
+      />,
+      { wrapper }
+    ).container;
+    const { firstChild: firstChild3 } = render(
+      <Box
+        sx={{
+          ellipsis: [2, 3, null],
+        }}
+      />,
+      { wrapper }
+    ).container;
+
+    expect(firstChild).toMatchSnapshot();
+    expect(firstChild2).toMatchSnapshot();
+    expect(firstChild3).toMatchSnapshot();
+  });
 });

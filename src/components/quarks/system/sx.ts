@@ -3,6 +3,7 @@ import css, { SystemStyleObject } from '@styled-system/css';
 import { BoxProps } from '../Reflexbox';
 import { colorKeys, transform as transformColor } from './colors';
 import { transformFontScale } from './fontScale';
+import { transformEllipsis } from './ellipsis';
 
 type TValue = number | string;
 type TSxObject = {
@@ -37,6 +38,20 @@ const parseSX = (obj: TSxObject, props: BoxProps) => {
         transformFontScale(props)(v, props.theme?.fontScales)
       );
       obj.fontWeight = fontWeight;
+    }
+
+    if (key === 'ellipsis') {
+      const { ellipsis } = obj;
+
+      delete obj.ellipsis;
+
+      obj.overflow = 'hidden';
+      obj.display = '-webkit-box';
+      obj['-webkit-box-orient'] = 'vertical';
+
+      obj['-webkit-line-clamp'] = transformWithArrayCheck(ellipsis, v =>
+        transformEllipsis(props)(v)
+      );
     }
 
     if (colorKeys.includes(key)) {
