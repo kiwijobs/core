@@ -217,6 +217,11 @@ export const Select = ({
                   '&:hover': {
                     borderColor: isOpen ? undefined : [null, '2'],
                   },
+                  ...(error && {
+                    '&:hover': {
+                      borderColor: 'pink',
+                    },
+                  }),
                   '&::selection': {
                     color: 'none',
                     background: 'none',
