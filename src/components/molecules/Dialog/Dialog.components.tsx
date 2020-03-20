@@ -30,6 +30,7 @@ export const DialogClose: FC<BoxProps<HTMLButtonElement>> = ({ sx, ...props }) =
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      zIndex: 2,
 
       '&:hover': { bg: 5 },
       ...sx,
@@ -101,20 +102,17 @@ export const DialogCancel: FC<BoxProps<HTMLButtonElement>> = ({ sx, ...props }) 
   <Button sx={{ mx: 'auto', ...sx }} variant="Secondary" {...props} />
 );
 
-export const DialogPaper: FC<IDialogPaperProps> = ({ sx, fullScreen, ...props }) => (
+export const DialogPaper: FC<IDialogWithFullScreenProps> = ({ sx, fullScreen, ...props }) => (
   <Paper
     sx={{
       p: 0,
       zIndex: 1,
-      top: [fullScreen ? 0 : '10vh', '10vh'],
       maxHeight: [fullScreen ? 'none' : '80vh', '80vh'],
       height: [fullScreen ? '100%' : 'initial', 'initial'],
-      left: [fullScreen ? 0 : 8, 8],
-      right: [fullScreen ? 0 : 8, 8],
       borderRadius: [fullScreen ? 0 : 1, 1],
-      m: 'auto',
-      maxWidth: '43rem',
-      position: 'absolute',
+      width: '100%',
+      maxWidth: ['none', '43rem'],
+      position: 'relative',
       display: 'flex',
       flexDirection: 'column',
       ...sx,
@@ -123,6 +121,24 @@ export const DialogPaper: FC<IDialogPaperProps> = ({ sx, fullScreen, ...props })
   />
 );
 
-interface IDialogPaperProps extends BoxProps {
+export const DialogOuter: FC<IDialogWithFullScreenProps> = ({ sx, fullScreen, ...props }) => (
+  <Box
+    sx={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      pt: [0, '10vh'],
+      px: [fullScreen ? 0 : 2, 2],
+      display: 'flex',
+      alignItems: ['center', 'flex-start'],
+      justifyContent: 'center',
+      ...sx,
+    }}
+    {...props}
+  />
+);
+interface IDialogWithFullScreenProps extends BoxProps {
   fullScreen: boolean;
 }

@@ -12,6 +12,7 @@ import {
   DialogTitle,
   DialogSubtitle,
   DialogClose,
+  DialogOuter,
 } from './Dialog.components';
 
 export const Dialog: TDialog = ({ sx, onClose, content, children, ...props }) => {
@@ -25,7 +26,7 @@ export const Dialog: TDialog = ({ sx, onClose, content, children, ...props }) =>
   }, []);
 
   return createPortal(
-    <>
+    <DialogOuter fullScreen={!content}>
       <Backdrop onClick={onClose} />
       <DialogPaper fullScreen={!content} {...props}>
         <DialogClose onClick={onClose} />
@@ -55,7 +56,7 @@ export const Dialog: TDialog = ({ sx, onClose, content, children, ...props }) =>
           children
         )}
       </DialogPaper>
-    </>,
+    </DialogOuter>,
     ref.current
   );
 };
