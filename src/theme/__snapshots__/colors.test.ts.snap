@@ -2,11 +2,11 @@
 
 exports[`colors Has defined "rbg" colors 1`] = `
 Object {
-  "dark": "rgb(40, 50, 56)",
-  "pink": "rgb(245, 0, 87)",
+  "danger": "rgb(245, 0, 87)",
+  "dark": "rgb(0, 0, 0)",
   "primary": "rgb(8, 191, 130)",
   "secondary": "rgb(83, 109, 254)",
-  "tangerine": "rgb(255, 151, 23)",
+  "warning": "rgb(255, 151, 23)",
   "white": "rgb(255,255,255)",
 }
 `;
