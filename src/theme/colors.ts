@@ -3,10 +3,10 @@ import { IThemeValue } from '../theme';
 export enum rgb {
   primary = 'rgb(8, 191, 130)',
   secondary = 'rgb(83, 109, 254)',
-  tangerine = 'rgb(255, 151, 23)',
-  pink = 'rgb(245, 0, 87)',
+  warning = 'rgb(255, 151, 23)',
+  danger = 'rgb(245, 0, 87)',
   white = 'rgb(255,255,255)',
-  dark = 'rgb(40, 50, 56)',
+  dark = 'rgb(0, 0, 0)',
 }
 
 export const colors: IThemeValue = [
@@ -21,8 +21,12 @@ colors.dark = rgb.dark;
 colors.white = rgb.white;
 colors.primary = rgb.primary;
 colors.secondary = rgb.secondary;
-colors.tangerine = rgb.tangerine;
-colors.pink = rgb.pink;
+colors.warning = rgb.warning;
+colors.danger = rgb.danger;
+
+// @DEPRECATED
+colors.tangerine = rgb.warning;
+colors.pink = rgb.danger;
 
 export const rgba = (alpha = 1) =>
   Object.entries(rgb).reduce(

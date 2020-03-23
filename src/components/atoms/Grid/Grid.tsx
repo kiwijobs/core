@@ -31,7 +31,8 @@ export const Container: FC<GridProps> = forwardRef(({ gutter = DEFAULT_GUTTER, .
         ref={ref}
         width="100%"
         maxWidth={`calc(1200px + ${value}px)`}
-        padding={`${value}px`}
+        py={`${value}px`}
+        px={4}
         marginX="auto"
         {...props}
       />

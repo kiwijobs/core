@@ -1,4 +1,4 @@
-import { colors } from './colors';
+import { colors, rgba } from './colors';
 import { breakpoints } from './breakpoints';
 
 export interface IThemeValue extends Array<string> {
@@ -7,12 +7,18 @@ export interface IThemeValue extends Array<string> {
 
 const shadows: Array<string> & {
   [key: string]: any;
-} = ['none', '0 5px 10px 0 rgba(140, 158, 255, 0.1)', '0 2px 4px 0 #bbbdca'];
+} = [
+  'none',
+  `0 2px 8px 0 ${rgba(0.1).dark}`,
+  `0 2px 8px 0 ${rgba(0.2).dark}`,
+  `0 2px 8px 0 ${rgba(0.3).dark}`,
+  `0 5px 10px 0 ${rgba(0.1).dark}`,
+];
 shadows.bold = '0.5px 0 0 currentColor';
 
 export const theme = {
   breakpoints,
-  space: [0, 4, 8, 16, 24, 32, 40],
+  space: [0, 4, 8, 16, 24, 32, 40, 48, 56, 64],
   colors,
   fonts: [`"Open Sans"`],
   fontScales: [
@@ -26,7 +32,7 @@ export const theme = {
     { fontSize: '2.4rem', lineHeight: '4rem' },
   ],
   borders: ['none', `1px solid ${colors[4]};`],
-  radii: ['0', '0.3rem'],
+  radii: ['0', '4px', '6px'],
   shadows,
   variants: {},
 };
