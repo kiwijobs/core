@@ -11,7 +11,8 @@ describe('colors', () => {
 
   it('Has working "rgba" function', () => {
     expect(typeof c.rgba).toBe('function');
-    expect(c.rgba(0.4).dark).toEqual('rgba(40, 50, 56, 0.4)');
+    expect(c.rgba(0.4).dark).toEqual('rgba(0, 0, 0, 0.4)');
     expect(c.rgba().primary).toEqual('rgba(8, 191, 130, 1)');
   });
 });
+

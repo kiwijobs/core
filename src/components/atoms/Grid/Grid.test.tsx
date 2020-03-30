@@ -10,7 +10,10 @@ describe('Grid components', () => {
     expect(container).toHaveStyleRule('width', '100%');
     expect(container).toHaveStyleRule('margin-left', 'auto');
     expect(container).toHaveStyleRule('margin-right', 'auto');
-    expect(container).toHaveStyleRule('padding', '16px');
+    expect(container).toHaveStyleRule('padding-top', '16px');
+    expect(container).toHaveStyleRule('padding-bottom', '16px');
+    expect(container).toHaveStyleRule('padding-left', '8px');
+    expect(container).toHaveStyleRule('padding-right', '8px');
   });
 
   it('Row has correct styles', () => {

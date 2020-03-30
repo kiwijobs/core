@@ -12,7 +12,7 @@ describe('Reflexbox', () => {
     );
     expect(render(<Box color="dark" />, { wrapper }).container.firstChild).toHaveStyleRule(
       'color',
-      'rgb(40,50,56)'
+      'rgb(0,0,0)'
     );
     expect(render(<Box color="1" />, { wrapper }).container.firstChild).toHaveStyleRule(
       'color',
