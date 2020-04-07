@@ -1,4 +1,4 @@
-import { SXProp } from '../../quarks';
+import { SXProp } from '../../components/quarks';
 
 export const Primary: Partial<SXProp> = {
   fontScale: 3,

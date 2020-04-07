@@ -1,5 +1,6 @@
 import { colors, rgba } from './colors';
 import { breakpoints } from './breakpoints';
+import * as buttons from './variants/Buttons.variants';
 
 export interface IThemeValue extends Array<string> {
   [key: string]: any;
@@ -35,4 +36,5 @@ export const theme = {
   radii: ['0', '4px', '6px'],
   shadows,
   variants: {},
+  buttons,
 };

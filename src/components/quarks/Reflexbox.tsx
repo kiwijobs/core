@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import styled from 'styled-components';
 import {
   compose,
@@ -19,6 +19,7 @@ import { color, ISystemColor } from './system/colors';
 import { sx } from './system/sx';
 import { fontScale } from './system/fontScale';
 import { ellipsis } from './system/ellipsis';
+import { variant } from './system/variant';
 
 export interface BaseBoxProps
   extends SpaceProps,
@@ -50,6 +51,8 @@ export declare interface BoxProps<T = HTMLDivElement>
     > {
   sx?: SXProp;
   css?: string;
+  tx?: string;
+  variant?: string | string[];
   theme?: typeof theme;
   fontScale?: number | number[];
   ref?: any;
@@ -57,6 +60,7 @@ export declare interface BoxProps<T = HTMLDivElement>
 
 const cssProp = (props: BoxProps) => props.css;
 export const Box = styled('div')<BoxProps>(
+  variant,
   sx,
   cssProp,
   fontScale,
@@ -64,6 +68,6 @@ export const Box = styled('div')<BoxProps>(
   compose(space, layout, typography, color, flexbox, position)
 );
 
-export const Flex = styled(Box)`
-  display: flex;
-`;
+export const Flex = forwardRef<HTMLDivElement, BoxProps>(({ sx, ...props }, ref) => (
+  <Box ref={ref} sx={{ display: 'flex', ...sx }} {...props} />
+));
