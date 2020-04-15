@@ -1,25 +1,25 @@
 import React from 'react';
 import { useWindowSize } from 'react-use';
-import { Box, BoxProps } from '../../quarks';
-import { Carousel } from '../../atoms';
+import { BoxProps } from '../../quarks';
+import { Carousel, Container } from '../../atoms';
 import { SubNavButton } from './SubNav.components';
 
 export const SubNav = ({ sx, children, ...props }: BoxProps) => {
   useWindowSize();
 
   return (
-    <Box
+    <Container
       as="nav"
       sx={{
         width: '100%',
-        px: 2,
         bg: 'white',
         ...sx,
       }}
+      py={0}
       {...props}
     >
       <Carousel>{children}</Carousel>
-    </Box>
+    </Container>
   );
 };
 

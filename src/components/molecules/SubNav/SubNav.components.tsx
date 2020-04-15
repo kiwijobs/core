@@ -16,7 +16,7 @@ export const SubNavButton = ({ isActive, sx, ...props }: SubNavButton) => {
         py: 3,
         border: 'none',
         '&:not(:first-of-type)': {
-          ml: '6rem',
+          ml: [6, '6rem'],
         },
         '&:hover': {
           color: '1',
