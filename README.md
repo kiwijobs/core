@@ -45,6 +45,14 @@ For example, standard text should have a color `1`.
 
 We also have a few basic colors (`primary`, `secondary`, `dark` etc.) that can be lightened (ex. `"primary.150"` will be 50% brighter than baseline) or darkened (ex. `"primary.50"` will be 50% darker than baseline). There is a whole spectrum between `0 - 200` where `0` is pure black and `200` is pure white.
 
+### **z-indexes**
+
+**100** - Nav  
+-  
+-  
+-  
+**500** - Dialog  
+
 ## **Components**
 
 ### **Grid layout**
