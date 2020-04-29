@@ -15,7 +15,7 @@ import {
   DialogOuter,
 } from './Dialog.components';
 
-export const Dialog: TDialog = ({ sx, onClose, content, children, ...props }) => {
+export const Dialog: TDialog = ({ onClose, content, children, ...props }) => {
   const ref = useRef(document.createElement('div'));
 
   useEffect(() => {

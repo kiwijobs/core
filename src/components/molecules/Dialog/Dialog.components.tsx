@@ -134,6 +134,7 @@ export const DialogOuter: FC<IDialogWithFullScreenProps> = ({ sx, fullScreen, ..
       display: 'flex',
       alignItems: ['center', 'flex-start'],
       justifyContent: 'center',
+      zIndex: 500,
       ...sx,
     }}
     {...props}
