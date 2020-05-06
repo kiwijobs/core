@@ -28,7 +28,7 @@ export const theme = {
     { fontSize: '1.4rem', lineHeight: '2.4rem' },
     { fontSize: '1.6rem', lineHeight: '2.4rem' },
     { fontSize: '1.8rem', lineHeight: '2.4rem' },
-    { fontSize: '2rem', lineHeight: '2.4rem' },
+    { fontSize: '2rem', lineHeight: '3.2rem' },
     { fontSize: '2.4rem', lineHeight: '4rem' },
   ],
   borders: ['none', `1px solid ${colors[4]};`],

@@ -3,7 +3,6 @@ import { SXProp } from '../../quarks';
 export const Primary: Partial<SXProp> = {
   fontScale: 3,
   fontWeight: 'bold',
-  textTransform: 'uppercase',
   py: 2,
   px: 6,
   minWidth: '14rem',
@@ -35,7 +34,6 @@ export const Text: Partial<SXProp> = {
   display: 'inline-block',
   color: '2',
   fontScale: 2,
-  textTransform: 'uppercase',
 
   '&:hover': { color: '1' },
   '&:disabled': { color: '3' },

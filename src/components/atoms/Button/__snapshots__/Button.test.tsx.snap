@@ -2,6 +2,10 @@
 
 exports[`Button Supports "loading" prop 1`] = `
 .c0 {
+  cursor: pointer;
+}
+
+.c1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -19,7 +23,7 @@ exports[`Button Supports "loading" prop 1`] = `
   left: calc(50% - 0.714em / 2);
 }
 
-.c1 {
+.c2 {
   border-radius: 50%;
   border: calc(0.714em / 2) solid;
   width: 0.714em;
@@ -29,17 +33,17 @@ exports[`Button Supports "loading" prop 1`] = `
   margin-right: calc(0.714em / 4);
 }
 
-.c2 {
+.c3 {
   -webkit-animation: ghjfcd 1.4s infinite ease-in-out both;
   animation: ghjfcd 1.4s infinite ease-in-out both;
 }
 
-.c2:nth-of-type(1) {
+.c3:nth-of-type(1) {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
-.c2:nth-of-type(2) {
+.c3:nth-of-type(2) {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
   opacity: 0.5;
@@ -47,20 +51,20 @@ exports[`Button Supports "loading" prop 1`] = `
 
 <div>
   <button
-    class=""
+    class="c0"
     type="button"
   >
     <div
-      class="c0"
+      class="c1"
     >
       <div
-        class="c1 c2"
+        class="c2 c3"
       />
       <div
-        class="c1 c2"
+        class="c2 c3"
       />
       <div
-        class="c1 c2"
+        class="c2 c3"
       />
     </div>
   </button>
@@ -69,7 +73,7 @@ exports[`Button Supports "loading" prop 1`] = `
 
 exports[`Button Supports variants 1`] = `
 .c0 {
-  text-transform: uppercase;
+  cursor: pointer;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 40px;
@@ -101,7 +105,7 @@ exports[`Button Supports variants 1`] = `
 
 exports[`Button Supports variants 2`] = `
 .c0 {
-  text-transform: uppercase;
+  cursor: pointer;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 40px;
@@ -132,9 +136,9 @@ exports[`Button Supports variants 2`] = `
 
 exports[`Button Supports variants 3`] = `
 .c0 {
+  cursor: pointer;
   display: inline-block;
   color: rgb(133,136,149);
-  text-transform: uppercase;
   font: 1.2rem / 1.6rem "Open Sans";
 }
 
@@ -156,6 +160,7 @@ exports[`Button Supports variants 3`] = `
 
 exports[`Button Supports variants 4`] = `
 .c0 {
+  cursor: pointer;
   display: inline;
 }
 

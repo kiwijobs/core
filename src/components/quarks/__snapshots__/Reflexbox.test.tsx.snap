@@ -199,7 +199,7 @@ exports[`Reflexbox Works with styled-components 3`] = `
   padding-right: 60px;
   margin: 5px;
   z-index: 5;
-  font: 2rem / 2.4rem "Open Sans";
+  font: 2rem / 3.2rem "Open Sans";
   margin: 20px 0;
 }
 
