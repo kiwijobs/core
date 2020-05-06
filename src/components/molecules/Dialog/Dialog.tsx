@@ -68,7 +68,6 @@ Dialog.Subtitle = DialogSubtitle;
 Dialog.Header = DialogHeader;
 Dialog.Body = DialogBody;
 Dialog.Footer = DialogFooter;
-Dialog.Close = DialogClose;
 
 export interface IDialogContent {
   title: string;
@@ -102,5 +101,4 @@ export type TDialog = FC<IDialogProps> & {
   Header: typeof DialogHeader;
   Body: typeof DialogBody;
   Footer: typeof DialogFooter;
-  Close: typeof DialogClose;
 };

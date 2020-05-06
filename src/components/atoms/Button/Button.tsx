@@ -12,6 +12,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ sx, variant, children, loading = false, ...props }, ref) => (
     <Box
       sx={{
+        cursor: 'pointer',
         ...(variant && variants[variant]),
         ...sx,
       }}

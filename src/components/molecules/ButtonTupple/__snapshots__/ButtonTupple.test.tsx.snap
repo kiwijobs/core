@@ -2,6 +2,7 @@
 
 exports[`ButtonTupple Matches snapshot 1`] = `
 .c1 {
+  cursor: pointer;
   border: 1px solid rgb(228,230,237);
   color: rgb(39,50,55);
   padding-left: 8px;
@@ -35,6 +36,7 @@ exports[`ButtonTupple Matches snapshot 1`] = `
 }
 
 .c2 {
+  cursor: pointer;
   border: 1px solid rgb(228,230,237);
   color: rgb(133,136,149);
   padding-left: 8px;
