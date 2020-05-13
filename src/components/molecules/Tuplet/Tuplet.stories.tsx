@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Paper, Box, Logotype, Avatar } from '../..';
-import { ButtonTupple } from './ButtonTupple';
+import { Tuplet } from './Tuplet';
 
-storiesOf('Molecules|ButtonTupple', module)
+storiesOf('Molecules|Tuplet', module)
   .add('Default', () => {
     const [active, setActive] = useState(0);
 
     return (
       <Paper m={4}>
-        <ButtonTupple
+        <Tuplet
           active={active}
           onChange={index => setActive(index)}
           buttons={['Dodaj z listy', 'Zaproś nowych']}
@@ -22,7 +22,7 @@ storiesOf('Molecules|ButtonTupple', module)
 
     return (
       <Paper m={4}>
-        <ButtonTupple
+        <Tuplet
           active={active}
           onChange={index => setActive(index)}
           sx={{

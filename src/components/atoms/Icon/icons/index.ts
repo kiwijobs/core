@@ -7,6 +7,7 @@ export * from './Clock';
 export * from './Close';
 export * from './Document';
 export * from './Info';
+export * from './Link';
 export * from './Remove';
 export * from './Star';
 export * from './User';
