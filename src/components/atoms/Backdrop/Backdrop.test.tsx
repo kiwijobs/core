@@ -2,7 +2,7 @@ import React from 'react';
 import { wrapper } from '../../../__testUtils__';
 import { Backdrop } from './Backdrop';
 import { render } from '@testing-library/react';
-import * as hooks from '../../../hooks';
+import * as useBodyLock from '../../../hooks/useBodyLock';
 
 Object.defineProperty(window, 'scrollTo', { value: jest.fn(), writable: true });
 
@@ -13,7 +13,7 @@ describe('Backdrop', () => {
 
   it('Should use body lock', () => {
     const mockBodyLock = jest.fn(() => []);
-    jest.spyOn(hooks, 'useBodyLock').mockImplementation(mockBodyLock);
+    jest.spyOn(useBodyLock, 'useBodyLock').mockImplementation(mockBodyLock);
 
     render(<Backdrop />, { wrapper });
 

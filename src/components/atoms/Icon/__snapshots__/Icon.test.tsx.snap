@@ -192,6 +192,29 @@ exports[`Icon Renders icon by name 9`] = `
 exports[`Icon Renders icon by name 10`] = `
 <div>
   <svg>
+    <g
+      fill="none"
+      fill-rule="evenodd"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path
+        d="M11.733 16H14c1.105 0 2-.895 2-2v-4c0-1.105-.895-2-2-2h-4c-1.105 0-2 .895-2 2v2.267h0"
+        transform="translate(-7 -7)"
+      />
+      <path
+        d="M12.089 14.311v-2.4h-2.4m2.4 0l-3.2 3.2"
+        transform="translate(-7 -7)"
+      />
+    </g>
+  </svg>
+</div>
+`;
+
+exports[`Icon Renders icon by name 11`] = `
+<div>
+  <svg>
     <path
       d="M19 13H5v-2h14v2z"
       fill="currentColor"
@@ -200,7 +223,7 @@ exports[`Icon Renders icon by name 10`] = `
 </div>
 `;
 
-exports[`Icon Renders icon by name 11`] = `
+exports[`Icon Renders icon by name 12`] = `
 <div>
   <svg>
     <path
@@ -212,7 +235,7 @@ exports[`Icon Renders icon by name 11`] = `
 </div>
 `;
 
-exports[`Icon Renders icon by name 12`] = `
+exports[`Icon Renders icon by name 13`] = `
 <div>
   <svg>
     <path

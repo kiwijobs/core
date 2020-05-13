@@ -12,10 +12,10 @@ interface InputProps extends FieldGroupProps, BoxProps<HTMLInputElement> {
 }
 
 export const Input = forwardRef<HTMLDivElement, InputProps>(
-  ({ label, error, value, maxLength, mask, ...props }, ref) => (
+  ({ label, error, value, maxLength, ...props }, ref) => (
     <FieldGroup label={label} value={value} maxLength={maxLength} error={error} ref={ref}>
-      {mask ? (
-        <InputMask mask={mask} value={value} {...(props as InputMaskProps)}>
+      {props.mask ? (
+        <InputMask value={value} {...(props as InputMaskProps)}>
           {(inputProps: FieldProps) => (
             <Field
               as="input"
