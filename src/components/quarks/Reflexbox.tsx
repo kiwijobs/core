@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import React, { FC, forwardRef, ElementType } from 'react';
 import styled from 'styled-components';
 import {
   compose,
@@ -48,7 +48,7 @@ export declare interface BoxProps<T = HTMLDivElement>
       React.HTMLProps<T>,
       keyof BaseBoxProps | 'ref' | 'label' | 'value' | 'maxLength' | 'color'
     > {
-  sx?: SXProp;
+  sx?: Partial<SXProp>;
   css?: string;
   theme?: typeof theme;
   fontScale?: number | number[];
@@ -64,6 +64,14 @@ export const Box = styled('div')<BoxProps>(
   compose(space, layout, typography, color, flexbox, position)
 );
 
-export const Flex = styled(Box)`
-  display: flex;
-`;
+export const Flex: FC<BoxProps> = forwardRef(({ sx, ...props }, ref) => (
+  <Flex ref={ref} sx={{ display: 'flex', ...sx }} {...props}>
+    test
+  </Flex>
+));
+
+export const Example: FC<BoxProps> = ({ sx, ...props }) => (
+  <Flex sx={{ flex: '0 0 auto' }} {...props}>
+    test
+  </Flex>
+);

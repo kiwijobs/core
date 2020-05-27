@@ -21,26 +21,31 @@ interface GridProps extends BoxProps {
 
 const DEFAULT_GUTTER = 3;
 
-export const Container: FC<GridProps> = forwardRef(({ gutter = DEFAULT_GUTTER, ...props }, ref) => {
-  const theme = useContext(ThemeContext);
-  const value = useMemo(() => theme.space[gutter], [gutter]);
+export const Container: FC<GridProps> = forwardRef(
+  ({ sx, gutter = DEFAULT_GUTTER, ...props }, ref) => {
+    const theme = useContext(ThemeContext);
+    const value = useMemo(() => theme.space[gutter], [gutter]);
 
-  return (
-    <ContainerContext.Provider value={value}>
-      <Box
-        ref={ref}
-        width="100%"
-        maxWidth={`calc(1200px + ${value}px)`}
-        py={`${value}px`}
-        px={[2, null, 4]}
-        marginX="auto"
-        {...props}
-      />
-    </ContainerContext.Provider>
-  );
-});
+    return (
+      <ContainerContext.Provider value={value}>
+        <Box
+          ref={ref}
+          sx={{
+            width: '100%',
+            maxWidth: `calc(1200px + ${value}px)`,
+            py: `${value}px`,
+            px: [2, null, 4],
+            mx: 'auto',
+            ...sx,
+          }}
+          {...props}
+        />
+      </ContainerContext.Provider>
+    );
+  }
+);
 
-export const Row: FC<GridProps> = forwardRef(({ gutter, ...props }, ref) => {
+export const Row: FC<GridProps> = forwardRef(({ gutter, sx, ...props }, ref) => {
   const theme = useContext(ThemeContext);
   const containerValue = useContext(ContainerContext);
 
@@ -52,16 +57,16 @@ export const Row: FC<GridProps> = forwardRef(({ gutter, ...props }, ref) => {
 
   return (
     <RowContext.Provider value={value}>
-      <Flex ref={ref} flexWrap="wrap" margin={`-${value}px`} {...props} />
+      <Flex ref={ref} sx={{ flexWrap: 'wrap', m: `-${value}px`, ...sx }} {...props} />
     </RowContext.Provider>
   );
 });
 
-export const Col: FC<BoxProps> = forwardRef((props, ref) => {
+export const Col: FC<BoxProps> = forwardRef(({ sx, ...props }, ref) => {
   const rowValue = useContext(RowContext);
   const value = useMemo(() => rowValue, []);
 
-  return <Box ref={ref} width={1} padding={`${value}px`} {...props} />;
+  return <Box ref={ref} sx={{ width: '100%', p: `${value}px`, ...sx }} {...props} />;
 });
 
 const classnames = (...args: Array<string | void>) => args.join(' ');

@@ -139,6 +139,7 @@ exports[`Button Supports variants 3`] = `
   cursor: pointer;
   display: inline-block;
   color: rgb(133,136,149);
+  text-transform: uppercase;
   font: 1.2rem / 1.6rem "Open Sans";
 }
 

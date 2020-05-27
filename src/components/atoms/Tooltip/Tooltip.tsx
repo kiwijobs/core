@@ -2,7 +2,6 @@
 
 import React, { FC, memo } from 'react';
 import { Box, BoxProps } from '../../quarks';
-import { rgba } from '../../../theme';
 import { Menu } from '../Menu';
 
 export const Tooltip: FC<ITooltipProps> = memo(({ layer, sx, onMouseLeave, ...props }) => {
@@ -31,9 +30,10 @@ export const Tooltip: FC<ITooltipProps> = memo(({ layer, sx, onMouseLeave, ...pr
             ...layerSX,
             minWidth: 'max-content',
             maxWidth: '300px',
+            border: 'none',
             fontScale: 2,
             p: 2,
-            bg: rgba(0.7).dark,
+            bg: '1',
             color: 'white',
           }}
           {...props}

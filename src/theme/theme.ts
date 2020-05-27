@@ -35,4 +35,7 @@ export const theme = {
   radii: ['0', '4px', '6px'],
   shadows,
   variants: {},
+  vars: {
+    navbarHeight: 'calc(5.6rem + env(safe-area-inset-top) / 2)', // iPhone notch safe.
+  },
 };

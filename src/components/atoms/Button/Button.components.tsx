@@ -34,6 +34,7 @@ export const Text: Partial<SXProp> = {
   display: 'inline-block',
   color: '2',
   fontScale: 2,
+  textTransform: 'uppercase',
 
   '&:hover': { color: '1' },
   '&:disabled': { color: '3' },

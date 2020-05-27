@@ -20,6 +20,7 @@ export const useBodyLock = () => {
 
   useEffect(() => {
     const current = ref.current;
+
     if (!current) {
       return;
     }

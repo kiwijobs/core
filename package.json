@@ -1,6 +1,6 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.1.35",
+  "version": "0.1.43",
   "license": "MIT",
   "author": "Patryk Staniewski, Michał Burzyński",
   "main": "dist/index.js",
@@ -18,7 +18,7 @@
     "test": "tsdx test --env=jsdom",
     "test:watch": "tsdx test --env=jsdom --watchAll",
     "lint": "tsdx lint",
-    "prepare": "npm run build && npm run test",
+    "prepare": "npm run build",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public -c .storybook -o docs"
   },
@@ -51,6 +51,7 @@
     "@types/styled-system__css": "^5.0.8",
     "@types/yup": "^0.28.3",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.1.0",
     "formik": "^2.0.6",
     "husky": "^4.2.5",
     "jest-styled-components": "^6.3.4",
