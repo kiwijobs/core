@@ -65,5 +65,5 @@ export const Box = styled('div')<BoxProps>(
 );
 
 export const Flex: FC<BoxProps> = forwardRef(({ sx = {} as SXProp, ...props }, ref) => (
-  <Flex ref={ref} sx={{ display: 'flex', ...sx }} {...props} />
+  <Box ref={ref} sx={{ display: 'flex', ...sx }} {...props} />
 ));
