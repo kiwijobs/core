@@ -189,6 +189,9 @@ export const globalCSS = css`
     position: relative;
     padding: 0;
   }
+  button:first-letter {
+    text-transform: uppercase;
+  }
   button:disabled {
     pointer-events: none;
   }

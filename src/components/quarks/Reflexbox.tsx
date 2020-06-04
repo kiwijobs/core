@@ -64,14 +64,6 @@ export const Box = styled('div')<BoxProps>(
   compose(space, layout, typography, color, flexbox, position)
 );
 
-export const Flex: FC<BoxProps> = forwardRef(({ sx, ...props }, ref) => (
-  <Flex ref={ref} sx={{ display: 'flex', ...sx }} {...props}>
-    test
-  </Flex>
+export const Flex: FC<BoxProps> = forwardRef(({ sx = {} as SXProp, ...props }, ref) => (
+  <Flex ref={ref} sx={{ display: 'flex', ...sx }} {...props} />
 ));
-
-export const Example: FC<BoxProps> = ({ sx, ...props }) => (
-  <Flex sx={{ flex: '0 0 auto' }} {...props}>
-    test
-  </Flex>
-);
