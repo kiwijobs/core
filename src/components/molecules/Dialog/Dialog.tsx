@@ -27,7 +27,7 @@ export const Dialog: TDialog = ({ onClose, content, children, ...props }) => {
 
   return createPortal(
     <DialogOuter fullScreen={!content}>
-      <Backdrop onClick={onClose} />
+      <Backdrop sx={{ zIndex: -1 }} onClick={onClose} />
       <DialogPaper fullScreen={!content} {...props}>
         <DialogClose onClick={onClose} />
         {content ? (
