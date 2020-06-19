@@ -12,6 +12,8 @@ export const SubNav = ({ sx, children, ...props }: BoxProps) => {
       as="nav"
       sx={{
         bg: 'white',
+        display: 'block',
+        flex: '0 0 auto',
         ...sx,
       }}
       {...props}

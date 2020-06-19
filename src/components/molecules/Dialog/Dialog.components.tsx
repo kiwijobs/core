@@ -8,6 +8,7 @@ export const DialogHeader: FC<BoxProps> = ({ sx, ...props }) => (
       p: 4,
       pr: '6.4rem',
       position: 'sticky',
+      flex: '0 0 auto',
       top: 0,
       zIndex: 1,
       borderBottom: 1,
