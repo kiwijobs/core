@@ -151,28 +151,28 @@ storiesOf('Atoms|Menu', module)
             !isOpen ? (
               <></>
             ) : (
-              <>
-                <List
-                  {...layerProps}
-                  sx={{
-                    ...sx,
-                    borderTopLeftRadius: isOpen ? 0 : 1,
-                    borderTopRightRadius: isOpen ? 0 : 1,
-                  }}
-                >
-                  {options.map((x: string) => (
-                    <List.Item key={x}>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: x,
-                        }}
-                      />
-                    </List.Item>
-                  ))}
-                </List>
-                <Backdrop />
-              </>
-            )
+                <>
+                  <List
+                    {...layerProps}
+                    sx={{
+                      ...sx,
+                      borderTopLeftRadius: isOpen ? 0 : 1,
+                      borderTopRightRadius: isOpen ? 0 : 1,
+                    }}
+                  >
+                    {options.map((x: string) => (
+                      <List.Item key={x}>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: x,
+                          }}
+                        />
+                      </List.Item>
+                    ))}
+                  </List>
+                  <Backdrop />
+                </>
+              )
           }
         />
       </Container>

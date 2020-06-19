@@ -130,9 +130,9 @@ storiesOf('Styleguide|Styleguide', module)
         </Box>
       </Story>
 
-      <Story label="Grid">
+      <Story label="Grid / spacing">
         <Container bg="5" color="2" py="2" fontScale={3} textAlign="center">
-          1280px | 8px
+          1280px
         </Container>
         <Container gutter={2}>
           <Row>
@@ -152,49 +152,56 @@ storiesOf('Styleguide|Styleguide', module)
               ))}
           </Row>
         </Container>
-        <Container mt={5} bg="5" color="2" py="2" fontScale={3} textAlign="center">
-          1280px | 16px
-        </Container>
-        <Container>
-          <Row>
-            <Col width={0.75}>
-              <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
-            </Col>
-            <Col width={0.25}>
-              <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
-            </Col>
-            <Col width={0.15}>
-              <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
-            </Col>
-            <Col width={0.15}>
-              <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
-            </Col>
-            <Col width={0.35}>
-              <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
-            </Col>
-            <Col width={0.35}>
-              <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
-            </Col>
-          </Row>
-        </Container>
-      </Story>
-
-      <Story label="Spacing">
-        <Flex>
-          {theme.space.slice(1).map((s, i) => (
-            <Box color="2" key={s}>
-              <Box ml={3} fontScale={2}>
-                {s}px
-              </Box>
-              <Flex mt={2} mr={8}>
-                <Box fontScale={1} mr={2}>
-                  {i + 1}.
+        <Row mt={5}>
+          <Col width={[1, '40%']}>
+            <Container
+              bg="5"
+              color="2"
+              py="2"
+              width={[1, '360px']}
+              fontScale={3}
+              textAlign="center"
+              mx={0}
+            >
+              360px
+            </Container>
+            <Container width={[1, '360px']} gutter={2} sx={{ px: 3 }} mx={0}>
+              <Row>
+                {Array(8)
+                  .fill(null)
+                  .map((_, i) => (
+                    <Col width={1 / 8} key={i}>
+                      <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
+                    </Col>
+                  ))}
+                {Array(2)
+                  .fill(null)
+                  .map((_, i) => (
+                    <Col width={1 / 2} key={i}>
+                      <Box sx={{ borderRadius: 1, bg: 4, height: '120px' }} />
+                    </Col>
+                  ))}
+              </Row>
+            </Container>
+          </Col>
+          <Col width={[1, '60%']}>
+            <Flex sx={{ flexWrap: 'wrap' }}>
+              {theme.space.slice(1).map((s, i) => (
+                <Box color="2" key={s} mt={2}>
+                  <Box ml={3} fontScale={2}>
+                    {s}px
+                  </Box>
+                  <Flex mt={2} mr={8}>
+                    <Box fontScale={1} mr={2}>
+                      {i + 1}.
+                    </Box>
+                    <Box sx={{ size: s, bg: 'secondary' }}></Box>
+                  </Flex>
                 </Box>
-                <Box sx={{ size: s, borderRadius: 1, bg: 'secondary' }}></Box>
-              </Flex>
-            </Box>
-          ))}
-        </Flex>
+              ))}
+            </Flex>
+          </Col>
+        </Row>
       </Story>
 
       <Story label="Shadows">

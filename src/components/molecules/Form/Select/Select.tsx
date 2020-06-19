@@ -5,14 +5,14 @@ import { FieldGroup, FieldGroupProps } from '../FieldGroup';
 import { Field, List, Menu, MenuProps, Paper, Backdrop } from '../../../atoms';
 import { Flex, Box, BoxProps } from '../../../quarks';
 import { Icon } from '../../../atoms/Icon';
+import { TOption } from '../Form.types';
 
-type TSelectOption = { id: number | string; name: string; [key: string]: any };
 type TSelectValue = number | string;
 interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   name?: string;
   menuProps?: Omit<MenuProps, 'layer' | 'trigger'>;
   listProps?: BoxProps;
-  options: TSelectOption[];
+  options: TOption[];
   multi?: boolean;
   withBackdrop?: boolean;
   readOnly?: boolean;
@@ -21,16 +21,16 @@ interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   onChange(value: TSelectValue | TSelectValue[]): void;
   value: TSelectValue | TSelectValue[];
   'data-testid'?: string;
-  renderOption?: (option: TSelectOption) => JSX.Element;
+  renderOption?: (option: TOption) => JSX.Element;
 }
 
-const isChecked = (value: TSelectValue | TSelectValue[], current: TSelectOption) =>
+const isChecked = (value: TSelectValue | TSelectValue[], current: TOption) =>
   flatten([value]).some(x => x === current.id);
 
-const getCurrent = (value: TSelectValue, options: TSelectOption[]) =>
+const getCurrent = (value: TSelectValue, options: TOption[]) =>
   get(find(options, ['id', value]), 'name', '');
 
-const getValue = (value: TSelectValue | TSelectValue[], options: TSelectOption[]) =>
+const getValue = (value: TSelectValue | TSelectValue[], options: TOption[]) =>
   Array.isArray(value)
     ? value.map(x => getCurrent(x, options)).join(', ')
     : getCurrent(value, options);
@@ -109,9 +109,8 @@ export const Select = ({
     return onChange(multi ? payload : param);
   };
 
-  const renderOption = (option: TSelectOption = {} as TSelectOption) => {
+  const renderOption = (option: TOption = {} as TOption) => {
     const checked = isChecked(value, option);
-
     return (
       <List.Item
         key={option.id}

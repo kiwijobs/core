@@ -2,7 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { Container, Row, Col, Paper } from '../../atoms';
-import { FormikInput, FormikSelect } from './';
+import {
+  FormikCheckbox,
+  FormikCheckboxGroup,
+  FormikInput,
+  FormikSelect,
+  FormikRadio,
+  FormikRadioGroup,
+} from './';
 import * as yup from 'yup';
 
 const validationSchema = yup.object().shape({
@@ -15,7 +22,7 @@ const validationSchema = yup.object().shape({
     .array(yup.number())
     .min(1)
     .required(),
-    recruitersFiltered: yup
+  recruitersFiltered: yup
     .array(yup.number())
     .min(1)
     .required(),
@@ -38,6 +45,10 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           notifications: '',
           about: '',
           phone: '',
+          selection: '',
+          selections: [],
+          radio: '',
+          radioGroup: '',
         }}
         validationSchema={validationSchema}
         onSubmit={() => {}}
@@ -161,13 +172,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikInput name="age" type="number" label="Wiek" />
             </Col>
             <Col py={0} width={[1, 1 / 3]}>
-              <FormikInput
-                name="about"
-                label="O mnie"
-                as="textarea"
-                rows={5}
-                maxLength={250}
-              />
+              <FormikInput name="about" label="O mnie" as="textarea" rows={5} maxLength={250} />
             </Col>
             <Col py={0} width={[1, 1 / 3]}>
               <FormikInput
@@ -175,6 +180,24 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 label="With mask"
                 mask="999 999 999"
                 placeholder="___ ___ ___"
+              />
+              <FormikCheckbox name="selection" label="siema" />
+              <FormikCheckboxGroup
+                name="selections"
+                options={[
+                  { id: 1, name: 'rekruter' },
+                  { id: 3, name: 'administrator' },
+                ]}
+              />
+              <FormikRadio name="radio" label="hello" disabled />
+              <FormikRadioGroup
+                name="radioGroup"
+                options={[{ name: 'Użytkownik' }, { name: 'Administrator' }]}
+              />
+              <FormikRadioGroup
+                name="radioGroup"
+                options={[{ name: 'Użytkownik' }, { name: 'Administrator' }]}
+                css={{ flexDirection: 'row', justifyContent: 'flex-start' }}
               />
             </Col>
           </Row>

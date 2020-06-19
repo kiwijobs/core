@@ -23,6 +23,16 @@ export const Secondary: Partial<SXProp> = {
   '&:disabled': { color: 3 },
 };
 
+export const Ghost: Partial<SXProp> = {
+  ...Secondary,
+  color: 1,
+  border: 1,
+  borderColor: 4,
+
+  '&:hover': { borderColor: 1 },
+  '&:disabled': { color: 2 },
+};
+
 export const Link: Partial<SXProp> = {
   display: 'inline',
 
