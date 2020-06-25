@@ -1,14 +1,23 @@
 import { useEffect, useRef } from 'react';
 
+// prevent from enabling body scroll i.e. modal in modal
+// enable only when all components with body lock are unmounted
+let count = 0;
+
 const disableBodyScroll = () => {
   const { scrollY } = window;
   const top = `-${scrollY}px`;
 
   document.body.style.position = 'fixed';
   document.body.style.top = top;
+  count++;
 };
 
 const enableBodyScroll = () => {
+  count--;
+  if (count > 0) {
+    return;
+  }
   const scrollY = document.body.style.top;
   document.body.style.position = '';
   document.body.style.top = '';
