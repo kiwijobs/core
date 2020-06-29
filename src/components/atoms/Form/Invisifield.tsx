@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
-import { Box, BoxProps } from '../../../quarks';
+import { Box, BoxProps } from '../../quarks';
 
-export const HiddenField = forwardRef<HTMLInputElement, BoxProps>(({ sx, ...props }, ref) => (
+export const Invisifield = forwardRef<HTMLInputElement, BoxProps>(({ sx, ...props }, ref) => (
   <Box
     as="input"
     ref={ref}

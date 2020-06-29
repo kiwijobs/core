@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { HiddenField } from './HiddenField';
+import { Invisifield } from '../Invisifield';
 import { BoxProps, Flex } from '../../../quarks';
 import { Icon } from '../../Icon';
 
@@ -18,7 +18,7 @@ export const CheckboxControl: FC<ICheckboxProps> = ({
 }) => {
   return (
     <>
-      <HiddenField
+      <Invisifield
         type="checkbox"
         checked={checked}
         disabled={disabled}
@@ -34,6 +34,7 @@ export const CheckboxControl: FC<ICheckboxProps> = ({
           border: 1,
           borderColor: '2',
           backgroundColor: 'white',
+
           ...(checked && {
             borderColor: 'secondary',
             backgroundColor: 'secondary',

@@ -17,7 +17,7 @@ interface IFormikCheckboxProps extends ICheckboxProps {
 export const Checkbox = forwardRef<HTMLDivElement, ICheckboxProps>(
   ({ label, name, sx, disabled, ...props }, ref) => (
     <ControlsLabel disabled={disabled} ref={ref}>
-      <CheckboxControl name={name} sx={{ mr: 2 }} {...props} />
+      <CheckboxControl name={name} sx={{ mr: 2 }} disabled={disabled} {...props} />
       {label}
     </ControlsLabel>
   )

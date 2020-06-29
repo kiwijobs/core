@@ -111,6 +111,7 @@ export const Select = ({
 
   const renderOption = (option: TOption = {} as TOption) => {
     const checked = isChecked(value, option);
+
     return (
       <List.Item
         key={option.id}

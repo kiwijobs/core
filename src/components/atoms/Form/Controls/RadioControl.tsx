@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { HiddenField } from './HiddenField';
+import { Invisifield } from '../Invisifield';
 import { Box, BoxProps } from '../../../quarks';
 
 export const RadioControl: FC<BoxProps> = ({ sx, checked, disabled, ...props }) => (
   <>
-    <HiddenField type="radio" checked={checked} disabled={disabled} {...props} />
+    <Invisifield type="radio" checked={checked} disabled={disabled} {...props} />
     <Box
       sx={{
         position: 'relative',

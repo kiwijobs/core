@@ -17,7 +17,7 @@ interface IFormikRadioProps extends IRadioProps {
 export const Radio = forwardRef<HTMLDivElement, IRadioProps>(
   ({ label, name, disabled, ...props }, ref) => (
     <ControlsLabel disabled={disabled} ref={ref}>
-      <RadioControl name={name} sx={{ mr: 2 }} {...props} />
+      <RadioControl name={name} sx={{ mr: 2 }} disabled={disabled} {...props} />
       <Text>{label}</Text>
     </ControlsLabel>
   )
