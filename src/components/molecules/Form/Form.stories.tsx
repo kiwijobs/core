@@ -2,14 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { Container, Row, Col, Paper } from '../../atoms';
-import {
-  FormikCheckbox,
-  FormikCheckboxGroup,
-  FormikInput,
-  FormikSelect,
-  FormikRadio,
-  FormikRadioGroup,
-} from './';
+import { FormikCheckbox, FormikInput, FormikSelect, FormikRadio, FormikControlsGroup } from './';
 import * as yup from 'yup';
 
 const validationSchema = yup.object().shape({
@@ -182,21 +175,30 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 placeholder="___ ___ ___"
               />
               <FormikCheckbox name="selection" label="siema" />
-              <FormikCheckboxGroup
+              <FormikControlsGroup
                 name="selections"
+                type="Checkbox"
                 options={[
                   { id: 1, name: 'rekruter' },
                   { id: 3, name: 'administrator' },
                 ]}
               />
               <FormikRadio name="radio" label="hello" disabled />
-              <FormikRadioGroup
+              <FormikControlsGroup
+                type="Radio"
                 name="radioGroup"
-                options={[{ name: 'Użytkownik' }, { name: 'Administrator' }]}
+                options={[
+                  { id: 1, name: 'Użytkownik' },
+                  { id: 2, name: 'Administrator' },
+                ]}
               />
-              <FormikRadioGroup
+              <FormikControlsGroup
+                type="Radio"
                 name="radioGroup"
-                options={[{ name: 'Użytkownik' }, { name: 'Administrator' }]}
+                options={[
+                  { id: 1, name: 'Użytkownik' },
+                  { id: 2, name: 'Administrator' },
+                ]}
                 css={{ flexDirection: 'row', justifyContent: 'flex-start' }}
               />
             </Col>
