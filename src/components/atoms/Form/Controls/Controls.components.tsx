@@ -1,28 +1,34 @@
 import React, { FC } from 'react';
 import { Box, Flex, BoxProps } from '../../../quarks';
 import { Icon } from '../../Icon';
+import { TControl } from '../Form.types';
 
 interface ICheckboxProps extends BoxProps {
   disabled?: boolean;
-  small?: boolean;
+  variant?: TControl;
 }
 
-export const CheckboxControl: FC<ICheckboxProps> = ({ sx, checked, disabled, small }) => (
+export const CheckboxControl: FC<ICheckboxProps> = ({ sx, checked, disabled, variant }) => (
   <Flex
     sx={{
       justifyContent: 'center',
       alignItems: 'center',
-      size: small ? '16px' : '20px',
-      borderRadius: small ? '2px' : 1,
+      mr: 2,
+      size: variant === 'small' ? '16px' : '20px',
+      borderRadius: variant === 'small' ? '2px' : 1,
       border: 1,
-      borderColor: '2',
+      borderColor: 'inherit',
       backgroundColor: 'white',
+      cursor: 'pointer',
+      '&:hover': {
+        borderColor: 1,
+      },
 
       ...(checked && {
         borderColor: 'secondary',
         backgroundColor: 'secondary',
         '&:hover': {
-          cursor: 'pointer',
+          borderColor: 'secondary',
         },
       }),
 
@@ -38,18 +44,10 @@ export const CheckboxControl: FC<ICheckboxProps> = ({ sx, checked, disabled, sma
           backgroundColor: 3,
         }),
 
-      ...(!disabled &&
-        !checked && {
-          '&:hover': {
-            borderColor: 1,
-            cursor: 'pointer',
-          },
-        }),
-
       ...sx,
     }}
   >
-    <Icon name="Check" color="white" size={small ? '10px' : '12px'} />
+    <Icon name="Check" color="white" size={variant === 'small' ? '10px' : '12px'} />
   </Flex>
 );
 
@@ -57,10 +55,15 @@ export const RadioControl: FC<BoxProps> = ({ sx, checked, disabled }) => (
   <Box
     sx={{
       position: 'relative',
+      mr: 2,
       size: '16px',
       border: 1,
-      borderColor: 2,
+      borderColor: 'inherit',
       borderRadius: '50%',
+      cursor: 'pointer',
+      '&:hover': {
+        borderColor: 1,
+      },
       ...(checked && {
         '&:after': {
           content: '""',
@@ -73,8 +76,7 @@ export const RadioControl: FC<BoxProps> = ({ sx, checked, disabled }) => (
           borderRadius: '50%',
         },
       }),
-      ...(disabled && { borderColor: 3 }),
-      ...(!disabled && { '&:hover': { borderColor: 1, cursor: 'default' } }),
+      ...(disabled && { borderColor: 3, cursor: 'default' }),
       ...sx,
     }}
   />

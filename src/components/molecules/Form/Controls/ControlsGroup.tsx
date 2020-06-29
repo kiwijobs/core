@@ -4,12 +4,14 @@ import { useField, useFormikContext } from 'formik';
 import { TOption, TValue } from '../Form.types';
 import { ControlsWrapper } from './Controls.components';
 import { Control } from './Control';
+import { TControl } from '../Form.types';
 
 export interface ControlsGroupProps {
   options: TOption[];
   value: TValue | TValue[];
   onChange(value: TValue | TValue[]): void;
   type: 'Radio' | 'Checkbox';
+  variant?: TControl;
 }
 
 interface IFormikControlsGroupProps extends Omit<ControlsGroupProps, 'value' | 'onChange'> {
@@ -17,20 +19,21 @@ interface IFormikControlsGroupProps extends Omit<ControlsGroupProps, 'value' | '
 }
 
 export const ControlsGroup = forwardRef<HTMLDivElement, ControlsGroupProps>(
-  ({ options, value, onChange, type, ...props }, ref) => {
+  ({ options, value, onChange, type, variant, ...props }, ref) => {
     const change = (id: ReactText) => () => {
       onChange(type === 'Checkbox' ? xor(value as TValue[], [id]) : id);
     };
 
     return (
       <ControlsWrapper ref={ref} {...props}>
-        {options.map(option => (
+        {options.map(({ id, name }) => (
           <Control
-            key={option.id}
+            key={id}
             type={type}
-            label={option.name}
-            onChange={change(option.id)}
-            checked={flatten([value]).some(x => x === option.id)}
+            label={name}
+            onChange={change(id)}
+            checked={flatten([value]).some(x => x === id)}
+            variant={variant}
           />
         ))}
       </ControlsWrapper>

@@ -12,21 +12,15 @@ export const ControlsLabel: FC<BoxProps> = ({ checked, disabled, ...props }) => 
       alignItems: 'center',
       mr: 2,
       mb: 3,
+      color: 2,
+      cursor: 'pointer',
+      '&:hover': {
+        borderColor: '1',
+      },
       ...(disabled && {
         color: '2',
         cursor: 'default',
       }),
-      ...(!disabled && {
-        cursor: 'pointer',
-      }),
-      ...(!disabled &&
-        !checked && {
-          '&:hover': {
-            '> div': {
-              borderColor: '1',
-            },
-          },
-        }),
     }}
     {...props}
   />

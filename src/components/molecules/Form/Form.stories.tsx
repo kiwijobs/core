@@ -40,6 +40,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           phone: '',
           selection: '',
           selections: [],
+          offers: [],
           radio: '',
           radioGroupColumn: '',
           radioGroupRow: '',
@@ -175,7 +176,14 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 mask="999 999 999"
                 placeholder="___ ___ ___"
               />
-              <FormikControl type="Checkbox" name="selection" label="Rekrutacja online" />
+            </Col>
+            <Col py={0} width={[1, 1 / 2]}>
+              <FormikControl
+                type="Checkbox"
+                name="selection"
+                variant="small"
+                label="Rekrutacja online"
+              />
               <FormikControlsGroup
                 name="selections"
                 type="Checkbox"
@@ -184,6 +192,17 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                   { id: 3, name: 'Administrator' },
                 ]}
               />
+              <FormikControlsGroup
+                name="offers"
+                type="Checkbox"
+                options={[
+                  { id: 1, name: 'Kucharz' },
+                  { id: 3, name: 'Piekarz' },
+                ]}
+                variant="small"
+              />
+            </Col>
+            <Col py={0} width={[1, 1 / 2]}>
               <FormikControl type="Radio" name="radio" label="Rekrutacja online" disabled />
               <FormikControlsGroup
                 type="Radio"
@@ -197,8 +216,8 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 type="Radio"
                 name="radioGroupRow"
                 options={[
-                  { id: 1, name: 'Użytkownik' },
-                  { id: 2, name: 'Administrator' },
+                  { id: 1, name: 'Najlepiej płatne' },
+                  { id: 2, name: 'Najnowsze' },
                 ]}
                 css={{ flexDirection: 'row', justifyContent: 'flex-start' }}
               />

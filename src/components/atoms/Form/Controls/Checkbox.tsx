@@ -2,18 +2,18 @@ import React, { FC } from 'react';
 import { Invisifield } from '../Invisifield';
 import { BoxProps } from '../../../quarks';
 import { CheckboxControl } from './Controls.components';
+import { TControl } from '../Form.types';
 
 interface ICheckboxProps extends BoxProps<HTMLInputElement> {
-  disabled?: boolean;
-  small?: boolean;
+  variant?: TControl;
 }
 
 export const Checkbox: FC<ICheckboxProps> = ({
   onChange,
   checked,
   disabled,
-  small,
   sx,
+  variant = 'default',
   ...props
 }) => {
   return (
@@ -25,7 +25,7 @@ export const Checkbox: FC<ICheckboxProps> = ({
         onChange={onChange}
         {...props}
       />
-      <CheckboxControl checked={checked} disabled={disabled} small={small} sx={sx} />
+      <CheckboxControl checked={checked} disabled={disabled} variant={variant} sx={sx} />
     </>
   );
 };
