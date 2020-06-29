@@ -1,2 +1,3 @@
-export * from './CheckboxControl';
-export * from './RadioControl';
+export * from './Checkbox';
+export * from './Radio';
+export * from './Controls.components';

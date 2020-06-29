@@ -1,3 +1,2 @@
-export * from './Checkbox';
-export * from './Radio';
+export * from './Control';
 export * from './ControlsGroup';

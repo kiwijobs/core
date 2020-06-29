@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Box } from '../../quarks';
 import { Container } from '../Grid';
-import { CheckboxControl, Field, Label, Message, RadioControl } from './';
+import { Checkbox, Field, Label, Message, Radio } from './';
 
 storiesOf('Atoms|Form', module)
   .add('Fields', () => (
@@ -38,52 +38,52 @@ storiesOf('Atoms|Form', module)
       </Box>
     </Container>
   ))
-  .add('RadioControl', () => (
+  .add('Radio', () => (
     <Container marginY={3}>
       <Box bg="white" px={4} py={5}>
         <Box my={2}>
-          <RadioControl />
+          <Radio />
         </Box>
         <Box my={2}>
-          <RadioControl checked />
+          <Radio checked />
         </Box>
         <Box my={2}>
-          <RadioControl disabled />
+          <Radio disabled />
         </Box>
         <Box my={2}>
-          <RadioControl checked disabled />
+          <Radio checked disabled />
         </Box>
       </Box>
     </Container>
   ))
-  .add('CheckboxControl', () => (
+  .add('Checkbox', () => (
     <Container marginY={3}>
       <Box bg="white" px={4} py={5}>
         <Box my={2}>
-          <CheckboxControl />
+          <Checkbox />
         </Box>
         <Box my={2}>
-          <CheckboxControl checked />
+          <Checkbox checked />
         </Box>
         <Box my={2}>
-          <CheckboxControl disabled />
+          <Checkbox disabled />
         </Box>
         <Box my={2}>
-          <CheckboxControl checked disabled />
+          <Checkbox checked disabled />
         </Box>
       </Box>
       <Box bg="white" px={4} py={5}>
         <Box my={2}>
-          <CheckboxControl small />
+          <Checkbox small />
         </Box>
         <Box my={2}>
-          <CheckboxControl small checked />
+          <Checkbox small checked />
         </Box>
         <Box my={2}>
-          <CheckboxControl small disabled />
+          <Checkbox small disabled />
         </Box>
         <Box my={2}>
-          <CheckboxControl small checked disabled />
+          <Checkbox small checked disabled />
         </Box>
       </Box>
     </Container>

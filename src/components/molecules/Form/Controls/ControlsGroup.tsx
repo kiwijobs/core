@@ -2,9 +2,8 @@ import React, { forwardRef, ReactText } from 'react';
 import { xor, flatten } from 'lodash';
 import { useField, useFormikContext } from 'formik';
 import { TOption, TValue } from '../Form.types';
-import { Checkbox } from './Checkbox';
-import { Radio } from './Radio';
 import { ControlsWrapper } from './Controls.components';
+import { Control } from './Control';
 
 export interface ControlsGroupProps {
   options: TOption[];
@@ -17,12 +16,8 @@ interface IFormikControlsGroupProps extends Omit<ControlsGroupProps, 'value' | '
   name: string;
 }
 
-const components = { Checkbox, Radio };
-
 export const ControlsGroup = forwardRef<HTMLDivElement, ControlsGroupProps>(
   ({ options, value, onChange, type, ...props }, ref) => {
-    const Component = components[type];
-
     const change = (id: ReactText) => () => {
       onChange(type === 'Checkbox' ? xor(value as TValue[], [id]) : id);
     };
@@ -30,8 +25,9 @@ export const ControlsGroup = forwardRef<HTMLDivElement, ControlsGroupProps>(
     return (
       <ControlsWrapper ref={ref} {...props}>
         {options.map(option => (
-          <Component
+          <Control
             key={option.id}
+            type={type}
             label={option.name}
             onChange={change(option.id)}
             checked={flatten([value]).some(x => x === option.id)}

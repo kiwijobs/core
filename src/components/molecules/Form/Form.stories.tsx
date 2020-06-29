@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { Container, Row, Col, Paper } from '../../atoms';
-import { FormikCheckbox, FormikInput, FormikSelect, FormikRadio, FormikControlsGroup } from './';
+import { FormikInput, FormikSelect, FormikControlsGroup, FormikControl } from './';
 import * as yup from 'yup';
 
 const validationSchema = yup.object().shape({
@@ -41,7 +41,8 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           selection: '',
           selections: [],
           radio: '',
-          radioGroup: '',
+          radioGroupColumn: '',
+          radioGroupRow: '',
         }}
         validationSchema={validationSchema}
         onSubmit={() => {}}
@@ -174,19 +175,19 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 mask="999 999 999"
                 placeholder="___ ___ ___"
               />
-              <FormikCheckbox name="selection" label="siema" />
+              <FormikControl type="Checkbox" name="selection" label="Rekrutacja online" />
               <FormikControlsGroup
                 name="selections"
                 type="Checkbox"
                 options={[
-                  { id: 1, name: 'rekruter' },
-                  { id: 3, name: 'administrator' },
+                  { id: 1, name: 'Rekruter' },
+                  { id: 3, name: 'Administrator' },
                 ]}
               />
-              <FormikRadio name="radio" label="hello" disabled />
+              <FormikControl type="Radio" name="radio" label="Rekrutacja online" disabled />
               <FormikControlsGroup
                 type="Radio"
-                name="radioGroup"
+                name="radioGroupColumn"
                 options={[
                   { id: 1, name: 'Użytkownik' },
                   { id: 2, name: 'Administrator' },
@@ -194,7 +195,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               />
               <FormikControlsGroup
                 type="Radio"
-                name="radioGroup"
+                name="radioGroupRow"
                 options={[
                   { id: 1, name: 'Użytkownik' },
                   { id: 2, name: 'Administrator' },
