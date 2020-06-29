@@ -29,6 +29,11 @@ storiesOf('Atoms|Button', module)
         Disabled
       </Button>
       <br />
+      <Button variant="Ghost">Dodaj swoje ogłoszenie</Button>
+      <Button variant="Ghost" disabled>
+        Disabled
+      </Button>
+      <br />
       <Button
         sx={{
           fontScale: 1,

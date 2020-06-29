@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Formik, Form } from 'formik';
 import { Container, Row, Col, Paper } from '../../atoms';
-import { FormikInput, FormikSelect } from './';
+import { FormikInput, FormikSelect, FormikControlsGroup, FormikControl } from './';
 import * as yup from 'yup';
 
 const validationSchema = yup.object().shape({
@@ -15,7 +15,7 @@ const validationSchema = yup.object().shape({
     .array(yup.number())
     .min(1)
     .required(),
-    recruitersFiltered: yup
+  recruitersFiltered: yup
     .array(yup.number())
     .min(1)
     .required(),
@@ -38,6 +38,11 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
           notifications: '',
           about: '',
           phone: '',
+          selection: '',
+          selections: [],
+          radio: '',
+          radioGroupColumn: '',
+          radioGroupRow: '',
         }}
         validationSchema={validationSchema}
         onSubmit={() => {}}
@@ -161,13 +166,7 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
               <FormikInput name="age" type="number" label="Wiek" />
             </Col>
             <Col py={0} width={[1, 1 / 3]}>
-              <FormikInput
-                name="about"
-                label="O mnie"
-                as="textarea"
-                rows={5}
-                maxLength={250}
-              />
+              <FormikInput name="about" label="O mnie" as="textarea" rows={5} maxLength={250} />
             </Col>
             <Col py={0} width={[1, 1 / 3]}>
               <FormikInput
@@ -175,6 +174,33 @@ storiesOf('Molecules|Form', module).add('Simple Form', () => (
                 label="With mask"
                 mask="999 999 999"
                 placeholder="___ ___ ___"
+              />
+              <FormikControl type="Checkbox" name="selection" label="Rekrutacja online" />
+              <FormikControlsGroup
+                name="selections"
+                type="Checkbox"
+                options={[
+                  { id: 1, name: 'Rekruter' },
+                  { id: 3, name: 'Administrator' },
+                ]}
+              />
+              <FormikControl type="Radio" name="radio" label="Rekrutacja online" disabled />
+              <FormikControlsGroup
+                type="Radio"
+                name="radioGroupColumn"
+                options={[
+                  { id: 1, name: 'Użytkownik' },
+                  { id: 2, name: 'Administrator' },
+                ]}
+              />
+              <FormikControlsGroup
+                type="Radio"
+                name="radioGroupRow"
+                options={[
+                  { id: 1, name: 'Użytkownik' },
+                  { id: 2, name: 'Administrator' },
+                ]}
+                css={{ flexDirection: 'row', justifyContent: 'flex-start' }}
               />
             </Col>
           </Row>
