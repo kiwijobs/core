@@ -5,6 +5,7 @@ export * from './Check';
 export * from './Chevron';
 export * from './Clock';
 export * from './Close';
+export * from './Copy';
 export * from './Document';
 export * from './Hamburger';
 export * from './Info';

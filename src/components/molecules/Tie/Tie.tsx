@@ -45,9 +45,9 @@ export const Tie: FC<ITieProps> = memo(
         <Tooltip layer={t} onMouseLeave={() => sT(tooltip)}>
           <Button
             onClick={click}
-            sx={{ p: 1, borderRadius: 1, ml: 1, display: 'flex', '&:hover': { bg: 4 } }}
+            sx={{ p: 1, borderRadius: 1, ml: 3, display: 'flex', color: '2', '&:hover': { bg: 4 } }}
           >
-            <Icon name="Link" size="10px" />
+            <Icon name="Copy" width="11px" height="14px" />
           </Button>
         </Tooltip>
       </Box>
