@@ -34,7 +34,7 @@ export const Container: FC<GridProps> = forwardRef(
             width: '100%',
             maxWidth: `calc(1200px + ${value}px)`,
             py: `${value}px`,
-            px: [2, null, 4],
+            px: [3, null, 4],
             mx: 'auto',
             ...sx,
           }}

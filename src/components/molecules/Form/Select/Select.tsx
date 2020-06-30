@@ -5,32 +5,31 @@ import { FieldGroup, FieldGroupProps } from '../FieldGroup';
 import { Field, List, Menu, MenuProps, Paper, Backdrop } from '../../../atoms';
 import { Flex, Box, BoxProps } from '../../../quarks';
 import { Icon } from '../../../atoms/Icon';
+import { TOption, TValue } from '../Form.types';
 
-type TSelectOption = { id: number | string; name: string; [key: string]: any };
-type TSelectValue = number | string;
 interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   name?: string;
   menuProps?: Omit<MenuProps, 'layer' | 'trigger'>;
   listProps?: BoxProps;
-  options: TSelectOption[];
+  options: TOption[];
   multi?: boolean;
   withBackdrop?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  onChange(value: TSelectValue | TSelectValue[]): void;
-  value: TSelectValue | TSelectValue[];
+  onChange(value: TValue | TValue[]): void;
+  value: TValue | TValue[];
   'data-testid'?: string;
-  renderOption?: (option: TSelectOption) => JSX.Element;
+  renderOption?: (option: TOption) => JSX.Element;
 }
 
-const isChecked = (value: TSelectValue | TSelectValue[], current: TSelectOption) =>
+const isChecked = (value: TValue | TValue[], current: TOption) =>
   flatten([value]).some(x => x === current.id);
 
-const getCurrent = (value: TSelectValue, options: TSelectOption[]) =>
+const getCurrent = (value: TValue, options: TOption[]) =>
   get(find(options, ['id', value]), 'name', '');
 
-const getValue = (value: TSelectValue | TSelectValue[], options: TSelectOption[]) =>
+const getValue = (value: TValue | TValue[], options: TOption[]) =>
   Array.isArray(value)
     ? value.map(x => getCurrent(x, options)).join(', ')
     : getCurrent(value, options);
@@ -99,17 +98,17 @@ export const Select = ({
     }
   };
 
-  const handleClick = (param: TSelectValue) => () => {
-    const v: TSelectValue[] = value ? flatten([value]) : [];
-    const p: TSelectValue[] = flatten([param]);
-    const payload: TSelectValue[] = xor(v, p);
+  const handleClick = (param: TValue) => () => {
+    const v: TValue[] = value ? flatten([value]) : [];
+    const p: TValue[] = flatten([param]);
+    const payload: TValue[] = xor(v, p);
 
     handleSearchBlur();
 
     return onChange(multi ? payload : param);
   };
 
-  const renderOption = (option: TSelectOption = {} as TSelectOption) => {
+  const renderOption = (option: TOption = {} as TOption) => {
     const checked = isChecked(value, option);
 
     return (
@@ -299,7 +298,7 @@ export const FormikSelect = ({ name = '', ...props }: Omit<SelectProps, 'onChang
   const value = getIn(values, name);
   const error = getIn(touched, name) && getIn(errors, name);
 
-  const handleChange = (arg: TSelectValue) => setFieldValue(name, arg);
+  const handleChange = (arg: TValue) => setFieldValue(name, arg);
 
   return <Select onChange={handleChange} value={value} error={error} name={name} {...props} />;
 };
