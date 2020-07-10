@@ -13,7 +13,7 @@ export const Tooltip: FC<ITooltipProps> = memo(({ layer, sx, onMouseLeave, ...pr
   };
 
   if (!layer) {
-    return <Box {...props} />;
+    return <Box sx={sx} {...props} />;
   }
 
   return (
