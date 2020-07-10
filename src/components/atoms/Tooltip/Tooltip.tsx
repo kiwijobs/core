@@ -12,6 +12,10 @@ export const Tooltip: FC<ITooltipProps> = memo(({ layer, sx, onMouseLeave, ...pr
     return setTimeout(() => onMouseLeave?.(event), 250);
   };
 
+  if (!layer) {
+    return <Box {...props} />;
+  }
+
   return (
     <Menu
       fixed={false}
@@ -46,5 +50,5 @@ export const Tooltip: FC<ITooltipProps> = memo(({ layer, sx, onMouseLeave, ...pr
 });
 
 interface ITooltipProps extends BoxProps {
-  layer: React.ReactChild;
+  layer?: React.ReactChild;
 }
