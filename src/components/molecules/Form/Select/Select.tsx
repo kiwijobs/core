@@ -20,7 +20,7 @@ interface SelectProps extends Omit<FieldGroupProps, 'value'> {
   onChange(value: TValue | TValue[]): void;
   value: TValue | TValue[];
   'data-testid'?: string;
-  renderOption?: (option: TOption) => JSX.Element;
+  renderOption?: (option: TOption, checkbox?: JSX.Element) => JSX.Element;
 }
 
 const isChecked = (value: TValue | TValue[], current: TOption) =>
@@ -111,6 +111,24 @@ export const Select = ({
   const renderOption = (option: TOption = {} as TOption) => {
     const checked = isChecked(value, option);
 
+    const checkbox = (
+      <Flex
+        sx={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: 1,
+          border: '1px solid',
+          borderColor: checked ? 'secondary' : '2',
+          backgroundColor: checked ? 'secondary' : 'white',
+          size: '1.6rem',
+          flexShrink: 0,
+          mr: 2,
+        }}
+      >
+        <Icon name="Check" color="white" size="1rem" />
+      </Flex>
+    );
+
     return (
       <List.Item
         key={option.id}
@@ -126,7 +144,7 @@ export const Select = ({
         }}
       >
         {renderOptionProp ? (
-          renderOptionProp(option)
+          renderOptionProp(option, checkbox)
         ) : (
           <>
             {multi && (
