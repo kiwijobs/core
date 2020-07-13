@@ -125,27 +125,29 @@ export const Select = ({
           }),
         }}
       >
-        {multi && (
-          <Flex
-            sx={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 1,
-              border: '1px solid',
-              borderColor: checked ? 'secondary' : '2',
-              backgroundColor: checked ? 'secondary' : 'white',
-              size: '1.6rem',
-              flexShrink: 0,
-              mr: 2,
-            }}
-          >
-            <Icon name="Check" color="white" size="1rem" />
-          </Flex>
-        )}
         {renderOptionProp ? (
           renderOptionProp(option)
         ) : (
-          <Box>{splitToBold(option.name, internalValue || '')}</Box>
+          <>
+            {multi && (
+              <Flex
+                sx={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 1,
+                  border: '1px solid',
+                  borderColor: checked ? 'secondary' : '2',
+                  backgroundColor: checked ? 'secondary' : 'white',
+                  size: '1.6rem',
+                  flexShrink: 0,
+                  mr: 2,
+                }}
+              >
+                <Icon name="Check" color="white" size="1rem" />
+              </Flex>
+            )}
+            <Box>{splitToBold(option.name, internalValue || '')}</Box>
+          </>
         )}
       </List.Item>
     );

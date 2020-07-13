@@ -3,7 +3,8 @@ import { useField } from 'formik';
 import { Radio, Checkbox } from '../../../atoms';
 import { BoxProps, Text } from '../../../quarks';
 import { ControlsLabel } from './Controls.components';
-import { TControl } from '../Form.types';
+
+export type TControl = 'default' | 'small';
 
 interface IControlProps extends BoxProps<HTMLInputElement> {
   name?: string;

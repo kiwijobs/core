@@ -3,8 +3,7 @@ import { xor, flatten } from 'lodash';
 import { useField, useFormikContext } from 'formik';
 import { TOption, TValue } from '../Form.types';
 import { ControlsWrapper } from './Controls.components';
-import { Control } from './Control';
-import { TControl } from '../Form.types';
+import { Control, TControl } from './Control';
 
 export interface ControlsGroupProps {
   options: TOption[];
