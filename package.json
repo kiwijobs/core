@@ -1,6 +1,6 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.1.56",
+  "version": "0.1.57",
   "license": "MIT",
   "author": "Patryk Staniewski, Michał Burzyński",
   "main": "dist/index.js",
@@ -52,7 +52,7 @@
     "@types/yup": "^0.28.3",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
-    "formik": "^2.0.6",
+    "formik": "^2.1.4",
     "husky": "^4.2.5",
     "jest-styled-components": "^6.3.4",
     "react": "^16.11.0",
@@ -71,7 +71,7 @@
     "formik": ">= 2"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash-es": "^4.17.15",
     "react-input-mask": "^2.0.4",
     "react-laag": "^1.7.3",

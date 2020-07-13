@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { flatten, xor, find, get } from 'lodash';
-import { useFormikContext, getIn } from 'formik';
+import { getIn, useField } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
 import { Field, List, Menu, MenuProps, Paper, Backdrop } from '../../../atoms';
 import { Flex, Box, BoxProps } from '../../../quarks';
@@ -314,12 +314,8 @@ export const Select = ({
 };
 
 export const FormikSelect = ({ name = '', ...props }: Omit<SelectProps, 'onChange' | 'value'>) => {
-  const { values, errors, touched, setFieldValue } = useFormikContext<any>();
+  const [field, meta] = useField(name);
+  const error = meta.touched && meta.error;
 
-  const value = getIn(values, name);
-  const error = getIn(touched, name) && getIn(errors, name);
-
-  const handleChange = (arg: TValue) => setFieldValue(name, arg);
-
-  return <Select onChange={handleChange} value={value} error={error} name={name} {...props} />;
+  return <Select {...field} {...meta} error={error} name={name} {...props} />;
 };
