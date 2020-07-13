@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { flatten, xor, find, get } from 'lodash';
-import { getIn, useField } from 'formik';
+import { useField } from 'formik';
 import { FieldGroup, FieldGroupProps } from '../FieldGroup';
 import { Field, List, Menu, MenuProps, Paper, Backdrop } from '../../../atoms';
 import { Flex, Box, BoxProps } from '../../../quarks';
