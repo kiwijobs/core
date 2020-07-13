@@ -7,10 +7,11 @@ import { Flex, Box, BoxProps } from '../../../quarks';
 import { Icon } from '../../../atoms/Icon';
 import { TOption, TValue } from '../Form.types';
 
-interface SelectProps extends Omit<FieldGroupProps, 'value'> {
+interface SelectProps
+  extends Omit<FieldGroupProps, 'value'>,
+    Omit<BoxProps<HTMLInputElement>, 'value' | 'onChange'> {
   name?: string;
   menuProps?: Omit<MenuProps, 'layer' | 'trigger'>;
-  listProps?: BoxProps;
   options: TOption[];
   multi?: boolean;
   withBackdrop?: boolean;
