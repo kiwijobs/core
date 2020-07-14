@@ -314,8 +314,8 @@ export const Select = ({
 };
 
 export const FormikSelect = ({ name = '', ...props }: Omit<SelectProps, 'onChange' | 'value'>) => {
-  const [field, meta] = useField(name);
+  const [field, meta, { setValue }] = useField(name);
   const error = meta.touched && meta.error;
 
-  return <Select {...field} {...meta} error={error} name={name} {...props} />;
+  return <Select {...field} {...meta} onChange={setValue} error={error} name={name} {...props} />;
 };
