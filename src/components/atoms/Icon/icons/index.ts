@@ -13,5 +13,6 @@ export * from './Kiwi';
 export * from './Link';
 export * from './Olx';
 export * from './Remove';
+export * from './Search';
 export * from './Star';
 export * from './User';
