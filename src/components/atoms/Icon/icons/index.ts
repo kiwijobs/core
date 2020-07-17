@@ -13,6 +13,7 @@ export * from './Hamburger';
 export * from './Info';
 export * from './Kiwi';
 export * from './Link';
+export * from './More';
 export * from './Olx';
 export * from './Pen';
 export * from './Remove';
