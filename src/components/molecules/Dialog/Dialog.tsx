@@ -70,8 +70,8 @@ Dialog.Body = DialogBody;
 Dialog.Footer = DialogFooter;
 
 export interface IDialogContent {
-  title: string;
-  body: string;
+  title: React.ReactNode;
+  body: React.ReactNode;
   cancel?: string;
   confirm?: string;
   onCancel?(): void;
