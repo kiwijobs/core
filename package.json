@@ -1,6 +1,6 @@
 {
   "name": "@kiwijobs/core",
-  "version": "0.1.63",
+  "version": "0.1.64",
   "license": "MIT",
   "author": "Patryk Staniewski, Michał Burzyński",
   "main": "dist/index.js",
@@ -71,6 +71,7 @@
     "formik": ">= 2"
   },
   "dependencies": {
+    "date-fns": "^2.15.0",
     "lodash": "^4.17.19",
     "lodash-es": "^4.17.15",
     "react-input-mask": "^2.0.4",
