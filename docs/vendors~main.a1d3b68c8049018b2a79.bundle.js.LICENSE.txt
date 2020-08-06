@@ -58,7 +58,7 @@ and limitations under the License.
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
 
-/** @license React v0.17.0
+/** @license React v0.18.0
  * scheduler.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
