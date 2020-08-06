@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { storiesOf } from '@storybook/react';
 import { OfferDetails } from './OfferDetails';
-import { Text } from '../../quarks';
+import { Text, Box, BoxProps } from '../../quarks';
 import { differenceInCalendarDays, format } from 'date-fns';
 
 const mockOffer = {
@@ -20,7 +20,8 @@ const mockOffer = {
     logo: 'imageSlug.jpg',
     name: 'companyName',
     isGoodCompany: true,
-    clause: 'claue',
+    clause:
+      'Administratorem danych osobowych jest SuperComapny. Podane dane osobowe przetwarzane są w celu przeprowadzenia procesu rekrutacyjnego na stanowisko, na które wysyłasz swoją aplikację i przetwarzane są zgodnie z art. 6 ust. 1 a RODO z dnia 2016/679 z 27 kwetmia 2016 r.',
   },
   cityId: 5,
   requiredHourlyRate: true,
@@ -48,7 +49,8 @@ const mockOffer = {
       name: 'working times',
     },
   ],
-  description: 'description',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   benefits: [
     {
       id: 1,
@@ -109,30 +111,40 @@ const getDateDescription = () => {
   );
 };
 
+const Wrapper: FC<BoxProps> = ({ sx, ...props }) => (
+  <Box sx={{ p: 3, bg: 'white', ...sx }} {...props} />
+);
+
 storiesOf('Molecules|OfferDetails', module)
   .add('OfferDetails', () => (
-    <OfferDetails
-      subtitle={
-        <Text color={2} fontScale={3} sx={{ mt: [1, 2] }}>
-          Wygasa za 21 dni
-        </Text>
-      }
-      offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
-      offer={mockOffer}
-    />
+    <Wrapper>
+      <OfferDetails
+        subtitle={
+          <Text color={2} fontScale={3} sx={{ mt: [1, 2] }}>
+            Wygasa za 21 dni
+          </Text>
+        }
+        offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
+        offer={mockOffer}
+      />
+    </Wrapper>
   ))
   .add('OfferDetails offer date description', () => (
-    <OfferDetails
-      offer={mockOffer}
-      offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
-      subtitle={getDateDescription()}
-    />
+    <Wrapper>
+      <OfferDetails
+        offer={mockOffer}
+        offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
+        subtitle={getDateDescription()}
+      />
+    </Wrapper>
   ))
   .add('OfferDetails offer date expired', () => (
-    <OfferDetails
-      offer={mockOffer}
-      offerExpired={true}
-      offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
-      subtitle={getDateDescription()}
-    />
+    <Wrapper>
+      <OfferDetails
+        offer={mockOffer}
+        offerExpired={true}
+        offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
+        subtitle={getDateDescription()}
+      />
+    </Wrapper>
   ));
