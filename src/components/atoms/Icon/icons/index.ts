@@ -3,6 +3,7 @@ export * from './Address';
 export * from './Agreement';
 export * from './Archive';
 export * from './Bell';
+export * from './Bulb';
 export * from './Check';
 export * from './Chevron';
 export * from './Clock';
