@@ -3,7 +3,6 @@ import isEmpty from 'lodash/isEmpty';
 import { Flex, Box, BoxProps, Text, Image } from '../../quarks';
 import { Button, Icon, Tag, Tooltip } from '../../atoms';
 import { CompanyLogo, DetailsList } from './OfferDetails.components';
-
 import { IOfferProps, MEETING_ENUM } from './OfferDetails.types';
 import {
   formatClause,

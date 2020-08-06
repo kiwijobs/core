@@ -2,13 +2,6 @@ import React, { forwardRef, FC } from 'react';
 import { Box, BoxProps, Flex, Text } from '../../quarks';
 import { Icon } from '../../atoms';
 
-interface ICompanyLogoProps extends BoxProps {
-  src: string;
-  margin?: string;
-  size?: number;
-  ref?: any;
-}
-
 export const Logo: FC<BoxProps> = ({ sx, ...props }) => (
   <Box
     as="img"
@@ -22,8 +15,14 @@ export const Logo: FC<BoxProps> = ({ sx, ...props }) => (
   />
 );
 
+interface ICompanyLogoProps extends BoxProps {
+  src: string;
+  size?: number;
+  ref?: any;
+}
+
 export const CompanyLogo: React.FC<ICompanyLogoProps> = forwardRef((props, ref) => {
-  const { src, margin, size = 72, sx, ...rest } = props;
+  const { src, size = 72, sx, ...rest } = props;
 
   return (
     <Flex
@@ -38,7 +37,6 @@ export const CompanyLogo: React.FC<ICompanyLogoProps> = forwardRef((props, ref) 
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center',
-        margin: margin,
         ...sx,
       }}
       ref={ref}
@@ -49,21 +47,21 @@ export const CompanyLogo: React.FC<ICompanyLogoProps> = forwardRef((props, ref) 
   );
 });
 
-export const DetailsList: FC<IDetailsListProps> = ({ items }) => (
-  <Box as="ul" sx={{ listStyle: 'none', p: 0, width: '100%', mt: 1 }}>
-    {items?.map((item, index) => (
-      <Flex as="li" sx={{ alignItems: 'center', lineHeight: 1.71, color: 1 }} key={index}>
-        <Icon name="Check" sx={{ width: '8px', height: '8px' }} />
-        <Text sx={{ ml: 1 }}>{item?.name}</Text>
-      </Flex>
-    ))}
-  </Box>
-);
+type TDetailsListItem = {
+  name: string;
+};
 
 interface IDetailsListProps {
   items: TDetailsListItem[];
 }
 
-type TDetailsListItem = {
-  name: string;
-};
+export const DetailsList: FC<IDetailsListProps> = ({ items }) => (
+  <Box as="ul" sx={{ listStyle: 'none', p: 0, width: '100%', mt: 1, mb: 0, }}>
+    {items?.map((item, index) => (
+      <Flex as="li" sx={{ alignItems: 'center', fontScale: 3, color: 1 }} key={index}>
+        <Icon name="Check" size={8} />
+        <Text sx={{ ml: 1 }}>{item?.name}</Text>
+      </Flex>
+    ))}
+  </Box>
+);
