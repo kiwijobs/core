@@ -256,17 +256,19 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
             {isEmpty(description) ? (
               <>
                 <Text as="p">Opis, dodatkowa treść oferty</Text>
-                {[...Array(5)].map(() => (
-                  <Box
-                    sx={{
-                      width: '80%',
-                      bg: '4',
-                      height: '8px',
-                      mb: 2,
-                      borderRadius: 1,
-                      '&:last-of-type': { width: '40%' },
-                    }}
-                  />
+                {[...new Array(5)].fill({}).map((item, i) => (
+                  <React.Fragment key={i + item}>
+                    <Box
+                      sx={{
+                        width: '80%',
+                        bg: '4',
+                        height: '8px',
+                        mb: 2,
+                        borderRadius: 1,
+                        '&:last-of-type': { width: '40%' },
+                      }}
+                    />
+                  </React.Fragment>
                 ))}
               </>
             ) : (
