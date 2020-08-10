@@ -191,7 +191,7 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
               <Icon name="Address" width="12px" />
             </Flex>
             <Flex flexDirection="column" ml={2} sx={{ overflow: 'hidden', color: 1 }}>
-              <Text sx={{ fontScale: 4, fontWeight: 'bold' }}>Adres</Text>
+              <Text sx={{ fontScale: 4, fontWeight: 'bold' }}>Adres miejsca pracy</Text>
               <Text>{address}</Text>
               <Box>
                 {!!calculated_distance && (
@@ -199,21 +199,23 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
                     {formatDistance(calculated_distance)} km od Ciebie{` `}
                   </Text>
                 )}
-                <Button
-                  variant="Link"
-                  onClick={onMapClick}
-                  data-testid="offerDetails-showOnMap"
-                  sx={{
-                    textDecoration: 'underline',
-                    cursor: onMapClick ? 'pointer' : 'none',
-                    padding: 0,
-                    fontWeight: 'bold',
-                    color: 1,
-                    fontScale: 2,
-                  }}
-                >
-                  zobacz na mapie
-                </Button>
+                {address && (
+                  <Button
+                    variant="Link"
+                    onClick={onMapClick}
+                    data-testid="offerDetails-showOnMap"
+                    sx={{
+                      textDecoration: 'underline',
+                      cursor: onMapClick ? 'pointer' : 'none',
+                      padding: 0,
+                      fontWeight: 'bold',
+                      color: 1,
+                      fontScale: 2,
+                    }}
+                  >
+                    zobacz na mapie
+                  </Button>
+                )}
               </Box>
             </Flex>
           </Flex>
