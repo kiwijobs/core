@@ -1,3 +1,5 @@
+import { BoxProps } from '../../quarks';
+
 export interface IOfferProps {
   calculated_distance?: number | null;
   positionName: string;
@@ -47,15 +49,19 @@ export interface IOfferProps {
       type: string;
     };
   };
+  parsedImages?: {
+    defaultImage: string;
+    extendedImage?: string;
+  };
 }
 
-export interface IOfferDetails {
-  offerImage: string | JSX.Element;
+export interface IOfferDetailsProps extends BoxProps {
   offer: IOfferProps;
   offerExpired?: boolean;
-  onMapClick?(opt: boolean): void;
-  onPopupClick?(opt: boolean): void;
-  subtitle: string | JSX.Element;
+  onMapClick?(): void;
+  onOnlineRecruitmentClick?: () => void;
+  dateDescription: string | JSX.Element;
+  chatComponent?: JSX.Element
 }
 
 export const MEETING_ENUM = {

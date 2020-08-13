@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { storiesOf } from '@storybook/react';
 import { OfferDetails } from './OfferDetails';
-import { Text, Box, BoxProps } from '../../quarks';
+import { Flex, Text, Box, BoxProps } from '../../quarks';
+import { Icon } from '../../atoms';
 import { differenceInCalendarDays, format } from 'date-fns';
 
 const mockOffer = {
@@ -118,32 +119,55 @@ storiesOf('Molecules|OfferDetails', module)
   .add('OfferDetails', () => (
     <Wrapper>
       <OfferDetails
-        subtitle={
+        dateDescription={
           <Text color={2} fontScale={3} sx={{ mt: [1, 2] }}>
             Wygasa za 21 dni
           </Text>
         }
-        offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
-        offer={mockOffer}
+        offer={{
+          ...mockOffer,
+          parsedImages: {
+            defaultImage: 'https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg',
+          },
+        }}
+      />
+    </Wrapper>
+  ))
+  .add('OfferDetails with parsedImages', () => (
+    <Wrapper>
+      <OfferDetails
+        offer={{
+          ...mockOffer,
+          parsedImages: {
+            defaultImage: 'https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg',
+            extendedImage: 'https://backend.alfa.ktools.dev/image/Jje/2x1/w_470/image.jpg',
+          },
+        }}
+        dateDescription={getDateDescription()}
       />
     </Wrapper>
   ))
   .add('OfferDetails offer date description', () => (
     <Wrapper>
-      <OfferDetails
-        offer={mockOffer}
-        offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
-        subtitle={getDateDescription()}
-      />
+      <OfferDetails offer={mockOffer} dateDescription={getDateDescription()} />
     </Wrapper>
   ))
   .add('OfferDetails offer date expired', () => (
     <Wrapper>
+      <OfferDetails offer={mockOffer} offerExpired={true} dateDescription={getDateDescription()} />
+    </Wrapper>
+  ))
+  .add('OfferDetails with chat component', () => (
+    <Wrapper>
       <OfferDetails
         offer={mockOffer}
-        offerExpired={true}
-        offerImage="https://backend.alfa.ktools.dev/image/Jje/2x1/w_575/image.jpg"
-        subtitle={getDateDescription()}
+        chatComponent={
+          <Flex sx={{ alignItems: 'center' }}>
+            <Icon name="Bell" size={24} />
+            <Text>Zadaj pytanie pracodawcy</Text>
+          </Flex>
+        }
+        dateDescription={getDateDescription()}
       />
     </Wrapper>
   ));
