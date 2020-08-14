@@ -8,7 +8,7 @@ const disableBodyScroll = () => {
   const { scrollY } = window;
   const top = `-${scrollY}px`;
 
-  document.body.style.position = 'fixed';
+  document.querySelector('html')?.setAttribute('data-scroll-lock', '1');
   document.body.style.top = top;
   count++;
 };
@@ -19,7 +19,7 @@ const enableBodyScroll = () => {
     return;
   }
   const scrollY = document.body.style.top;
-  document.body.style.position = '';
+  document.querySelector('html')?.removeAttribute('data-scroll-lock');
   document.body.style.top = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
 };

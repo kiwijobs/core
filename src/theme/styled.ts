@@ -169,6 +169,10 @@ export const globalCSS = css`
   * {
     box-sizing: border-box;
   }
+  /* workaround for body scroll locking, due to react-laag and it's inline position: relative on body */
+  html[data-scroll-lock] body {
+    position: fixed !important;
+  }
 
   body {
     font-size: 1.4rem;
