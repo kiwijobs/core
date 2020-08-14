@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import isEmpty from 'lodash/isEmpty';
-import { Flex, Box, BoxProps, Text, Image } from '../../quarks';
+import { Flex, Box, Text, Image } from '../../quarks';
 import { Button, Icon, Tag, Tooltip } from '../../atoms';
 import { CompanyLogo, DetailsList } from './OfferDetails.components';
-import { IOfferProps, MEETING_ENUM } from './OfferDetails.types';
+import { IOfferDetailsProps, MEETING_ENUM } from './OfferDetails.types';
 import {
   formatClause,
   formatDistance,
@@ -11,16 +11,15 @@ import {
   getEmployerLogo,
   getEmployerName,
 } from './OfferDetails.utils';
-
 import { theme } from '../../../theme';
 
 export const OfferDetails: FC<IOfferDetailsProps> = ({
   offer,
   offerExpired,
-  offerImage,
-  subtitle,
+  dateDescription,
   onMapClick,
-  onPopupClick,
+  onOnlineRecruitmentClick,
+  chatComponent,
   sx,
   ...props
 }) => {
@@ -37,7 +36,11 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
     userApplication,
     employmentForms,
     onlineRecruitment,
+    images,
+    parsedImages,
   } = offer ?? {};
+
+  const { defaultImage, extendedImage } = parsedImages || {};
 
   const hasPaymentBonuses = !isEmpty(benefits) || !isEmpty(financialBonuses);
 
@@ -113,7 +116,7 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
                       cursor: 'pointer',
                     }),
                   }}
-                  onClick={() => (isVideoCall ? onPopupClick?.(true) : null)}
+                  onClick={() => (isVideoCall ? onOnlineRecruitmentClick?.() : null)}
                 >
                   <Text mr={isVideoCall ? 2 : 0}>Rekrutacja online</Text>
                   {isVideoCall && (
@@ -132,7 +135,7 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
                 </Tag>
               </Tooltip>
             )}
-            {!offerExpired && subtitle}
+            {!offerExpired && dateDescription}
           </Flex>
         </Flex>
         <Box
@@ -145,7 +148,10 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
             ml: -3,
           }}
         >
-          <>
+          <picture>
+            {extendedImage && (
+              <source srcSet={extendedImage} media={`(min-width: ${theme.breakpoints.sm})`} />
+            )}
             <Image
               sx={{
                 position: 'absolute',
@@ -159,24 +165,24 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
                   filter: 'grayscale(1)',
                 }),
               }}
-              src={offerImage}
+              src={defaultImage || images?.[0]?.imageSlug}
             />
-            {company.isGoodCompany && (
-              <Icon
-                name="GoodEmployer"
-                sx={{
-                  position: 'absolute',
-                  right: ['16px', '24px'],
-                  bottom: ['16px', '24px'],
-                  width: '145px',
-                  height: 'auto',
-                  borderRadius: 1,
-                  boxShadow: 1,
-                  filter: offerExpired ? 'grayscale(1)' : 'initial',
-                }}
-              />
-            )}
-          </>
+          </picture>
+          {company.isGoodCompany && (
+            <Icon
+              name="GoodEmployer"
+              sx={{
+                position: 'absolute',
+                right: ['16px', '24px'],
+                bottom: ['16px', '24px'],
+                width: '145px',
+                height: 'auto',
+                borderRadius: 1,
+                boxShadow: 1,
+                filter: offerExpired ? 'grayscale(1)' : 'initial',
+              }}
+            />
+          )}
         </Box>
         <Box width="100%">
           <Flex mt="20px">
@@ -277,6 +283,7 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
               <Text fontScale={3}>{description}</Text>
             )}
           </Flex>
+          {chatComponent}
         </Box>
       </Box>
       <Box
@@ -286,12 +293,3 @@ export const OfferDetails: FC<IOfferDetailsProps> = ({
     </>
   );
 };
-
-interface IOfferDetailsProps extends BoxProps {
-  offerImage: string;
-  offer: IOfferProps;
-  offerExpired?: boolean;
-  onMapClick?(): void;
-  onPopupClick?(opt: boolean): void;
-  subtitle: string | JSX.Element;
-}
