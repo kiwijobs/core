@@ -17,13 +17,13 @@ storiesOf('Molecules|Personage', module).add('Various', () => (
       </Personage>
     </Box>
     <Box bg="white" mb={3} p={3}>
-      <Personage variant="SMALL" src="https://placebear.com/200/400">
+      <Personage variant="Small" src="https://placebear.com/200/400">
         Jan Kowalski
       </Personage>
     </Box>
     <Box bg="white" mb={3} p={3}>
       <Personage
-        variant="SMALL"
+        variant="Small"
         type="Logotype"
         src="https://placebear.com/400/401"
         fontWeight="bold"

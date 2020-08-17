@@ -1,3 +1,4 @@
+export * from './Cv';
 export * from './Dialog';
 export * from './Form';
 export * from './Navbar';
