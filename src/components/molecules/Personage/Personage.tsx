@@ -1,17 +1,21 @@
 import React, { FC, memo } from 'react';
 import { Box, BoxProps, Flex } from '../../quarks';
 import * as atoms from '../../atoms';
+import * as variants from './Personage.components';
 
 export const Personage: FC<IPersonageProps> = memo(
-  ({ type = 'Avatar', variant = 'DEFAULT', children, src, sx, ...props }) => {
+  ({ type = 'Avatar', variant = 'Default', children, src, sx, ...props }) => {
     const Component = atoms[type];
-    const size = variant === 'DEFAULT' ? '48px' : '40px';
-    const ml = variant === 'DEFAULT' ? 3 : 2;
 
     return (
       <Flex sx={{ alignItems: 'center', ...sx }} {...props}>
-        <Component src={src} size={size} />
-        <Box sx={{ ml, ellipsis: 1 }}>{children}</Box>
+        <Component
+          src={src}
+          sx={{
+            ...variants[variant],
+          }}
+        />
+        <Box sx={{ ellipsis: 1 }}>{children}</Box>
       </Flex>
     );
   }
@@ -19,6 +23,6 @@ export const Personage: FC<IPersonageProps> = memo(
 
 interface IPersonageProps extends BoxProps {
   type?: 'Avatar' | 'Logotype';
-  variant?: 'DEFAULT' | 'SMALL';
+  variant?: keyof typeof variants;
   src: string;
 }
