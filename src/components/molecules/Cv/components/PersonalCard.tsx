@@ -35,7 +35,7 @@ export const PersonalCard: FC<IPersonalCardProps> = ({
         height="17px"
       />
       <PersonalCardItem info={formatNumber(phoneNumber)} name="Call" height="15px" />
-      <PersonalCardItem info={email!} name="Mail" height="10px" />
+      {email && <PersonalCardItem info={email!} name="Mail" height="10px" />}
     </Box>
   </Flex>
 );

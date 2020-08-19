@@ -10,7 +10,7 @@ const mockData = {
       default: 'https://static.kiwijobs.pl/placeholder/company-logo-placeholder.png',
     },
     birthDate: '2000-10-10',
-    email: 'pat.garret@kiwi.pl',
+    email: '',
     phoneNumber: '123123123',
     studentStatus: 'Tak',
     workingHours: 'Pełen etat',

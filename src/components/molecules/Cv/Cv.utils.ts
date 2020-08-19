@@ -4,7 +4,7 @@ export const mapLanguageLevelToDots = (languageLevel: string) => {
       return 6;
     case 'Zaawansowany':
       return 6;
-    case 'Średniozaawansowany':
+    case 'Średnio zaawansowany':
       return 4;
     case 'Podstawowy':
       return 2;

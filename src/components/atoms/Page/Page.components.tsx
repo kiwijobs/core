@@ -4,7 +4,7 @@ import { Text, BoxProps } from '../../quarks';
 export const Heading: FC<BoxProps> = ({ sx, ...props }) => (
   <Text
     as="p"
-    sx={{ px: 2, mb: 3, mt: 4, borderRadius: 1, fontWeight: 'bold', bg: 5, ...sx }}
+    sx={{ px: 2, mb: 3, mt: 4, borderRadius: 1, fontWeight: 'bold', bg: 5, fontScale: 3, ...sx }}
     {...props}
   />
 );
