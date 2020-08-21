@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 import { format } from 'date-fns';
 import { Box, BoxProps, Flex, Text } from '../../../quarks';
+import { Avatar } from '../../../atoms';
 import { Icon } from '../../../atoms/Icon';
 import * as icons from '../../../atoms/Icon/icons';
-
-import { Personage } from '../..';
 
 import { ICvTypes } from '../Cv.types';
 import { formatNumber } from '../Cv.utils';
@@ -24,7 +23,14 @@ export const PersonalCard: FC<IPersonalCardProps> = ({
   email,
 }) => (
   <Flex>
-    <Personage type="Logotype" variant="Large" src={avatar?.default ?? ''} />
+    <Avatar
+      src={avatar?.default ?? ''}
+      sx={{
+        borderRadius: 1,
+        size: '94px',
+        mr: 4,
+      }}
+    />
     <Box>
       <Text fontWeight="bold" fontScale={3} display={['none', 'inline-block']} mb={2}>
         {fullname}
