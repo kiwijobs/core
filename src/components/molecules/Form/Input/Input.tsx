@@ -11,6 +11,8 @@ interface InputProps extends FieldGroupProps, BoxProps<HTMLInputElement> {
   mask?: string;
 }
 
+const DEFAULT_MAX_LENGTH = 250;
+
 export const Input = forwardRef<HTMLDivElement, InputProps>(
   ({ label, error, value, maxLength, ...props }, ref) => (
     <FieldGroup label={label} value={value} maxLength={maxLength} error={error} ref={ref}>
@@ -20,7 +22,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(
             <Field
               as="input"
               value={value}
-              maxLength={maxLength}
+              maxLength={maxLength || DEFAULT_MAX_LENGTH}
               error={!!error}
               {...props}
               {...inputProps}
@@ -28,7 +30,13 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(
           )}
         </InputMask>
       ) : (
-        <Field as="input" value={value} maxLength={maxLength} error={!!error} {...props} />
+        <Field
+          as="input"
+          value={value}
+          maxLength={maxLength || DEFAULT_MAX_LENGTH}
+          error={!!error}
+          {...props}
+        />
       )}
     </FieldGroup>
   )
