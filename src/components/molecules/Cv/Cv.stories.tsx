@@ -150,7 +150,7 @@ storiesOf('Molecules|Cv', module).add('About me', () => {
   );
 });
 
-storiesOf('Molecules|Cv', module).add('CvCreate', () => {
+storiesOf('Molecules|Cv', module).add('Date Description', () => {
   return (
     <Container m={3} bg="white" minHeight="50vh">
       <Box bg="white" width={[1, 0.5]}>
