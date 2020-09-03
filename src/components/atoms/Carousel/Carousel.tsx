@@ -1,16 +1,19 @@
 import React from 'react';
 import { Box, BoxProps } from '../../quarks';
 
-export const Carousel = ({ sx, children, ...props }: BoxProps) => (
+interface ICarousel extends BoxProps {
+  parentOverflow?: string;
+}
+
+export const Carousel = ({ parentOverflow = 'hidden', sx, children, ...props }: ICarousel) => (
   <Box
     sx={{
-      overflow: 'hidden',
+      overflow: parentOverflow,
       mt: '-20px !important',
     }}
   >
     <Box
       sx={{
-        ...sx,
         pb: '20px !important',
         transform: 'translateY(20px) !important',
         scrollSnapType: ['x mandatory', 'initial'],
@@ -23,6 +26,7 @@ export const Carousel = ({ sx, children, ...props }: BoxProps) => (
           whiteSpace: 'initial',
           scrollSnapAlign: 'center',
         },
+        ...sx,
       }}
       {...props}
     >
