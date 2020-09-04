@@ -12,15 +12,15 @@ const copyToClipboard = (str: string) => {
 };
 
 export const Tie: FC<ITieProps> = memo(
-  ({ sx, children = 'link', href, onCopy, tooltip = 'skopiuj link', ...props }) => {
+  ({ sx, children = 'link', href, onCopy, tooltip = 'Skopiuj link', ...props }) => {
     const [t, sT] = useState(tooltip);
 
     const click = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       event.preventDefault();
-      sT('link skopiowany');
+      sT('');
       copyToClipboard(href);
 
-      return onCopy?.();
+      return onCopy?.(event);
     };
 
     return (
@@ -55,8 +55,8 @@ export const Tie: FC<ITieProps> = memo(
   }
 );
 
-interface ITieProps extends BoxProps<HTMLAnchorElement> {
+interface ITieProps extends Omit<BoxProps<HTMLAnchorElement>, 'onCopy'> {
   href: string;
-  onCopy?(): void;
+  onCopy?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
   tooltip?: React.ReactChild;
 }
