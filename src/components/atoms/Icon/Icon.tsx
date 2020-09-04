@@ -4,8 +4,10 @@ import * as icons from './icons';
 
 type Direction = 'UP' | 'RIGHT' | 'DOWN' | 'LEFT';
 
+export type TIconName = keyof typeof icons;
+
 export interface IconProps extends BoxProps<HTMLOrSVGElement> {
-  name: keyof typeof icons;
+  name: TIconName;
   direction?: Direction;
 }
 
