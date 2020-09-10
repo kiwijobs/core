@@ -36,6 +36,7 @@ export const DialogClose: FC<BoxProps<HTMLButtonElement>> = ({ sx, ...props }) =
       '&:hover': { bg: 5 },
       ...sx,
     }}
+    data-testid="closeDialog"
     {...props}
   >
     <Icon size="1.2rem" name="Close" />
