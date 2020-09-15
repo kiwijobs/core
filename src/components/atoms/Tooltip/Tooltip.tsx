@@ -22,6 +22,7 @@ export const Tooltip: FC<ITooltipProps> = memo(
         trigger={p => (
           <Box
             sx={{ position: 'relative', ...sx }}
+            onTouchStart={p.open}
             onMouseEnter={p.open}
             onMouseLeave={mouseLeave(p.close)}
             ref={p.triggerRef}
