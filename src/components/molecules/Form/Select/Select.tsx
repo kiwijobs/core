@@ -87,6 +87,7 @@ export const Select = ({
   disabled,
   'data-testid': dataTestId,
   renderOption: renderOptionProp,
+  placeholder = 'Wybierz',
   ...props
 }: SelectProps) => {
   const { internalValue, searchFocused, setSearchFocused, ...searchProps } = useSelectSearch(
@@ -253,6 +254,7 @@ export const Select = ({
                 readOnly={readOnly}
                 error={!!error}
                 value={searchFocused ? internalValue : getValue(value, options)}
+                placeholder={placeholder}
                 {...searchProps}
               />
               <Icon
