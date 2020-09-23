@@ -19,7 +19,7 @@ export const Tie: FC<ITieProps> = memo(
       event.preventDefault();
       sT('');
       copyToClipboard(href);
-
+      setTimeout(() => sT(tooltip), 1000);
       return onCopy?.(event);
     };
 
