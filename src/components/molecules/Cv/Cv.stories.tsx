@@ -74,28 +74,8 @@ const education = mockData.educations.length
     })
   : null;
 
-storiesOf('Molecules|Cv', module).add('Skills edu', () => {
-  storiesOf('Molecules|Cv', module).add('PersonalCard', () => (
-    <Container m={3} bg="white" minHeight="50vh">
-      <Box bg="white" width={[1, 0.5]}>
-        <Cv>
-          <Cv.PersonalCard {...mockData.personalData} />
-        </Cv>
-      </Box>
-    </Container>
-  ));
-
-  storiesOf('Molecules|Cv', module).add('BasicData', () => (
-    <Container m={3} bg="white" minHeight="50vh">
-      <Box bg="white" width={[1, 0.5]}>
-        <Cv>
-          <Cv.BasicData {...mockData.personalData} />
-        </Cv>
-      </Box>
-    </Container>
-  ));
-
-  return (
+storiesOf('Molecules/Cv', module)
+  .add('SkillsEdu', () => (
     <Container m={3} bg="white" minHeight="50vh">
       <Box bg="white" width={[1, 0.5]}>
         <Cv>
@@ -111,11 +91,26 @@ storiesOf('Molecules|Cv', module).add('Skills edu', () => {
         </Cv>
       </Box>
     </Container>
-  );
-});
-
-storiesOf('Molecules|Cv', module).add('Skills exp', () => {
-  return (
+  ))
+  .add('PersonalCard', () => (
+    <Container m={3} bg="white" minHeight="50vh">
+      <Box bg="white" width={[1, 0.5]}>
+        <Cv>
+          <Cv.PersonalCard {...mockData.personalData} />
+        </Cv>
+      </Box>
+    </Container>
+  ))
+  .add('BasicData', () => (
+    <Container m={3} bg="white" minHeight="50vh">
+      <Box bg="white" width={[1, 0.5]}>
+        <Cv>
+          <Cv.BasicData {...mockData.personalData} />
+        </Cv>
+      </Box>
+    </Container>
+  ))
+  .add('Skills exp', () => (
     <Container m={3} bg="white" minHeight="50vh">
       <Box bg="white" width={[1, 0.5]}>
         <Cv>
@@ -123,11 +118,8 @@ storiesOf('Molecules|Cv', module).add('Skills exp', () => {
         </Cv>
       </Box>
     </Container>
-  );
-});
-
-storiesOf('Molecules|Cv', module).add('Skills languages', () => {
-  return (
+  ))
+  .add('Skills languages', () => (
     <Container m={3} bg="white" minHeight="50vh">
       <Box bg="white" width={[1, 0.5]}>
         <Cv>
@@ -135,11 +127,8 @@ storiesOf('Molecules|Cv', module).add('Skills languages', () => {
         </Cv>
       </Box>
     </Container>
-  );
-});
-
-storiesOf('Molecules|Cv', module).add('About me', () => {
-  return (
+  ))
+  .add('About me', () => (
     <Container m={3} bg="white" minHeight="50vh">
       <Box bg="white" width={[1, 0.5]}>
         <Cv>
@@ -147,11 +136,8 @@ storiesOf('Molecules|Cv', module).add('About me', () => {
         </Cv>
       </Box>
     </Container>
-  );
-});
-
-storiesOf('Molecules|Cv', module).add('Date Description', () => {
-  return (
+  ))
+  .add('Date Description', () => (
     <Container m={3} bg="white" minHeight="50vh">
       <Box bg="white" width={[1, 0.5]}>
         <Cv>
@@ -159,11 +145,8 @@ storiesOf('Molecules|Cv', module).add('Date Description', () => {
         </Cv>
       </Box>
     </Container>
-  );
-});
-
-storiesOf('Molecules|Cv', module).add('CV', () => {
-  return (
+  ))
+  .add('CV', () => (
     <Container m={3} bg="white" minHeight="50vh">
       <Box bg="white" width={[1, 0.5]}>
         <Cv>
@@ -185,5 +168,4 @@ storiesOf('Molecules|Cv', module).add('CV', () => {
         </Cv>
       </Box>
     </Container>
-  );
-});
+  ));

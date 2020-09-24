@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Navbar } from './Navbar';
 import { Button, Icon, Avatar } from '../../atoms';
 
-storiesOf('Molecules|Navbar', module).add('Basic Navbar', () => {
+storiesOf('Molecules/Navbar', module).add('Basic Navbar', () => {
   const items = ['Lista ofert', 'Lista spotkań', 'Lista szczegółów', 'Lista rekruterów'];
   const [active, setActive] = useState('Lista ofert');
 

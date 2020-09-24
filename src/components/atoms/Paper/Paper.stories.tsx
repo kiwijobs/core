@@ -4,7 +4,7 @@ import { Box, Text } from '../../quarks';
 import { Container, Row, Col, Space } from '../Grid';
 import { Paper } from './Paper';
 
-storiesOf('Atoms|Paper', module)
+storiesOf('Atoms/Paper', module)
   .add('Basic Paper', () => (
     <Container marginY={3}>
       <Paper>

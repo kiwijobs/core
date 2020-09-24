@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from '../../quarks';
 import { Logotype } from './Logotype';
 
-storiesOf('Atoms|Logotype', module).add('Various', () => (
+storiesOf('Atoms/Logotype', module).add('Various', () => (
   <>
     <Box display="inline-block" p={3}>
       <Logotype src="https://placebear.com/200/200" />

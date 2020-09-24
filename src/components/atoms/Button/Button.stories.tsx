@@ -4,7 +4,7 @@ import { Button } from './Button';
 import { Space } from '../Grid';
 import { Paper } from '../Paper';
 
-storiesOf('Atoms|Button', module)
+storiesOf('Atoms/Button', module)
   .add('Standard', () => (
     <Space my={3} mx={2}>
       <Button variant="Primary">Zapisz</Button>

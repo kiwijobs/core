@@ -4,7 +4,7 @@ import { Box } from '../../quarks';
 import { Container } from '../Grid';
 import { Carousel } from './';
 
-storiesOf('Atoms|Carousel', module).add('Fields', () => (
+storiesOf('Atoms/Carousel', module).add('Fields', () => (
   <Container marginY={3}>
     <Carousel>
       <Box display="inline-block" marginX="2" bg="1" width="300px" height="300px" />

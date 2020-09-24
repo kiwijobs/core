@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Dialog } from './Dialog';
 import { Input, Avatar, Box, Tip } from '../../';
 
-storiesOf('Molecules|Dialog', module)
+storiesOf('Molecules/Dialog', module)
   .add('Classic Popup', () => (
     <Dialog
       onClose={() => {}}

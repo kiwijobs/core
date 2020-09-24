@@ -115,7 +115,7 @@ const Wrapper: FC<BoxProps> = ({ sx, ...props }) => (
   <Box sx={{ p: 3, bg: 'white', ...sx }} {...props} />
 );
 
-storiesOf('Molecules|OfferDetails', module)
+storiesOf('Molecules/OfferDetails', module)
   .add('OfferDetails', () => (
     <Wrapper>
       <OfferDetails

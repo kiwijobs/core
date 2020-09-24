@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Box, Flex } from '../../quarks';
 import { Avatar } from './Avatar';
 
-storiesOf('Atoms|Avatar', module).add('Various', () => (
+storiesOf('Atoms/Avatar', module).add('Various', () => (
   <>
     <Box display="inline-block" p={3}>
       <Avatar src="https://placebear.com/200/400" />

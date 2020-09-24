@@ -34,8 +34,8 @@ exports[`Button Supports "loading" prop 1`] = `
 }
 
 .c3 {
-  -webkit-animation: ghjfcd 1.4s infinite ease-in-out both;
-  animation: ghjfcd 1.4s infinite ease-in-out both;
+  -webkit-animation: cevSmh 1.4s infinite ease-in-out both;
+  animation: cevSmh 1.4s infinite ease-in-out both;
 }
 
 .c3:nth-of-type(1) {

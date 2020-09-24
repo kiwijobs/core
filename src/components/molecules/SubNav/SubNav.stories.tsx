@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { SubNav } from './SubNav';
 
-storiesOf('Molecules|SubNav', module).add('Basic Sub Navigation', () => {
+storiesOf('Molecules/SubNav', module).add('Basic Sub Navigation', () => {
   const [active, setActive] = useState('Aktywne (12)');
 
   const items = ['Aktywne (12)', 'Archiwum', 'Szkice', 'Rekruterzy', 'Baza wiedzy'];

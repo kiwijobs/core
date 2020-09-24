@@ -34,7 +34,7 @@ const SIcon = ({ text, ...props }: { text?: any } & IconProps) => (
   </Flex>
 );
 
-storiesOf('Atoms|Icons', module)
+storiesOf('Atoms/Icons', module)
   .addDecorator(story => <StoryWrapper>{story()}</StoryWrapper>)
   .add('Default', () => {
     const array = Object.keys(icons) as Array<keyof typeof icons>;

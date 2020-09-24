@@ -95,6 +95,22 @@ exports[`Reflexbox Supports null values in "ellipsis" array 1`] = `
   }
 }
 
+@media screen and (min-width:576px) {
+
+}
+
+@media screen and (min-width:992px) {
+
+}
+
+@media screen and (min-width:576px) {
+
+}
+
+@media screen and (min-width:992px) {
+
+}
+
 <div
   class="c0"
 />
@@ -109,6 +125,14 @@ exports[`Reflexbox Supports null values in "ellipsis" array 2`] = `
 }
 
 @media screen and (min-width:576px) {
+
+}
+
+@media screen and (min-width:992px) {
+
+}
+
+@media screen and (min-width:576px) {
   .c0 {
     -webkit-line-clamp: null;
   }
@@ -118,6 +142,14 @@ exports[`Reflexbox Supports null values in "ellipsis" array 2`] = `
   .c0 {
     -webkit-line-clamp: 4;
   }
+}
+
+@media screen and (min-width:576px) {
+
+}
+
+@media screen and (min-width:992px) {
+
 }
 
 <div
@@ -131,6 +163,22 @@ exports[`Reflexbox Supports null values in "ellipsis" array 3`] = `
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+@media screen and (min-width:576px) {
+
+}
+
+@media screen and (min-width:992px) {
+
+}
+
+@media screen and (min-width:576px) {
+
+}
+
+@media screen and (min-width:992px) {
+
 }
 
 @media screen and (min-width:576px) {
