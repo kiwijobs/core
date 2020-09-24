@@ -60,7 +60,7 @@ const Border: FC<{ label: string } & BoxProps> = ({ sx, label, ...props }) => (
   </Box>
 );
 
-storiesOf('Styleguide|Styleguide', module)
+storiesOf('Styleguide/Styleguide', module)
   .addDecorator(story => (
     <Container maxWidth="1460px" my={3}>
       <Paper>

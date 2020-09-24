@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Paper, Box, Logotype, Avatar } from '../..';
 import { Tuplet } from './Tuplet';
 
-storiesOf('Molecules|Tuplet', module)
+storiesOf('Molecules/Tuplet', module)
   .add('Default', () => {
     const [active, setActive] = useState(0);
 

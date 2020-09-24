@@ -13,7 +13,7 @@ exports[`Logotype Matches snapshot 1`] = `
 
 <div>
   <img
-    class="c0"
+    class="c0 "
     src="/img.jpg"
   />
 </div>
@@ -34,7 +34,7 @@ exports[`Logotype Matches snapshot 2`] = `
 
 <div>
   <img
-    class="c0"
+    class="c0 "
     src="/img.jpg"
   />
 </div>
@@ -55,7 +55,7 @@ exports[`Logotype Matches snapshot 3`] = `
 
 <div>
   <img
-    class="c0"
+    class="c0 "
     size="60"
     src="/img.jpg"
   />

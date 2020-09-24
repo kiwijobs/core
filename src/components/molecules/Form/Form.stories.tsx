@@ -23,7 +23,7 @@ const validationSchema = yup.object().shape({
   phone: yup.string(),
 });
 
-storiesOf('Molecules|Form', module).add('Simple Form', () => (
+storiesOf('Molecules/Form', module).add('Simple Form', () => (
   <Container marginY={3}>
     <Paper>
       <Formik

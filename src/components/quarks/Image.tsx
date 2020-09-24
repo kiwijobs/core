@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { ObjectFitProperty, ObjectPositionProperty } from 'csstype';
+import * as CSS from 'csstype';
 import { system } from 'styled-system';
 import { Box, BoxProps } from './Reflexbox';
 import { FC } from 'react';
 
 export interface ImageProps extends BoxProps<HTMLImageElement> {
-  objectFit?: ObjectFitProperty;
-  objectPosition?: ObjectPositionProperty<string>;
+  objectFit?: CSS.Property.ObjectFit;
+  objectPosition?: CSS.Property.ObjectPosition;
 }
 
 const objectImage = system({

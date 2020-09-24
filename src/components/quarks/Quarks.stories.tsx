@@ -6,7 +6,7 @@ import { Space } from '../atoms/Grid';
 const TEXT =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est leo, finibus at luctus id, lacinia et mauris. Morbi ultrices malesuada accumsan. Morbi ornare vestibulum consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ullamcorper lobortis gravida.';
 
-storiesOf('Quarks|Box', module)
+storiesOf('Quarks/Box', module)
   .add('Typography', () => (
     <Box padding={4}>
       <Space margin={4}>

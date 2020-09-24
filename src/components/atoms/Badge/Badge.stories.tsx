@@ -4,7 +4,7 @@ import { Box } from '../../quarks';
 import { Icon } from '../Icon';
 import { Badge } from './Badge';
 
-storiesOf('Atoms|Badge', module)
+storiesOf('Atoms/Badge', module)
   .add('Default', () => (
     <>
       <Box display="inline-block" p={3}>

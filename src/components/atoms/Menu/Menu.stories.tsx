@@ -5,7 +5,7 @@ import { Container, List, Backdrop } from '..';
 import { Menu } from './Menu';
 import { Input } from '../../molecules';
 
-storiesOf('Atoms|Menu', module)
+storiesOf('Atoms/Menu', module)
   .add('Simple Menu', () => (
     <Container marginY={3}>
       <Menu

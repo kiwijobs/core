@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from '../../quarks';
 import { Container, Row, Col, Space } from './Grid';
 
-storiesOf('Atoms|Grid', module)
+storiesOf('Atoms/Grid', module)
   .add('BasicGrid', () => (
     <Container
       sx={{

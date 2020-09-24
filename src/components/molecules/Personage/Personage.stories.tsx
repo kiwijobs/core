@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Box } from '../../quarks';
 import { Personage } from './Personage';
 
-storiesOf('Molecules|Personage', module).add('Various', () => (
+storiesOf('Molecules/Personage', module).add('Various', () => (
   <>
     <Box bg="white" mb={3} p={3}>
       <Personage src="https://placebear.com/200/400">Jan Kowalski</Personage>

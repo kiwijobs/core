@@ -39,7 +39,7 @@ const ColorBox = (props: any) => (
 
 const variants = [10, 20, 40, 60, 80, null, 120, 140, 160, 180, 190];
 
-storiesOf('Theme|Colors', module).add('Colors', () => (
+storiesOf('Theme/Colors', module).add('Colors', () => (
   <>
     <Box
       sx={{
